@@ -72,7 +72,7 @@
   display: none;
 }
 
-@media screen and (max-width:965px){
+@media screen and (max-width:1134px){
   .nav-items-1{
     width: 100%;
       
@@ -82,7 +82,7 @@
   }
 }
   
-@media screen and (max-width:930px) {
+@media screen and (max-width:1134px) {
   body{
     overflow-x: hidden;
   }
