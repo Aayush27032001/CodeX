@@ -5,12 +5,15 @@ import { Link } from 'react-router-dom'
 export default class Login extends Component {
     render() {
         return (
-            <div className="background">
+            <div className="login-container">
                 <form className="login-form" action="" method="post">
                     <input className="input-field" type="text" name="Email" id="Email" placeholder="Email"/>
                     <input className="input-field" type="text" name="Password" id="Password" placeholder="Password" />
-                    <span><label className="lab-text">Don't have an account? &nbsp; </label><Link className="Login-Link">Signup</Link></span>
                     <input className="form-btn" type="submit" value="Sign In"/>
+                    <div className="signup-wraper">
+                        <p className="signup-text">Don't have an account? </p>
+                        <Link className="signup-link">Signup</Link>
+                    </div>
                 </form>
             </div>
         )

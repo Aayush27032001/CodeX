@@ -1,27 +1,40 @@
-.background{
-    height: 100vh;
-    width: 100%;
-    margin-top: -6px;
-    background-color: rgba(255, 247, 223, 1);
+.login-container{
+
+    width: 600px;
+    /* margin-top: -6px; */
+    margin: 100px auto;
+    background-color: rgb(255, 247, 223);
     overflow: hidden;
+    z-index: 0;
+}
+
+.signup-wraper{
+    justify-content: flex-end;
+    display: flex;
+    margin: 20px 0px;
+    padding: 5px 15px;
 }
 
 .login-form{
-    margin: auto;
-    width: 35%;
-    margin-top: 23vh;
+    margin: 20vh auto;
+    width: 60%;
+    /* margin-top: 23vh; */
     /* border: 3px solid #73AD21; */
     display: flex;
     flex-direction: column;
 }
 
+.signup-text{
+    margin-right:5px;
+}
+
 .input-field{
-    border: none;
+    border: solid rgba(235, 235, 235, 0.767) 0.5px;
     padding: 15px;
     border-radius: 30px;
     margin: 15px 0px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 
 }
 .input-field:focus{
@@ -34,7 +47,7 @@
     color: rgb(85, 85, 85);
 }
 
-.Login-Link:any-link {
+.signup-link:any-link {
     text-decoration: none;
     color: rgba(253, 114, 90, 0.952);
     font-weight: bold;
@@ -56,7 +69,7 @@
     border:none;
     margin-top: 1em;
     border-radius: 30px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 @media screen and (max-width:1125px) {

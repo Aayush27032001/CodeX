@@ -1,16 +1,17 @@
 body{
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
-.Nav-contain{
+.nav-container{
+    position: fixed;
     display: flexbox;
-    position: absolute;
     width: 100%;
     height: auto;
     padding-bottom: 0.3em;
     left: 0px;
     top: 0px;
     box-shadow:0px 12px 35px rgba(160.43749898672104, 120.81139370799065, 0, 0.20000000298023224);
+    z-index: 99;
   }
 .nav-brand{
     padding: 1em 2em;
@@ -59,7 +60,7 @@ body{
   
 .nav-items-1 li{
     
-    list-style: none;
+  list-style: none;
     
 }
 .fa-bars{

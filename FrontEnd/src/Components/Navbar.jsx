@@ -8,8 +8,8 @@ export default class Navbar extends Component {
     render() {
 
         return (
-            <>
-                <nav className="Nav-contain">
+            <div>
+                <nav className="nav-container">
                     <Link to='/about'><div className="nav-brand">
                         CodeX
                     </div></Link>
@@ -18,7 +18,7 @@ export default class Navbar extends Component {
                     <label for="check" class="checkbtn burger">
                         <i class="fas fa-bars fa-2x "></i>
                     </label>
-
+                    
                     <ul className="nav-items-1">
                         <li><Link to='/login'><span className="nav-box-item">Login</span></Link></li>
                         <li><Link to='/Contributor'><span className="nav-box-item">Be A Contributor</span></Link></li>
@@ -30,10 +30,8 @@ export default class Navbar extends Component {
                         <li><span className='nav-items'><Link to='/'>Home</Link></span></li>
                     </ul>
                 </nav> 
-                <br/>
-                <br/>  
-                <br/>  
-            </>
+                
+            </div>
         )
     }
 }
