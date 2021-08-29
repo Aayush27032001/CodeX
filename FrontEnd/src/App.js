@@ -1,7 +1,7 @@
-import './CSS/Navbar.css';
 import Navbar from './Components/Navbar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Course from './Components/Course';
+import Login from './Components/Login';
 
 function App() {
   return (
@@ -15,6 +15,9 @@ function App() {
           </Route>
           <Route path='/courses'>
             <Course/>
+          </Route>
+          <Route path="/login">
+            <Login/>
           </Route>
         </Switch>
     </Router>

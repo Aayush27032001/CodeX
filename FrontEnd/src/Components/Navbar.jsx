@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import '../CSS/Navbar.css'
 
 
 
@@ -19,7 +20,7 @@ export default class Navbar extends Component {
                     </label>
 
                     <ul className="nav-items-1">
-                        <li><Link to='/Login'><span className="nav-box-item">Login</span></Link></li>
+                        <li><Link to='/login'><span className="nav-box-item">Login</span></Link></li>
                         <li><Link to='/Contributor'><span className="nav-box-item">Be A Contributor</span></Link></li>
                         <li><span className='nav-items'><Link to='/Test'>Interview Experience</Link></span></li>
                         <li><span className='nav-items'><Link to='/Test'>Test</Link></span></li>
@@ -28,7 +29,10 @@ export default class Navbar extends Component {
                         <li><span className='nav-items'><Link to='/courses'>Course</Link></span></li>
                         <li><span className='nav-items'><Link to='/'>Home</Link></span></li>
                     </ul>
-                </nav>   
+                </nav> 
+                <br/>
+                <br/>  
+                <br/>  
             </>
         )
     }
