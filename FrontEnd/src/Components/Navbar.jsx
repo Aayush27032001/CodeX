@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../CSS/Navbar.css'
 
+export default function Navbar() {
+    
+    const [linksVisible, setLinksVisible] = useState(false)
+    
 
-
-export default class Navbar extends Component {
-    render() {
-
-        return (
-            <div className="navbar">
+    return (
+        <div className="navbar">
                 <Link><div className="nav-brand">
                     <img src="Logo.png" alt="CodeX" width="130px" />
                 </div></Link>
 
-                <ul className="nav-items-1">
+                <ul className="nav-items-1" id={linksVisible ? "hidden" : ""}>
                     <li><span className='nav-items'><Link to='/'>Home</Link></span></li>
                     <li><span className='nav-items'><Link to='/courses'>Course</Link></span></li>
                     <li><span className='nav-items'><Link to='/Test'>Blog</Link></span></li>
@@ -23,7 +23,11 @@ export default class Navbar extends Component {
                     <li><Link to='/Contributor'><span className="nav-box-item">Be a Contributor</span></Link></li>
                     <li><Link to='/login'><span className="nav-box-item">Login</span></Link></li>
                 </ul>
+
+                <button onClick={() => setLinksVisible(!linksVisible)} className="nav-burger">
+                    <i class="fas fa-bars fa-2x"></i>
+                </button>
             </div>
-        )
-    }
+    )
 }
+
