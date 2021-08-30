@@ -1,23 +1,21 @@
-body{
-  /* overflow-y: hidden; */
-}
 
 .nav-container{
     position: fixed;
-    display: flexbox;
+    /* display: flex; */
     width: 100%;
-    height: auto;
+    height: 65px;
     padding-bottom: 0.3em;
     left: 0px;
     top: 0px;
     box-shadow:0px 12px 35px rgba(160.43749898672104, 120.81139370799065, 0, 0.20000000298023224);
-    z-index: 99;
   }
+  
 .nav-brand{
-    padding: 1em 2em;
-    margin-top: 0.3em;
-    margin-left: 0.4em;
-    background-color:rgb(255, 224, 131);
+    padding: 10px;
+    /* padding: 1em 2em; */
+    /* margin-top: 0.em; */
+    margin-left: 0.5em;
+    /* background-color:rgb(255, 224, 131); */
     color: rgb(90, 90, 90);
     float: left;
     font-weight: bold;

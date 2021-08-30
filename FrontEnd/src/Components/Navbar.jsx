@@ -11,12 +11,11 @@ export default class Navbar extends Component {
             <div>
                 <nav className="nav-container">
                     <Link to='/about'><div className="nav-brand">
-                        CodeX
+                        <img src="Logo.png" alt="CodeX" width="130px" />
                     </div></Link>
 
-                    <input type="checkbox" id="check" />
                     <label for="check" class="checkbtn burger">
-                        <i class="fas fa-bars fa-2x "></i>
+                        <button className="checkbox" ><i class="fas fa-bars fa-2x "></i> </button>  
                     </label>
                     
                     <ul className="nav-items-1">
