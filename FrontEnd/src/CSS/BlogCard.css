@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+.card-text{
+    font-size: 1rem;
+    padding: 0.4rem 1.9rem;
+}
+ 
+.container-fluid{
+    margin-top: 200px;
+}
+.container-fluid.row{
+    padding-top: 6rem;
+}
+
+.overflow{
+    overflow: hidden;
+}
+.card-img-top{
+    transform: scale(1);
+    transition: transform 0.7s ease;
+}
+
+.card-img-top:hover{
+    transform: scale(1.5);
+}
+  
+  
+.card {
+    background: #fff;
+    width: 22em;
+    border-radius: 0.5em;
+    margin: 1em;
+    overflow: hidden;
+    cursor: pointer;
+    /* box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03); */
+    transition:all ease 200ms;
+  }
+  
+.card:hover {
+    transform: scale(1.03);
+    /* box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12), 0 8px 32px -8px hsla(0, 0%, 0%, 0.14), 0 -6px 32px -6px hsla(0, 0%, 0%, 0.02); */
+  }
+  
+.card img {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  
+.card p {
+    color: rgb(119, 119, 119);
+  }
+  
+#card-text{
+  text-align: left;
+  color: #e5e5e5;
+ 
+}
+
+#card-author{
+  
+  padding-top: 25px;
+  text-align: left;
+  color: #e5e5e5;
+}
+
+.card-body{
+  background-image: linear-gradient(50deg,rgb(255, 123, 0) 30%,rgb(248, 190, 81));
+}
+
+.card-title{
+  text-align: left;
+  font-family: 'Abel', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 10px;
+  color: #e5e5e5;
+  
+}
+
+
+.card-body a:link,.card-body a:visited {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(250, 250, 250);
+  color: rgb(248, 172, 9);
+  position: relative;
+  right: 95px;
+  padding-top: 8px;
+  border: none;
+  padding: 8px 25px;
+  border-radius: 20px;
+  transition-duration: 0.1s;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+.card-body a:hover,.card-body a:active {
+  background-color: rgb(250, 177, 94);
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.d-flex{
+  display: flex;
+  flex-direction: row;
+}
+
