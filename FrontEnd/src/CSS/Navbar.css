@@ -65,20 +65,24 @@
   color: rgba(255, 136, 0, 0.897);
 }
 
-@media screen and (max-width:1022px) {
+@media screen and (max-width:1040px) {
   .nav-items-1{
     display:none;
   }
 }
 
-@media screen and (max-width:1022px) {
+@media screen and (max-width:1040px) {
+  .nav-items-1{
+    overflow-y: scroll;
+  }
+
   .nav-brand{
     margin-top: 1.1em;
   }
 
 
   .nav-burger{
-    margin-right: 2em;
+    margin-right: 1em;
     display: block;
   }
 

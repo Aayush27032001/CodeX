@@ -34,12 +34,10 @@
     border-radius: 30px;
     margin: 15px 0px;
     background-color: rgb(255, 255, 255);
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-
 }
+
 .input-field:focus{
     outline: none;
-    border-radius: 30px;
 }
 
 .input-field:active{
@@ -53,13 +51,6 @@
     font-weight: bold;
 }
 
-/* .form-btn: */
-
-.lab-text{
-    font-weight: bold;
-    margin-left: 35vh;
-    color: rgb(85, 85, 85);
-}
 
 .form-btn{
     font-weight: bold;
@@ -72,17 +63,46 @@
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
-@media screen and (max-width:1125px) {
-    .login-form{
-        width: 90%;
-    }
-    .lab-text{
-        margin: 0px;
-        align-content: center;
-    }
 
-    .login-form{
-        margin-top: 18vh;
-    }
+/********************************CSS for Signup******************************************/
+
+
+.signup-container{
+
+    width: 600px;
+    /* margin-top: -6px; */
+    margin: 90px auto;
+    background-color: rgb(255, 247, 223);
+    overflow: hidden;
+    z-index: 0;
 }
 
+.signin-wraper{
+    justify-content: flex-end;
+    display: flex;
+    margin: 20px 0px;
+    padding: 5px 15px;
+}
+
+.signup-form{
+    margin: 10vh auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-text{
+    margin-right:5px;
+}
+
+.signin-link:any-link {
+    text-decoration: none;
+    color: rgba(253, 114, 90, 0.952);
+    font-weight: bold;
+}
+
+.signin-link:any-link {
+    text-decoration: none;
+    color: rgba(253, 114, 90, 0.952);
+    font-weight: bold;
+}

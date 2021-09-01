@@ -2,7 +2,7 @@ import Navbar from './Components/Navbar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Course from './Components/Course';
 import Login from './Components/Login';
-
+import Signup from './Components/Signup';
 
 function App() {
   return (
@@ -16,8 +16,11 @@ function App() {
           <Route path='/courses'>
             <Course/>
           </Route>
-          <Route path="/login">
+          <Route path='/login'>
             <Login/>
+          </Route>
+          <Route path='/signup'>
+            <Signup/>
           </Route>
         </Switch>
     </Router>

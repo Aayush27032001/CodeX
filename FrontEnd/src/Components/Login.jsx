@@ -8,11 +8,11 @@ export default class Login extends Component {
             <div className="login-container">
                 <form className="login-form" action="" method="post">
                     <input className="input-field" type="text" name="Email" id="Email" placeholder="Email"/>
-                    <input className="input-field" type="text" name="Password" id="Password" placeholder="Password" />
+                    <input className="input-field" type="password" name="Password" id="Password" placeholder="Password" />
                     <input className="form-btn" type="submit" value="Sign In"/>
                     <div className="signup-wraper">
                         <p className="signup-text">Don't have an account? </p>
-                        <Link className="signup-link">Signup</Link>
+                        <Link to='/signup' className="signup-link">Signup</Link>
                     </div>
                 </form>
             </div>

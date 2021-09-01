@@ -10,7 +10,7 @@ export default function Navbar() {
     return (
         <div className="navbar">
                 <Link><div className="nav-brand">
-                    <img src="Logo.png" alt="CodeX" width="130px" />
+                    <img src="Logo2.png" alt="CodeX" width="130px" />
                 </div></Link>
 
                 <ul className="nav-items-1" id={linksVisible ? "hidden" : ""}>
