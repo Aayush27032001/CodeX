@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Course from './Components/Course';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
-
+import Home from './Components/Home'
 function App() {
   return (
 
@@ -11,7 +11,7 @@ function App() {
         <Navbar/> 
         <Switch>
           <Route path='/about'>
-            <p>Hello</p>
+            <Home/>
           </Route>
           <Route path='/courses'>
             <Course/>
