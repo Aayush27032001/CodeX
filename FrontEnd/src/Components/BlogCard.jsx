@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../CSS/BlogCard.css'
-
 import img1 from "../assets/react-vs-angular.png"
 
 class Cards extends Component {
