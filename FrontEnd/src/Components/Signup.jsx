@@ -1,24 +1,84 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import {useHistory} from 'react-router-dom'
 
-export default class Signup extends Component {
-    render() {
-        return (
-            <div className="signup-container">
-                <form className="signup-form" action="" method="post">
-                    <input className="input-field" type="text" name="Username" id="Username" placeholder="Username"/>
-                    <input className="input-field" type="text" name="Email" id="Email" placeholder="Email"/>
-                    <input className="input-field" type="password" name="Password" id="Password" placeholder="Password" />
-                    <input className="input-field" type="text" name="Country" id="Country" placeholder="Country"/>
-                    <input className="input-field" type="text" name="State" id="State" placeholder="State"/>
-                    <input className="input-field" type="text" name="City" id="City" placeholder="City"/>
-                    <input className="form-btn" type="submit" value="Sign Up"/>
-                    <div className="signin-wraper">
-                        <p className="signin-text">Already have an account? </p>
-                        <Link to='/login' className="signin-link">Signin</Link>
-                    </div>
-                </form>
-            </div>
-        )
+toast.configure()
+const Signup = () => {
+
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const history = useHistory()
+    const postData = async (e) => {
+
+        e.preventDefault();
+        const userData = JSON.stringify({
+            username,
+            email,
+            password
+        })
+
+        const response = await fetch("http://localhost:5000/signup", {
+
+            method: "post",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: userData
+        })
+        const data = await response.json();
+
+        if(data.error){
+
+            toast.error(data.error,{
+                position:toast.POSITION.TOP_CENTER
+            })
+            console.log(data.error)
+        }else{
+            console.log(data.message)
+            toast.success(data.message,{
+                position:toast.POSITION.TOP_CENTER
+            })
+            history.push("/login")
+        }
     }
+
+    return (
+        <div className="signup-container">
+            <form className="signup-form" onSubmit={(e) => postData(e)}>
+                <input
+                    className="input-field"
+                    type="text"
+                    placeholder="Username"
+                    onChange={(e) => setUsername(e.target.value)} />
+
+                <input
+                    className="input-field"
+                    type="email"
+                    placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)} />
+
+                <input
+                    className="input-field"
+                    type="password"
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)} />
+
+                <input
+                    className="form-btn"
+                    type="submit"
+                    value="Sign Up" />
+
+                <div className="signin-wraper">
+                    <p className="signin-text">Already have an account? </p>
+                    <Link to='/login' className="signin-link">Signin</Link>
+                </div>
+            </form>
+        </div>
+    )
+
 }
+
+export default Signup
