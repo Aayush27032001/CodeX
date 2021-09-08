@@ -5,6 +5,7 @@ import Login from './Components/Login';
 import Signup from './Components/Signup';
 import Home from './Components/Home';
 import Footer from './Components/Footer';
+import BlogPage from './Components/BlogPage'
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           <Route path='/courses' component={Course}/>
           <Route path='/login' component={Login}/>
           <Route path='/signup'component={Signup}/>
+          <Route path='/blog'component={BlogPage}/>
         </Switch>
-        <Footer/>
+        {/* <Footer/> */}
     </Router>
 
   );
