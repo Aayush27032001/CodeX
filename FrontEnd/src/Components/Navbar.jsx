@@ -19,7 +19,7 @@ export default function Navbar() {
                     <li><Link className='nav-items' to='/blog'>Blog</Link></li>
                     <li><Link className='nav-items' to='/Test'>Tutorials</Link></li>
                     <li><Link className='nav-items' to='/Test'>Test</Link></li>
-                    <li><Link className='nav-items' to='/Test'>Interview Experience</Link></li>
+                    <li><Link className='nav-items' to='/interview-experiences'>Interview Experience</Link></li>
 
                     <li><Link to='/Contributor'><span className="nav-box-item">Be a Contributor</span></Link></li>
                     <li><Link to='/login'><span className="nav-box-item">Login</span></Link></li>

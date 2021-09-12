@@ -7,7 +7,8 @@ import Home from './Components/Home';
 import Footer from './Components/Footer';
 import BlogPage from './Components/BlogPage'
 import InfoBlog from './Components/InfoBlog';
-import { Scrollbars } from 'react-custom-scrollbars';
+import InterviewExp from './Components/InterviewExp';
+import InterviewPage from './Components/InterviewPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/signup' component={Signup} />
         <Route path='/blog' component={BlogPage} />
         <Route path='/blog-id-1' component={InfoBlog} />
+        <Route path='/interview-experiences' component={InterviewPage} />
       </Switch>
       <Footer />
     </Router>
