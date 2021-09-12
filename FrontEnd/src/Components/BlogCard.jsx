@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import '../CSS/BlogCard.css'
-import img1 from "../assets/react-vs-angular.png"
 
-const Cards = ({blog}) => {
+const Cards = ({ blog }) => {
 
     return (
         <div className="card-container">
@@ -16,13 +16,14 @@ const Cards = ({blog}) => {
                     <p id="card-text">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, accusamus cumque adipisci molestiae distinctio repellendus sit expedita minus natus odit?
                     </p>
-                    <a href="#" class=''>Read More</a>
+                    <Link to="/blog-id-1">Read More</Link>
 
                 </div>
             </div>
         </div>
 
     );
+
 
 }
 
