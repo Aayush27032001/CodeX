@@ -1,6 +1,5 @@
 import React from 'react'
 import '../CSS/InfoBlog.css'
-import { Scrollbars } from 'react-custom-scrollbars';
 
 
 export default function InfoBlog() {

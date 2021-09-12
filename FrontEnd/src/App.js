@@ -7,7 +7,6 @@ import Home from './Components/Home';
 import Footer from './Components/Footer';
 import BlogPage from './Components/BlogPage'
 import InfoBlog from './Components/InfoBlog';
-import InterviewExp from './Components/InterviewExp';
 import InterviewPage from './Components/InterviewPage';
 
 function App() {

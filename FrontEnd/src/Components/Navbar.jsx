@@ -5,8 +5,7 @@ import '../CSS/Navbar.css'
 export default function Navbar() {
     
     const [linksVisible, setLinksVisible] = useState(false)
-    
-
+    const [user] = useState(localStorage.getItem('user'),'') 
     return (
         <div className="navbar">
                 <Link><div className="nav-brand">
@@ -22,7 +21,11 @@ export default function Navbar() {
                     <li><Link className='nav-items' to='/interview-experiences'>Interview Experience</Link></li>
 
                     <li><Link to='/Contributor'><span className="nav-box-item">Be a Contributor</span></Link></li>
-                    <li><Link to='/login'><span className="nav-box-item">Login</span></Link></li>
+                    {
+                        user?
+                        <span className="nav-box-item">{user}</span>
+                        :<li><Link to='/login'><span className="nav-box-item">Login</span></Link></li>
+                    }
                 </ul>
 
                 <button onClick={() => setLinksVisible(!linksVisible)} className="nav-burger">
