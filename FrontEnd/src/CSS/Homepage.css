@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap');
+
+.home-container{
+    height: 648px;
+    width: 100%;
+    background-image: linear-gradient(-135deg, rgba(255, 192, 0, 1) 0%,rgba(255, 138, 0, 1) 100%) ;;
+}
+
+.home-container img{
+    float: right;
+    margin-right: 100px;
+    margin-top: 75px;
+}
+
+.slide-text-1{
+    font-family: 'Glory', sans-serif;
+    color: rgb(255, 255, 255);
+    padding: 4em 1em;
+}
+
+.slide-subtext-1{
+    margin:-165px 40px;
+    color: white;
+    font-family: Abel;
+    font-size: 16px;
+}
+
+.home-button{
+    background-color: white;
+    font-family: Roboto;
+    font-weight: bold;
+    color: rgba(255, 136, 0, 0.897);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    margin: 14em 2.5em ;
+}
+
+.home-button:hover{
+    color: rgb(255, 162, 39);
+}

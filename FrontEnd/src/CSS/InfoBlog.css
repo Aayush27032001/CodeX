@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap');
+
+.blog-info-container{
+    display: flex;
+    flex-direction: column;
+    margin: 120px 200px 50px 200px;
+    font-family: 'Abel';
+}
+
+.info-blog-body{
+    margin-bottom: 4em;
+    text-align: justify;
+    margin-top: 60px;
+    font-family: 'Kaisei Tokumin', serif;
+    font-size: 16px;
+}
+
+.blog-title{
+    color: rgba(255, 136, 0, 0.897);
+    font-size: 50px;
+}
+
+.blog-slider{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.blog-slider{
+    margin: 2px 5px;
+    color: rgb(110, 109, 106);
+    border: none;
+    background: none;
+    border-radius: 100%;
+    transition: 0.2s;
+}
+
+.slider-prev:hover{
+    color:rgba(255, 136, 0, 0.897) ;
+    transform: scale(1.5) ;
+    transition: 0.3s;
+}
+
+.slider-next:hover{
+    color:rgba(255, 136, 0, 0.897) ;
+    transform: scale(1.5) ;
+    transition: 0.3s;
+}
+
+.comment-form{
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-input{
+    border: solid rgba(170, 170, 170, 0.767) 1px;
+    padding: 20px;
+    border-radius: 30px;
+    margin: 15px 0px;
+    background-color: rgb(255, 255, 255);
+}
+.comment-input:focus{
+    outline: none;
+}
+
+.comment-submit{
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    background-image:linear-gradient(-90deg, rgba(255, 192.01810598373413, 0, 1) 0%,rgba(255, 137.7000054717064, 0, 1) 100%) ;
+    border:none;
+    border-radius: 30px;
+}
+
+.comment-area{
+    margin: 0px 150px;
+    border: solid rgb(207, 207, 207) 1px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.comment-area div{
+    border-bottom: solid rgb(207, 207, 207) 1px;
+    margin-bottom: 20px;
+}
+.comment-area p{
+    margin-bottom: 0px;
+}

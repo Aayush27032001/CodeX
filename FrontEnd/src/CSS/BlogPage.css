@@ -1,5 +1,5 @@
 .blog-page-container{
-
     display: flex;
-    margin: 50px auto;
+    justify-content:space-evenly;
+    margin: 80px auto;
 }
