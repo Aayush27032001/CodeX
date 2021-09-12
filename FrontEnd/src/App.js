@@ -6,6 +6,8 @@ import Signup from './Components/Signup';
 import Home from './Components/Home';
 import Footer from './Components/Footer';
 import BlogPage from './Components/BlogPage'
+import BlogForm from './Components/BlogForm';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path='/login' component={Login}/>
           <Route path='/signup'component={Signup}/>
           <Route path='/blog'component={BlogPage}/>
+          <Route path="/createBlog" component={BlogForm} />
         </Switch>
         {/* <Footer/> */}
     </Router>

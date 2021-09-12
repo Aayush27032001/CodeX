@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import '../CSS/Login.css'
 import { Link, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -9,6 +9,7 @@ const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    // const [user, setUser] = useState('')
     const history = useHistory()
 
     const postData = async (e) => {
@@ -25,7 +26,8 @@ const Login = () => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: userData
+            body: userData,
+            credentials:'include'
         })
         const data = await response.json();
 
@@ -33,14 +35,16 @@ const Login = () => {
             console.log(data.error)
             toast.error(data.error,{
                 position:toast.POSITION.TOP_CENTER,
-                autoClose:3000
+                autoClose:2000
             })
         }else{
-            console.log(data.message)
+            console.log(data.message,data.user,data.token)
             toast.success(data.message,{
                 position:toast.POSITION.TOP_CENTER,
-                autoClose:1000
+                autoClose:2000
             })
+            // localStorage.setItem('user',data.user.name)
+            history.push('/')
         }
     }
     return (

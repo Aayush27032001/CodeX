@@ -33,13 +33,15 @@ const Signup = () => {
         if(data.error){
 
             toast.error(data.error,{
-                position:toast.POSITION.TOP_CENTER
+                position:toast.POSITION.TOP_CENTER,
+                autoClose:2000
             })
             console.log(data.error)
         }else{
             console.log(data.message)
             toast.success(data.message,{
-                position:toast.POSITION.TOP_CENTER
+                position:toast.POSITION.TOP_CENTER,
+                autoClose:2000
             })
             history.push("/login")
         }
