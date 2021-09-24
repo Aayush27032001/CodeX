@@ -8,6 +8,7 @@ import Footer from './Components/Footer';
 import BlogPage from './Components/BlogPage'
 import InfoBlog from './Components/InfoBlog';
 import InterviewPage from './Components/InterviewPage';
+import TestPage from './Components/TestPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/blog' component={BlogPage} />
         <Route path='/blog-id-1' component={InfoBlog} />
         <Route path='/interview-experiences' component={InterviewPage} />
+        <Route path='/Test' component={TestPage} />
       </Switch>
       <Footer />
     </Router>

@@ -1,0 +1,67 @@
+.test-container{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 80px;
+    border: solid rgb(233, 233, 233) 0.5px;
+    border-radius: 5px;
+    background-color: rgb(255, 247, 223);
+    padding: 15px;
+    font-family: Abel;
+}
+
+.test-btn{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    background-image:linear-gradient(-140deg, rgba(255, 192.01810598373413, 0, 1) 0%,rgb(246, 109, 17) 100%) ;
+    padding: 10px 40px;
+}
+.test-btn:hover{
+    color: whitesmoke;
+}
+
+
+.test-title{
+    margin: 30px 85px;
+    display: flex;
+    font-family: Abel;
+    margin-top: 70px;
+    margin-bottom: -25px;
+    justify-content: space-between;
+}
+
+
+.test-subject-link{
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    background-image:linear-gradient(-140deg, rgba(255, 192.01810598373413, 0, 1) 0%,rgb(246, 109, 17) 100%) ;
+    padding: 12px 15px;
+}
+
+
+
+
+
+.test-text-1{
+    padding: 4em 2em;
+    color: orange;
+    font-family: Abel;
+}
+
+.test-text-2{
+    padding: 4em 5em;
+    margin-top: -220px;
+    color: orange;
+    font-family: Abel;
+}
+
+.test-image{
+    width:38%;
+    
+    }

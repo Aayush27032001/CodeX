@@ -1,5 +1,6 @@
 import React from 'react'
 import '../CSS/Homepage.css'
+import CoursesCard from './CoursesCard'
 
 export default function Home() {
     return (
@@ -11,6 +12,10 @@ export default function Home() {
                 <p className="slide-subtext-1">Premium access to all courses for life time</p>
             </div>
             <button className="home-button">See Courses</button>
+        </div>
+        <div>
+            <h2>Courses</h2>
+            <CoursesCard/>
         </div>
         </>
     )
