@@ -17,7 +17,6 @@ const Cards = ({ blog }) => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, accusamus cumque adipisci molestiae distinctio repellendus sit expedita minus natus odit?
                     </p>
                     <Link to="/blog-id-1">Read More</Link>
-
                 </div>
             </div>
         </div>
