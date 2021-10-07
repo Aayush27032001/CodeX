@@ -3,23 +3,23 @@ const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv');
 
 dotenv.config();
-const isLoggedIn = async (req, res, next) => {
+const isLoggedIn =  (req, res, next) => {
 
-    const { authorization } = req.headers;
-
-    if (!authorization) {
-        return res.status(401).json({ error: "Authorization denied!" });
+    let token = req.headers.cookie;
+    if(token) token = token.split('=')[1];
+    console.log('TOKEN',token);
+    if (!token) {
+        return res.status(401).json({ error: "Access denied!...No token" });
     }
 
-    const token = authorization.replace("Bearer ", "");
-    jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
+    jwt.verify(token, process.env.JWT_SECRET, async (err, payload) => {
 
-        if (err) return res.status(401).json({ error: "Bad Request!" });
+        if (err) return res.status(401).json({ error: "Wrong Token!" });
 
         const foundUser = await user.findById(payload._id);
 
         if (!foundUser) {
-            return res.status(401).json({ error: "Authorization denied!" });
+            return res.status(401).json({ error: "Access denied!" });
         }
         req.user = foundUser;
         next();

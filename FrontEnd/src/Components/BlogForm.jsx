@@ -51,31 +51,34 @@ function BlogForm() {
 
     }
 
-    useEffect(async() => {
-        const newBlog = JSON.stringify({
+    useEffect(async () => {
 
-            title,
-            thumbnail,
-            content
-        })
+        if (thumbnail) {
+            const newBlog = JSON.stringify({
 
-        const resp = await fetch('http://localhost:5000/blogs/createBlogs', {
+                title,
+                thumbnail,
+                content
+            })
 
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: newBlog
-        })
-        const res_data = await resp.json()
-        if (res_data.error) {
-            console.log(res_data.error)
-        } else {
-            console.log(res_data.message)
+            const resp = await fetch('http://localhost:5000/blogs/createBlogs', {
+
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: newBlog
+            })
+            const res_data = await resp.json()
+            if (res_data.error) {
+                console.log(res_data.error)
+            } else {
+                console.log(res_data.message)
+            }
         }
     }, [thumbnail])
 
-    
+
     return (
         <div>
             <form className='blog-form' onSubmit={e => uploadImage(e)}>
