@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const isAuthorized = require('../middleware/requireLogin')
 
 const blog = require("../models/blog")
 
-router.post('/blogs/createBlogs', async (req,res)=>{
+router.post('/blogs/createBlogs',async (req,res)=>{
 
     const {title,thumbnail,content} = req.body;
     
@@ -21,7 +22,7 @@ router.post('/blogs/createBlogs', async (req,res)=>{
     const savedBlog = await newBlog.save()
     
     if(savedBlog){
-        console.log(savedBlog)
+        // console.log(savedBlog)
         return res.json({message:"Successfully saved"})
     }
     res.json({error:"Something went wrong!"})
