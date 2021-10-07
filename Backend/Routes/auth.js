@@ -5,7 +5,7 @@ const user = require("../models/user")
 const bcrypt = require("bcryptjs")
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv')
-
+const isLoggedIn = require('../middleware/requireLogin')
 
 dotenv.config()
 
@@ -46,6 +46,17 @@ router.post('/signup', async (req, res) => {
 
 })
 
+router.post('/verifyuser', isLoggedIn, (req, res) => {
+
+    const { user } = req;
+    res.json({
+        user: {
+            _id: user._id,
+            name: user.username,
+            email: user.email
+        }
+    });
+})
 router.post('/login', async (req, res) => {
 
     const { email, password } = req.body;
@@ -66,20 +77,25 @@ router.post('/login', async (req, res) => {
         { _id: foundUser._id },
         process.env.JWT_SECRET
     );
-    res.cookie("token",token,{
-        httpOnly:true,
-        maxAge:3600
+    res.cookie("token", token, {
+        httpOnly: true
     })
-    res.json({ 
+    res.json({
         message: "successfully logged in!",
-        user:{
-            _id:foundUser._id,
-            name:foundUser.username,
-            email:foundUser.email
+        user: {
+            _id: foundUser._id,
+            name: foundUser.username,
+            email: foundUser.email
         },
         token
     })
-    
+
 })
 
+router.get('/logout', (req, res) => {
+    console.log("logout")
+    res.cookie('token', "", { maxAge: 1 })
+    res.status(200).json({ logout: true })
+
+})
 module.exports = router
