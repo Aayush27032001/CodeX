@@ -49,7 +49,7 @@ export default function Navbar() {
             <div className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
                 {
                     user ?
-                        <span onClick={() => setDropdown(true)} className="nav-items" onClick={LogoutHandle}>Logout</span>
+                        <span className="nav-items" onClick={LogoutHandle}>Logout</span>
                         : null
                 }
                 
