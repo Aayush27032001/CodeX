@@ -15,6 +15,7 @@ export default function Navbar() {
         const data = await res.json()
         console.log('logout', data)
         setUser(null)
+        setDropdown(true)
 
     }
 
@@ -48,7 +49,7 @@ export default function Navbar() {
             <div className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
                 {
                     user ?
-                        <span className="nav-items" onClick={LogoutHandle}>Logout</span>
+                        <span onClick={() => setDropdown(true)} className="nav-items" onClick={LogoutHandle}>Logout</span>
                         : null
                 }
                 
