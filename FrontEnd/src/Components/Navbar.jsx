@@ -26,7 +26,7 @@ export default function Navbar() {
                 <ul className="nav-items-1" id={linksVisible ? "hidden" : ""}>
                     <li><Link className='nav-items' to='/'>Home</Link></li>
                     <li><Link className='nav-items' to='/blog'>Blog</Link></li>
-                    <li><Link className='nav-items' to='/Test'>Tutorials</Link></li>
+                    <li><Link className='nav-items' to='/Tutorials'>Tutorials</Link></li>
                     <li><Link className='nav-items' to='/Test'>Test</Link></li>
                     <li><Link className='nav-items' to='/interview-experiences'>Interview Experience</Link></li>
 

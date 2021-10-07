@@ -11,6 +11,7 @@ import BlogPage from './Components/BlogPage'
 import InfoBlog from './Components/InfoBlog';
 import BlogForm from './Components/BlogForm'
 import InterviewPage from './Components/InterviewPage';
+import TestPage from './Components/TestPage';
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
         <Route path='/createBlog' component={BlogForm} />
         <Route path='/blog-id-1' component={InfoBlog} />
         <Route path='/interview-experiences' component={InterviewPage} />
+        <Route path='/Test' component={TestPage} />
       </Switch>
       <Footer />
       </userContext.Provider>
