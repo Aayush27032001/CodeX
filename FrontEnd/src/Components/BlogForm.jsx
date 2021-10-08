@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useContext } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import '../CSS/BlogForm.css'
-
+import { userContext } from '../context/userContex';
 
 
 const modules = {
@@ -23,7 +23,7 @@ const formats = [
 ]
 function BlogForm() {
 
-
+    const {user,setUser} = useContext(userContext)
     const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
     const [thumbnail, setThumbnail] = useState('')
@@ -57,6 +57,7 @@ function BlogForm() {
             const newBlog = JSON.stringify({
 
                 title,
+                author:user._id,
                 thumbnail,
                 content
             })

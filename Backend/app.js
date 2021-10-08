@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const auth = require("./Routes/auth")
 const blog = require('./Routes/blog')
+const comment = require('./Routes/comment')
 const dotenv = require("dotenv")
 const cors = require("cors")
 const cookie = require('cookie-parser')
@@ -25,6 +26,7 @@ app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 app.use(express.json())
 app.use(auth)
 app.use(blog)
+app.use(comment)
 
 app.listen(5000,()=>{
     console.log("Server started...")

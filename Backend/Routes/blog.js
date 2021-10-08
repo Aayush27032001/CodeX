@@ -4,41 +4,50 @@ const isAuthorized = require('../middleware/requireLogin')
 
 const blog = require("../models/blog")
 
-router.post('/blogs/createBlogs',async (req,res)=>{
+router.post('/blogs/createBlogs', async (req, res) => {
 
-    const {title,thumbnail,content} = req.body;
-    
-    if(!title || !thumbnail || !content){
-        console.log('fill all fields',title,thumbnail,content)
+    const { title, author, thumbnail, content } = req.body;
+
+    if (!title || !thumbnail || !content) {
+        console.log('fill all fields')
         return
     }
     const newBlog = new blog({
         title,
+        author,
         thumbnail,
         content
     })
 
-    
+
     const savedBlog = await newBlog.save()
-    
-    if(savedBlog){
+
+    if (savedBlog) {
         // console.log(savedBlog)
-        return res.json({message:"Successfully saved"})
+        return res.json({ message: "Successfully saved" })
     }
-    res.json({error:"Something went wrong!"})
-    
-   
+    res.json({ error: "Something went wrong!" })
+
+
 })
 
-router.get('/blogs/allblogs', async (req,res)=>{
+router.get('/blogs/allblogs', async (req, res) => {
 
-    const blogs = await blog.find({})
+    try {
+        const blogs = await blog.find({})
+        .populate('author')
+        .populate('comments')
+        .exec()
 
-    if(blogs){
-        console.log(blogs)
-        return res.json({blogs})
+        if (blogs) {
+            // console.log(blogs)
+            return res.json({ blogs })
+        }
+        res.json({ error: "Something went wrong!" })
+    } catch (e) {
+        console.log(e)
     }
-    res.json({error:"Something went wrong!"})
+
 })
 
 module.exports = router

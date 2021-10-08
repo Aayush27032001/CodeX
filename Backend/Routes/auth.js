@@ -27,7 +27,7 @@ router.post('/signup', async (req, res) => {
             return res.status(422).json({ error: "User alredy exists with this email!" })
         }
     } catch (err) {
-        console.log("didn't get")
+        console.log("didn't get",err)
     }
 
     try {
@@ -59,36 +59,41 @@ router.post('/verifyuser', isLoggedIn, (req, res) => {
 })
 router.post('/login', async (req, res) => {
 
-    const { email, password } = req.body;
+    try {
+        const { email, password } = req.body;
 
-    if (!email || !password) {
-        return res.status(422).json({ error: "Please fill all the fields!" })
+        if (!email || !password) {
+            return res.status(422).json({ error: "Please fill all the fields!" })
+        }
+
+        const foundUser = await user.findOne({ email: email })
+        if (!foundUser) {
+            return res.status(401).json({ error: "You don't have an account, Please register first!" })
+        }
+        const doMatch = await bcrypt.compare(password, foundUser.password);
+        if (!doMatch) {
+            return res.status(401).json({ error: "Invalid email or password!" })
+        }
+        const token = jwt.sign(
+            { _id: foundUser._id },
+            process.env.JWT_SECRET
+        );
+        res.cookie("token", token, {
+            httpOnly: true
+        })
+        res.json({
+            message: "successfully logged in!",
+            user: {
+                _id: foundUser._id,
+                name: foundUser.username,
+                email: foundUser.email
+            },
+            token
+        })
+    } catch (e) {
+        console.log(e)
     }
 
-    const foundUser = await user.findOne({ email: email })
-    if (!foundUser) {
-        return res.status(401).json({ error: "You don't have an account, Please register first!" })
-    }
-    const doMatch = await bcrypt.compare(password, foundUser.password);
-    if (!doMatch) {
-        return res.status(401).json({ error: "Invalid email or password!" })
-    }
-    const token = jwt.sign(
-        { _id: foundUser._id },
-        process.env.JWT_SECRET
-    );
-    res.cookie("token", token, {
-        httpOnly: true
-    })
-    res.json({
-        message: "successfully logged in!",
-        user: {
-            _id: foundUser._id,
-            name: foundUser.username,
-            email: foundUser.email
-        },
-        token
-    })
 
 })
 
