@@ -12,9 +12,10 @@ import InfoBlog from './Components/InfoBlog';
 import BlogForm from './Components/BlogForm'
 import InterviewPage from './Components/InterviewPage';
 import TestPage from './Components/TestPage';
+import Dashboard from './Components/Dashboard';
 
 function App() {
-
+  
   const[user,setUser] = useState(null)
   
   useEffect(() => {
@@ -51,7 +52,9 @@ function App() {
         <Route path='/blog-id-1' component={InfoBlog} />
         <Route path='/interview-experiences' component={InterviewPage} />
         <Route path='/Test' component={TestPage} />
+        <Route path='/user/dashboard' component={Dashboard} />
       </Switch>
+      
       <Footer />
       </userContext.Provider>
     </Router>

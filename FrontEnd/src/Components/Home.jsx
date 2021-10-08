@@ -13,10 +13,6 @@ export default function Home() {
             </div>
             <button className="home-button">See Courses</button>
         </div>
-        <div>
-            <h2>Courses</h2>
-            <CoursesCard/>
-        </div>
         </>
     )
 }
