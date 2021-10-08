@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import { userContext } from '../context/userContex'
+import { FaUserCircle } from "react-icons/fa";
 import '../CSS/InfoBlog.css'
 import { format } from 'date-fns'
 
@@ -71,7 +72,8 @@ export default function InfoBlog({ blog }) {
                     onChange={(e) => setComment(e.target.value)}
                 />
                 <button
-                    className="comment-submit" type="submit">Submit</button>
+                    className="comment-submit" type="submit"><svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>
+                </button>
             </form>
 
             <h2>Comments:</h2>
@@ -83,7 +85,7 @@ export default function InfoBlog({ blog }) {
                         console.log('author',comment.author)
                         return (
                             <div key={comment._id}>
-                                <p className='comment-author'>{comment.author.username}</p>
+                                <p className='comment-author'><FaUserCircle style={{fontSize:"20", color:'#ff8800'}}/> {comment.author.username}</p>
                                 <p>{comment.content}</p>
                             </div>
                         )

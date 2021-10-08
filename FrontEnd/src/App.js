@@ -13,6 +13,7 @@ import BlogForm from './Components/BlogForm'
 import InterviewPage from './Components/InterviewPage';
 import TestPage from './Components/TestPage';
 import Dashboard from './Components/Dashboard';
+import TutorialsPage from './Components/TutorialsPage';
 
 function App() {
 
@@ -72,6 +73,7 @@ function App() {
           <Route path='/interview-experiences' component={InterviewPage} />
           <Route path='/Test' component={TestPage} />
           <Route path='/user/dashboard' component={Dashboard} />
+          <Route path='/tutorials' component={TutorialsPage} />
         </Switch>
         <Footer />
       </userContext.Provider>
