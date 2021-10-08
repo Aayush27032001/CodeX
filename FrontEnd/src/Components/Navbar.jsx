@@ -32,7 +32,7 @@ export default function Navbar() {
                 <li><Link className='nav-items' to='/Test'>Test</Link></li>
                 <li><Link className='nav-items' to='/interview-experiences'>Interview Experience</Link></li>
 
-                {console.log('idjoidasoi', user)}
+                {/* {console.log('idjoidasoi', user)} */}
                 {
                     user != null ?
                         <span className="nav-items" onClick={() => setDropdown(!dropdown)} >{user.name}</span>
@@ -50,8 +50,13 @@ export default function Navbar() {
             {
                 user ?
                     <div className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
+<<<<<<< HEAD
                         <span className="nav-items" ><Link className="Link" to="/user/dashboard">My Profile</Link></span>
                         <span className="nav-items" onClick={LogoutHandle}>Logout</span>
+=======
+                        <Link to="/user/dashboard"><span className="nav-items" >My Profile</span></Link>
+                        <span  className="nav-items" onClick={LogoutHandle}>Logout</span>
+>>>>>>> d633f8402711cc1067df888b97d0750004ba7c7a
                     </div>
                     : null
             }
