@@ -17,8 +17,7 @@ const Cards = ({ blog }) => {
                     <p id="card-text">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, accusamus cumque adipisci molestiae distinctio repellendus sit expedita minus natus odit?
                     </p>
-                    <Link to={`/blogs/${blog._id}`}>Read More</Link>
-
+                    <Link to={`/blogs/${blog._id}`}>Read More</Link>           
                 </div>
             </div>
         </div>

@@ -12,14 +12,11 @@
   box-shadow:0px 1px 5px rgba(160.43749898672104, 120.81139370799065, 0, 0.20000000298023224);
 }
 .nav-items-1{
-
-  /* display: flex;
-  align-items: center; */
+  padding-right: 25px;
   margin: 0;
 }
 .nav-brand img{
-  margin-left:10px;
-  margin-top: -1.4em;
+  margin-left:15px;
   display: inline-block;
 }
 
@@ -73,6 +70,23 @@
   background: transparent;
   border: none;
   color: rgba(255, 136, 0, 0.897);
+}
+
+.nav-dropdown{
+  border: solid rgb(139, 139, 139) thin;
+  display: flex;
+  position: absolute;
+  top:80%;
+  width:130px;
+  flex-direction: column;
+  margin-left: 90%;
+  background-color: white;
+  align-items: center;
+}
+
+
+#dropdown{
+  display: none;
 }
 
 @media screen and (max-width:1040px) {

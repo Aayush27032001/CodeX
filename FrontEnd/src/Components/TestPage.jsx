@@ -9,8 +9,9 @@ export default function TestPage() {
             <div className="test-first-slide">
                 <h1 className="test-text-1">Prepare for <br />Interview/Exams</h1>
                 <p className="test-text-2">Hand-curated Tests/Quizes to help<br />you polish your skills.</p>
+		<img src={img3} align="center" class="test-image" alt="testpage"></img>
                 <div className="test-buttons">
-                    <img src={img3} class="test-image" alt="testpage"></img>
+                    
                     <Link className='test-subject-link'>Java</Link>
                     <Link className='test-subject-link'>Python</Link>
                     <Link className='test-subject-link'>C++</Link>
