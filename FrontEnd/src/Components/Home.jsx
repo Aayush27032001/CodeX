@@ -13,7 +13,6 @@ export default function Home() {
             </div>
             <button className="home-button">See Courses</button>
         </div>
-        
         </>
     )
 }

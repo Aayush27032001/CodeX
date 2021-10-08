@@ -14,12 +14,26 @@
     font-family: 'Kaisei Tokumin', serif;
     font-size: 16px;
 }
+pre.ql-syntax{
+    background-color: rgb(49, 48, 48);
+    color: #fff;
+    padding: 10px 15px;
+}
+p img{
 
+    width: 100%;
+}
 .blog-title{
     color: rgba(255, 136, 0, 0.897);
     font-size: 50px;
 }
 
+.comment-author{
+
+    font-size: 20px;
+    font-weight: 600;
+    color: gray;
+}
 .blog-slider{
     display: flex;
     justify-content: flex-end;

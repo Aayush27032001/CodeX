@@ -32,7 +32,7 @@ export default function Navbar() {
                 <li><Link className='nav-items' to='/Test'>Test</Link></li>
                 <li><Link className='nav-items' to='/interview-experiences'>Interview Experience</Link></li>
 
-                {console.log('idjoidasoi', user)}
+                {/* {console.log('idjoidasoi', user)} */}
                 {
                     user != null ?
                         <span className="nav-items" onClick={() => setDropdown(!dropdown)} >{user.name}</span>
