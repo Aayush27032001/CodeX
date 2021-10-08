@@ -73,16 +73,17 @@
 }
 
 .nav-dropdown{
-  border-radius: 5px;
   border: solid rgb(139, 139, 139) thin;
   display: flex;
   position: absolute;
   top:80%;
+  width:130px;
   flex-direction: column;
-  margin-left: 93%;
+  margin-left: 90%;
   background-color: white;
   align-items: center;
 }
+
 
 #dropdown{
   display: none;

@@ -46,14 +46,17 @@ export default function Navbar() {
                 <i class="fas fa-bars fa-2x"></i>
             </button>
 
-            <div className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
-                {
-                    user ?
-                        <span className="nav-items" onClick={LogoutHandle}>Logout</span>
-                        : null
-                }
-                
-            </div>
+
+            {
+                user ?
+                    <div className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
+                        <Link to="/user/dashboard"><span className="nav-items" >My Profile</span></Link>
+                        <span  className="nav-items" onClick={LogoutHandle}>Logout</span>
+                    </div>
+                    : null
+            }
+
+
         </div>
     )
 }
