@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { userContext } from '../context/userContex'
+import { FaUserCircle } from "react-icons/fa";
 import '../CSS/Navbar.css'
 
 export default function Navbar() {
@@ -16,8 +17,12 @@ export default function Navbar() {
         console.log('logout', data)
         setUser(null)
         setDropdown(true)
-
+        UserGreeting()
     }
+
+    function UserGreeting() {
+        return <Redirect to="/"/>;
+      }
 
     return (
         <div className="navbar">
@@ -28,14 +33,14 @@ export default function Navbar() {
             <ul className="nav-items-1" id={linksVisible ? "hidden" : ""}>
                 <li><Link className='nav-items' to='/'>Home</Link></li>
                 <li><Link className='nav-items' to='/blog'>Blog</Link></li>
-                <li><Link className='nav-items' to='/Tutorials'>Tutorials</Link></li>
+                <li><Link className='nav-items' to='/tutorials'>Tutorials</Link></li>
                 <li><Link className='nav-items' to='/Test'>Test</Link></li>
                 <li><Link className='nav-items' to='/interview-experiences'>Interview Experience</Link></li>
 
                 {/* {console.log('idjoidasoi', user)} */}
                 {
                     user != null ?
-                        <span className="nav-items" onClick={() => setDropdown(!dropdown)} >{user.name}</span>
+                        <span className="nav-items" onClick={() => setDropdown(!dropdown)} ><FaUserCircle style={{fontSize:"20"}}/> {user.name}</span>
                         : <li><Link to='/login'><span className="nav-box-item">Login</span></Link></li>
                 }
 
@@ -50,13 +55,9 @@ export default function Navbar() {
             {
                 user ?
                     <div className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
-<<<<<<< HEAD
-                        <span className="nav-items" ><Link className="Link" to="/user/dashboard">My Profile</Link></span>
-                        <span className="nav-items" onClick={LogoutHandle}>Logout</span>
-=======
-                        <Link to="/user/dashboard"><span className="nav-items" >My Profile</span></Link>
-                        <span  className="nav-items" onClick={LogoutHandle}>Logout</span>
->>>>>>> d633f8402711cc1067df888b97d0750004ba7c7a
+                        <Link className="Link dropdown-items" to="/user/dashboard"><span onClick={() => setDropdown(true)} >My Profile</span></Link>
+                        <span className="dropdown-items" onClick={LogoutHandle}>Logout</span>
+                        
                     </div>
                     : null
             }

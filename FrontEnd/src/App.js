@@ -13,13 +13,9 @@ import BlogForm from './Components/BlogForm'
 import InterviewPage from './Components/InterviewPage';
 import TestPage from './Components/TestPage';
 import Dashboard from './Components/Dashboard';
+import TutorialsPage from './Components/TutorialsPage';
 
 function App() {
-<<<<<<< HEAD
-  
-  const[user,setUser] = useState(null)
-  
-=======
 
 
   const [user, setUser] = useState(null)
@@ -37,7 +33,6 @@ function App() {
     getBlogs();
   }, [])
 
->>>>>>> d633f8402711cc1067df888b97d0750004ba7c7a
   useEffect(() => {
     const verifyUser = async () => {
       try {
@@ -60,24 +55,6 @@ function App() {
 
   return (
     <Router>
-<<<<<<< HEAD
-      <userContext.Provider value={{user,setUser}}>
-      <Navbar />
-      <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/courses' component={Course} />
-        <Route path='/login' component={Login} />
-        <Route path='/signup' component={Signup} />
-        <Route path='/blog' component={BlogPage} />
-        <Route path='/createBlog' component={BlogForm} />
-        <Route path='/blog-id-1' component={InfoBlog} />
-        <Route path='/interview-experiences' component={InterviewPage} />
-        <Route path='/Test' component={TestPage} />
-        <Route path='/user/dashboard' component={Dashboard} />
-      </Switch>
-      
-      <Footer />
-=======
       <userContext.Provider value={{ user, setUser }}>
         <Navbar />
         <Switch>
@@ -96,9 +73,9 @@ function App() {
           <Route path='/interview-experiences' component={InterviewPage} />
           <Route path='/Test' component={TestPage} />
           <Route path='/user/dashboard' component={Dashboard} />
+          <Route path='/tutorials' component={TutorialsPage} />
         </Switch>
         <Footer />
->>>>>>> d633f8402711cc1067df888b97d0750004ba7c7a
       </userContext.Provider>
     </Router>
   );
