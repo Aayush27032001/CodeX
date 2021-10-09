@@ -5,11 +5,13 @@ import '../CSS/BlogPage.css'
 function BlogPage({blogs}) {
 
     return (
-        <div>
+        <div className="blog-page-container">
+            <div className="create-blog">
+                <Link className="create-blog-link" to="/createBlog">Write a blog</Link>
+            </div>
+            <div className="blog-container">
 
-            <div className="blog-page-container">
-
-                <Link to="/createBlog">Write a blog</Link>
+                
                 {
                     blogs.map((blog) => {
 
