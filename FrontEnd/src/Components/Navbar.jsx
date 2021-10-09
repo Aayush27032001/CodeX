@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
 import { userContext } from '../context/userContex'
 import '../CSS/Navbar.css'
 
@@ -8,6 +8,7 @@ export default function Navbar() {
     const [linksVisible, setLinksVisible] = useState(false)
     const [dropdown, setDropdown] = useState(true)
     const { user, setUser } = useContext(userContext)
+    const history = useHistory()
 
     const LogoutHandle = async () => {
 
@@ -16,7 +17,7 @@ export default function Navbar() {
         console.log('logout', data)
         setUser(null)
         setDropdown(true)
-
+        history.push(`/`)
     }
 
     return (
@@ -36,7 +37,7 @@ export default function Navbar() {
                 {
                     user != null ?
                         <span className="nav-items" onClick={() => setDropdown(!dropdown)} >{user.name}</span>
-                        : <li><Link to='/login'><span className="nav-box-item">Login</span></Link></li>
+                        : <li><Link to='/student/login'><span className="nav-box-item">Login</span></Link></li>
                 }
 
 

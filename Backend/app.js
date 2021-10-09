@@ -3,6 +3,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const auth = require("./Routes/auth")
 const blog = require('./Routes/blog')
+const tutorial = require('./Routes/tutorial')
+const topic = require('./Routes/topic')
 const comment = require('./Routes/comment')
 const dotenv = require("dotenv")
 const cors = require("cors")
@@ -26,6 +28,8 @@ app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 app.use(express.json())
 app.use(auth)
 app.use(blog)
+app.use(tutorial)
+app.use(topic)
 app.use(comment)
 
 app.listen(5000,()=>{
