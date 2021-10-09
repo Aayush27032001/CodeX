@@ -54,7 +54,7 @@ export default function Navbar() {
 
             {
                 user ?
-                    <div className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
+                    <div onMouseLeave={() => setDropdown(true)} className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
                         <Link className="Link dropdown-items" to="/user/dashboard"><span onClick={() => setDropdown(true)} >My Profile</span></Link>
                         <span className="dropdown-items" onClick={LogoutHandle}>Logout</span>
                         

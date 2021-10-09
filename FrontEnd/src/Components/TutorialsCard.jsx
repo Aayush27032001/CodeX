@@ -5,7 +5,7 @@ function TutorialsCard(props) {
     return (
         <Link to={props.url}>
         <div className="tutorial-card-container">
-            <img className="tutorial-img" src={props.img} alt={props.alt} />
+            <img className="tutorial-img" src={props.img} alt={props.alt} ></img>
         </div>
         </Link>
     )
