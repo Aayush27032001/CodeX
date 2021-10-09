@@ -16,26 +16,28 @@ router.get("/", (req, res) => {
 
 router.post('/signup', async (req, res) => {
 
-    const { username, email, password } = req.body;
+    const { username, email, role, password } = req.body;
     if (!username || !email || !password) {
         return res.status(422).json({ error: "Please fill all the fields!" })
     }
 
     try {
-        const foundUser = await user.findOne({ email: email })
+        const foundUser = await user.findOne({ email: email , role : role})
         if (foundUser) {
             return res.status(422).json({ error: "User alredy exists with this email!" })
         }
     } catch (err) {
-        console.log("didn't get",err)
+        console.log("didn't get", err)
     }
 
     try {
         const salt = await bcrypt.genSalt(10);
+        console.log('salt',salt)
         const hashedPassword = await bcrypt.hash(password, salt)
         const newUser = new user({
             username,
             email,
+            role,
             password: hashedPassword
         })
         const savedUser = await newUser.save();
@@ -53,20 +55,21 @@ router.post('/verifyuser', isLoggedIn, (req, res) => {
         user: {
             _id: user._id,
             name: user.username,
-            email: user.email
+            email: user.email,
+            role: user.role
         }
     });
 })
 router.post('/login', async (req, res) => {
 
     try {
-        const { email, password } = req.body;
+        const { email, role, password } = req.body;
 
         if (!email || !password) {
             return res.status(422).json({ error: "Please fill all the fields!" })
         }
 
-        const foundUser = await user.findOne({ email: email })
+        const foundUser = await user.findOne({ email: email , role:role })
         if (!foundUser) {
             return res.status(401).json({ error: "You don't have an account, Please register first!" })
         }
@@ -86,7 +89,8 @@ router.post('/login', async (req, res) => {
             user: {
                 _id: foundUser._id,
                 name: foundUser.username,
-                email: foundUser.email
+                email: foundUser.email,
+                role:role
             },
             token
         })

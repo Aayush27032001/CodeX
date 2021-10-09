@@ -14,6 +14,34 @@
     margin: 20px 0px;
     padding: 5px 15px;
 }
+.redirector-buttons-container{
+
+    display: flex;
+    justify-content: space-between;
+}
+.redirector-buttons{
+
+    background-color: rgba(255, 136, 0, 0.897);
+    display: block;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    width: 50%;
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem 0;
+    /* box-shadow: 0 2px 5px 2px rgb(206, 202, 202); */
+}
+
+.redirector-buttons:hover{
+    background-color: rgb(221, 215, 215);
+    color: white;
+}
+.active-login{
+    background-color: rgb(255 247 223);
+    color: rgba(255, 136, 0, 0.897);
+    box-shadow: none;
+}
 
 .login-form{
     margin: 20vh auto;

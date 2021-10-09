@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import { userContext } from '../context/userContex'
-import { FaUserCircle } from "react-icons/fa";
+// import { FaUserCircle } from "react-icons/fa";
 import '../CSS/InfoBlog.css'
 import { format } from 'date-fns'
 
@@ -85,7 +85,7 @@ export default function InfoBlog({ blog }) {
                         console.log('author',comment.author)
                         return (
                             <div key={comment._id}>
-                                <p className='comment-author'><FaUserCircle style={{fontSize:"20", color:'#ff8800'}}/> {comment.author.username}</p>
+                                <p className='comment-author'> {comment.author.username}</p>
                                 <p>{comment.content}</p>
                             </div>
                         )

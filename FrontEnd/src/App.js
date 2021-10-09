@@ -14,6 +14,7 @@ import InterviewPage from './Components/InterviewPage';
 import TestPage from './Components/TestPage';
 import Dashboard from './Components/Dashboard';
 import TutorialsPage from './Components/TutorialsPage';
+import TutorialForm from './Components/TutorialForm';
 
 function App() {
 
@@ -60,8 +61,10 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/courses' component={Course} />
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={Signup} />
+          <Route path='/student/login' ><Login role='Student'/></Route>
+          <Route path='/teacher/login' ><Login role='Teacher'/></Route>
+          <Route path='/student/signup' ><Signup role='Student'/></Route>
+          <Route path='/teacher/signup' ><Signup role='Teacher'/></Route>
           <Route path='/blog'><BlogPage blogs={blogs} /></Route>
           <Route path='/createBlog' component={BlogForm} />
           {
@@ -74,6 +77,7 @@ function App() {
           <Route path='/Test' component={TestPage} />
           <Route path='/user/dashboard' component={Dashboard} />
           <Route path='/tutorials' component={TutorialsPage} />
+          <Route path='/tutorials-form' component={TutorialForm} />
         </Switch>
         <Footer />
       </userContext.Provider>

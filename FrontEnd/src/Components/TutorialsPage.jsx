@@ -8,7 +8,7 @@ function TutorialsPage() {
     return (
         <div className="tutorials-container">
             <div className="create-tutorial">
-                <Link className="create-tutorial-link" to="/createBlog">Add Tutorials</Link>
+                <Link className="create-tutorial-link" to="/tutorials-form">Add Tutorials</Link>
             </div>
             <div className="tutorials-section">
                 <TutorialsCard img="https://www.tutorialspoint.com/images/ant_icon.png" alt="Apache-ant"/>

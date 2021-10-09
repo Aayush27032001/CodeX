@@ -1,0 +1,14 @@
+.tutorial-form-conatiner{
+
+    width: 600px;
+    margin: 90px auto;
+    background-color: rgb(255, 247, 223);
+    overflow: hidden;
+}
+
+.tutorial-form{
+    margin: 10vh auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
