@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
 import { userContext } from '../context/userContex'
+import { FaUserCircle } from "react-icons/fa";
 import '../CSS/Navbar.css'
 
 export default function Navbar() {
@@ -8,6 +9,7 @@ export default function Navbar() {
     const [linksVisible, setLinksVisible] = useState(false)
     const [dropdown, setDropdown] = useState(true)
     const { user, setUser } = useContext(userContext)
+    const history = useHistory()
 
     const LogoutHandle = async () => {
 
@@ -16,7 +18,7 @@ export default function Navbar() {
         console.log('logout', data)
         setUser(null)
         setDropdown(true)
-
+        history.push(`/`)
     }
 
     return (
@@ -28,15 +30,16 @@ export default function Navbar() {
             <ul className="nav-items-1" id={linksVisible ? "hidden" : ""}>
                 <li><Link className='nav-items' to='/'>Home</Link></li>
                 <li><Link className='nav-items' to='/blog'>Blog</Link></li>
-                <li><Link className='nav-items' to='/Tutorials'>Tutorials</Link></li>
+                <li><Link className='nav-items' to='/tutorials'>Tutorials</Link></li>
                 <li><Link className='nav-items' to='/Test'>Test</Link></li>
                 <li><Link className='nav-items' to='/interview-experiences'>Interview Experience</Link></li>
 
-                {console.log('idjoidasoi', user)}
+                {/* {console.log('idjoidasoi', user)} */}
                 {
                     user != null ?
                         <span className="nav-items" onClick={() => setDropdown(!dropdown)} >{user.name}</span>
-                        : <li><Link to='/login'><span className="nav-box-item">Login</span></Link></li>
+                        : <li><Link to='/student/login'><span className="nav-box-item">Login</span></Link></li>
+
                 }
 
 
@@ -46,14 +49,17 @@ export default function Navbar() {
                 <i class="fas fa-bars fa-2x"></i>
             </button>
 
-            <div className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
-                {
-                    user ?
-                        <span className="nav-items" onClick={LogoutHandle}>Logout</span>
-                        : null
-                }
-                
-            </div>
+
+            {
+                user ?
+                    <div onMouseLeave={() => setDropdown(true)} className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
+                        <Link className="Link dropdown-items" to="/user/dashboard"><span onClick={() => setDropdown(true)} >My Profile</span></Link>
+                        <span className="dropdown-items" onClick={LogoutHandle}>Logout</span>
+                    </div>
+                    : null
+            }
+
+
         </div>
     )
 }

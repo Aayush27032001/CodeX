@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import {useHistory} from 'react-router-dom'
+import RedirectorButtons from './RedirectorButtons'
 
 toast.configure()
-const Signup = () => {
+const Signup = ({role}) => {
 
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
@@ -17,6 +18,7 @@ const Signup = () => {
         const userData = JSON.stringify({
             username,
             email,
+            role,
             password
         })
 
@@ -43,12 +45,13 @@ const Signup = () => {
                 position:toast.POSITION.TOP_CENTER,
                 autoClose:2000
             })
-            history.push("/login")
+            history.push(`/${role}/login`)
         }
     }
 
     return (
         <div className="signup-container">
+            <RedirectorButtons mode='signup'/>
             <form className="signup-form" onSubmit={(e) => postData(e)}>
                 <input
                     className="input-field"
@@ -75,7 +78,7 @@ const Signup = () => {
 
                 <div className="signin-wraper">
                     <p className="signin-text">Already have an account? </p>
-                    <Link to='/login' className="signin-link">Signin</Link>
+                    <Link to='/student/login' className="signin-link">Signin</Link>
                 </div>
             </form>
         </div>

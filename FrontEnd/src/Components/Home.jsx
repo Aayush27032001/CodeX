@@ -11,11 +11,7 @@ export default function Home() {
                 <h1 className="slide-text-1">Refreshing your ideas and <br/> broading your vision</h1>
                 <p className="slide-subtext-1">Premium access to all courses for life time</p>
             </div>
-            <button className="home-button">See Courses</button>
-        </div>
-        <div>
-            <h2>Courses</h2>
-            <CoursesCard/>
+            <button className="home-button">Read Tutorials</button>
         </div>
         </>
     )
