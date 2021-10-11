@@ -12,7 +12,7 @@ function TutorialsPage() {
             </div>
             <div className="tutorials-section">
                 <TutorialsCard img="https://www.tutorialspoint.com/images/ant_icon.png" alt="Apache-ant"/>
-                <TutorialsCard img="https://www.tutorialspoint.com/images/java.png" alt="Java" />
+                <TutorialsCard img="https://www.tutorialspoint.com/images/java.png" alt="Core Java" />
                 <TutorialsCard img="https://www.tutorialspoint.com/images/python.png" alt="Apache-ant" />
                 <TutorialsCard img="https://www.tutorialspoint.com/images/spring.png" alt="Spring"/>
                 <TutorialsCard img="https://www.tutorialspoint.com/images/hibernate.png" alt="Hibernet"/>

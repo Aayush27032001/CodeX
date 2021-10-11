@@ -22,6 +22,14 @@ function TutorialContent() {
         {
             id:5,
             content: "Rayyan"
+        },
+        {
+            id:6,
+            content: "Rayyan"
+        },
+        {
+            id:7,
+            content: "Tejas"
         }
     ]
     const [active, setActive] = useState({
@@ -40,9 +48,6 @@ function TutorialContent() {
             return "";
         }
     }
-
-   
-
     return (
         <div className='tutorial-container'>
             <div className="tutorial-sidebar">

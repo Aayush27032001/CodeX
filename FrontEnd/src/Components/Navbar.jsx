@@ -3,6 +3,7 @@ import { Link,useHistory } from 'react-router-dom'
 import { userContext } from '../context/userContex'
 import { FaUserCircle } from "react-icons/fa";
 import '../CSS/Navbar.css'
+import logo2 from '../assets/Logo2.png'
 
 export default function Navbar() {
 
@@ -24,10 +25,10 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <Link><div className="nav-brand">
-                <img src="Logo2.png" alt="CodeX" width="130px" />
+                <img src={logo2} alt="CodeX" width="130px" />
             </div></Link>
 
-            <ul className="nav-items-1" id={linksVisible ? "hidden" : ""}>
+            <ul className="nav-items-1" id={linksVisible ? "hidden" : ""} onClick={() => setLinksVisible(false)}>
                 <li><Link className='nav-items' to='/'>Home</Link></li>
                 <li><Link className='nav-items' to='/blog'>Blog</Link></li>
                 <li><Link className='nav-items' to='/tutorials'>Tutorials</Link></li>

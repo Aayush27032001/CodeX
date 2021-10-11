@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+
 .tutorials-container{
-    margin-top: 70px; 
+    margin-top: 70px;
+    background-color: rgba(255, 255, 255, 0.37);
 }
 
 .create-tutorial{
@@ -30,8 +33,14 @@
     height:100px;
     border-radius: 5px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    background: rgba(255, 136, 0, 0.897);
+    background-image: url(../assets/board.png);
+    /* background-color: rgba(255, 136, 0, 0.897); */
+    background-size: 100% 100%;
     cursor: pointer;
+    transition: transform 60ms ease-in-out;
+}
+.tutorial-card-container:hover{
+    transform: scale(1.05,1.05);
 }
 
 .tutorials-section{
@@ -41,6 +50,15 @@
     padding: 15px;
 }
 
-.tutorial-img{
+a{
+    text-decoration: none;
+}
+.tutorial-title{
+    font-weight: bold;
+    font-size: 23px;
+    font-family: 'Walter Turncoat', cursive;
+    color: rgba(255, 136, 0, 0.897);
+    margin: 0px;
     align-self: center;
 }
+
