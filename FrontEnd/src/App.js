@@ -16,6 +16,7 @@ import Dashboard from './Components/Dashboard';
 import TutorialsPage from './Components/TutorialsPage';
 import TutorialForm from './Components/TutorialForm';
 import TopicForm from './Components/TopicForm';
+import TutorialContent from './Components/TutorialContent';
 
 function App() {
 
@@ -77,9 +78,12 @@ function App() {
           <Route path='/interview-experiences' component={InterviewPage} />
           <Route path='/Test' component={TestPage} />
           <Route path='/user/dashboard' component={Dashboard} />
+
           <Route exact path='/tutorials' component={TutorialsPage} />
           <Route exact path='/tutorials-form' component={TutorialForm} />
           <Route path='/tutorials/add-topic' component={TopicForm} />
+          <Route path='/tutorialcontent' component={TutorialContent} />
+
         </Switch>
         <Footer />
       </userContext.Provider>

@@ -42,9 +42,9 @@ export default function InfoBlog({ blog }) {
     return (
 
         <div className='blog-info-container'>
-            {console.log("Date format", format(new Date("Thu Oct 07 2021 23:47:16 GMT+0530 (India Standard Time)"), 'MMM'))}
+            {console.log("Date format", format(new Date(blog.createdAt), 'MMM'))}
             <h1 className="blog-title">{blog.title}</h1>
-            <p>Posted on <b>{format(new Date("Thu Oct 07 2021 23:47:16 GMT+0530 (India Standard Time)"), 'MMM dd, yyyy')}</b>, By <b>{blog.author.username}</b></p>
+            <p>Posted on <b>{format(new Date(blog.createdAt), 'MMM dd, yyyy')}</b>, By <b>{blog.author.username}</b></p>
 
             <div className='info-blog-body'>
 

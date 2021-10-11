@@ -3,6 +3,7 @@ import { Link,useHistory,NavLink } from 'react-router-dom'
 import { userContext } from '../context/userContex'
 import { FaUserCircle } from "react-icons/fa";
 import '../CSS/Navbar.css'
+import logo2 from '../assets/Logo2.png'
 
 export default function Navbar() {
 
@@ -24,7 +25,7 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <Link><div className="nav-brand">
-                <img src="Logo2.png" alt="CodeX" width="130px" />
+                <img src={logo2} alt="CodeX" width="130px" />
             </div></Link>
 
             <ul className="nav-items-1" id={linksVisible ? "hidden" : ""}>
@@ -48,8 +49,6 @@ export default function Navbar() {
             <button onClick={() => setLinksVisible(!linksVisible)} className="nav-burger">
                 <i class="fas fa-bars fa-2x"></i>
             </button>
-
-
             {
                 user ?
                     <div onMouseLeave={() => setDropdown(true)} className="nav-dropdown" id={dropdown ? "dropdown" : ""}>

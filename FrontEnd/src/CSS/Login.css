@@ -1,11 +1,12 @@
-.login-container{
+.login-container, .signup-container{
 
     width: 600px;
     /* margin-top: -6px; */
     margin: 100px auto;
     background-color: rgb(255, 247, 223);
     overflow: hidden;
-    /* border: 2px solid rgba(255, 136, 0, 0.897); */
+    box-shadow: rgba(60, 64, 67, 0.123) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 25px;
     z-index: 0;
 }
 
@@ -42,8 +43,9 @@
     background-color: rgb(255 247 223);
     color: rgba(255, 136, 0, 0.897);
     border-bottom: 2px solid rgba(255, 136, 0, 0.897);
-    color: rgba(255, 136, 0, 0.897);
-    
+}
+.active-login:hover{
+    border-bottom: 2px solid rgba(255, 136, 0, 0.897);
 }
 
 .login-form{
@@ -95,17 +97,6 @@
 
 
 /********************************CSS for Signup******************************************/
-
-
-.signup-container{
-
-    width: 600px;
-    /* margin-top: -6px; */
-    margin: 90px auto;
-    background-color: rgb(255, 247, 223);
-    overflow: hidden;
-    z-index: 0;
-}
 
 .signin-wraper{
     justify-content: flex-end;
