@@ -15,6 +15,7 @@ import TestPage from './Components/TestPage';
 import Dashboard from './Components/Dashboard';
 import TutorialsPage from './Components/TutorialsPage';
 import TutorialForm from './Components/TutorialForm';
+import TopicForm from './Components/TopicForm';
 
 function App() {
 
@@ -76,8 +77,9 @@ function App() {
           <Route path='/interview-experiences' component={InterviewPage} />
           <Route path='/Test' component={TestPage} />
           <Route path='/user/dashboard' component={Dashboard} />
-          <Route path='/tutorials' component={TutorialsPage} />
-          <Route path='/tutorials-form' component={TutorialForm} />
+          <Route exact path='/tutorials' component={TutorialsPage} />
+          <Route exact path='/tutorials-form' component={TutorialForm} />
+          <Route path='/tutorials/add-topic' component={TopicForm} />
         </Switch>
         <Footer />
       </userContext.Provider>

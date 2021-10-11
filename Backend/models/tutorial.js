@@ -4,7 +4,7 @@ const {Schema} = mongoose
 
 const tutorialSchema = new Schema({
 
-    name:{
+    title:{
         type:String,
         required:true
     },
@@ -16,12 +16,7 @@ const tutorialSchema = new Schema({
         type:String,
         required:true
     },
-    topics:[
-        {
-            type:Schema.Types.ObjectId,
-            ref:'topic'
-        }
-    ]
+    topics:Array
 })
 
 module.exports = mongoose.model('tutorial',tutorialSchema)

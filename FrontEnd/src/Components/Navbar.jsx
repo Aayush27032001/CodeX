@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link,useHistory } from 'react-router-dom'
+import { Link,useHistory,NavLink } from 'react-router-dom'
 import { userContext } from '../context/userContex'
 import { FaUserCircle } from "react-icons/fa";
 import '../CSS/Navbar.css'
@@ -28,11 +28,11 @@ export default function Navbar() {
             </div></Link>
 
             <ul className="nav-items-1" id={linksVisible ? "hidden" : ""}>
-                <li><Link className='nav-items' to='/'>Home</Link></li>
-                <li><Link className='nav-items' to='/blog'>Blog</Link></li>
-                <li><Link className='nav-items' to='/tutorials'>Tutorials</Link></li>
-                <li><Link className='nav-items' to='/Test'>Test</Link></li>
-                <li><Link className='nav-items' to='/interview-experiences'>Interview Experience</Link></li>
+                <li><NavLink activeClassName='active-page' className='nav-items' exact to='/'>Home</NavLink></li>
+                <li><NavLink activeClassName='active-page' className='nav-items' to='/blog'>Blog</NavLink></li>
+                <li><NavLink activeClassName='active-page' className='nav-items' to='/tutorials'>Tutorials</NavLink></li>
+                <li><NavLink activeClassName='active-page' className='nav-items' to='/Test'>Test</NavLink></li>
+                <li><NavLink activeClassName='active-page' className='nav-items' to='/interview-experiences'>Interview Experience</NavLink></li>
 
                 {/* {console.log('idjoidasoi', user)} */}
                 {

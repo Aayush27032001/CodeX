@@ -5,6 +5,7 @@
     margin: 100px auto;
     background-color: rgb(255, 247, 223);
     overflow: hidden;
+    /* border: 2px solid rgba(255, 136, 0, 0.897); */
     z-index: 0;
 }
 
@@ -40,14 +41,14 @@
 .active-login{
     background-color: rgb(255 247 223);
     color: rgba(255, 136, 0, 0.897);
-    box-shadow: none;
+    border-bottom: 2px solid rgba(255, 136, 0, 0.897);
+    color: rgba(255, 136, 0, 0.897);
+    
 }
 
 .login-form{
     margin: 20vh auto;
     width: 60%;
-    /* margin-top: 23vh; */
-    /* border: 3px solid #73AD21; */
     display: flex;
     flex-direction: column;
 }
