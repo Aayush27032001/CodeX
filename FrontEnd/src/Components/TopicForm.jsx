@@ -46,6 +46,7 @@ export default function TopicForm() {
         const newTutorial = JSON.stringify({
             category:Session.get('category'),
             title:Session.get('tutorialTitle'),
+            thumbnail:Session.get('thumbnail'),
             author:user._id,
             topics:[...topics]
         })

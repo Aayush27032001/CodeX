@@ -4,22 +4,19 @@ import '../CSS/TutorialsPage.css'
 import TutorialsCard from './TutorialsCard'
 
 
-function TutorialsPage() {
+function TutorialsPage({tutorials}) {
     return (
         <div className="tutorials-container">
             <div className="create-tutorial">
                 <Link className="create-tutorial-link" to="/tutorials-form">Add Tutorials</Link>
             </div>
             <div className="tutorials-section">
-                <TutorialsCard img="https://www.tutorialspoint.com/images/ant_icon.png" alt="Apache-ant"/>
-                <TutorialsCard img="https://www.tutorialspoint.com/images/java.png" alt="Core Java" />
-                <TutorialsCard img="https://www.tutorialspoint.com/images/python.png" alt="Apache-ant" />
-                <TutorialsCard img="https://www.tutorialspoint.com/images/spring.png" alt="Spring"/>
-                <TutorialsCard img="https://www.tutorialspoint.com/images/hibernate.png" alt="Hibernet"/>
-                <TutorialsCard img="https://www.tutorialspoint.com/images/ant_icon.png" alt="Apache-ant"/>
-                <TutorialsCard img="https://www.tutorialspoint.com/images/ant_icon.png" alt="Apache-ant"/>
-                <TutorialsCard img="https://www.tutorialspoint.com/images/ant_icon.png" alt="Apache-ant"/>
-                <TutorialsCard img="https://www.tutorialspoint.com/images/ant_icon.png" alt="Apache-ant"/>
+                {
+                    tutorials.map((tutorial)=>{
+                        console.log(tutorial.thumbnail)
+                        return <TutorialsCard img={tutorial.thumbnail} alt = {tutorial.title}/>
+                    })
+                }
             </div>
         </div>
     )

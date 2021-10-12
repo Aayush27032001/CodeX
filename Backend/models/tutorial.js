@@ -16,6 +16,7 @@ const tutorialSchema = new Schema({
         type:String,
         required:true
     },
+    thumbnail:String,
     topics:Array
 })
 
