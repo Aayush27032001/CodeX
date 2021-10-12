@@ -15,6 +15,7 @@ import TestPage from './Components/TestPage';
 import Dashboard from './Components/Dashboard';
 import TutorialsPage from './Components/TutorialsPage';
 import TutorialForm from './Components/TutorialForm';
+import TopicForm from './Components/TopicForm';
 import TutorialContent from './Components/TutorialContent';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
 
   const [user, setUser] = useState(null)
   const [blogs, setBlogs] = useState([])
-
+  const [tutorials, setTutorials] = useState([])
+ 
   useEffect(() => {
 
     const getBlogs = async () => {
@@ -30,10 +32,22 @@ function App() {
       const response = await fetch('http://localhost:5000/blogs/allblogs')
       const data = await response.json()
       setBlogs(data.blogs)
-      // console.log("useeff", data)
     }
     getBlogs();
   }, [])
+
+
+  useEffect(async()=>{
+
+    const response = await fetch('http://localhost:5000/tutorials/alltutorials')
+    const data = await response.json()
+    if(data.error){
+      console.log(data.error)
+    }else{
+      console.log('tut',data.tutorials)
+      setTutorials(data.tutorials)
+    }
+  },[])
 
   useEffect(() => {
     const verifyUser = async () => {
@@ -77,9 +91,15 @@ function App() {
           <Route path='/interview-experiences' component={InterviewPage} />
           <Route path='/Test' component={TestPage} />
           <Route path='/user/dashboard' component={Dashboard} />
-          <Route path='/tutorials' component={TutorialsPage} />
-          <Route path='/tutorials-form' component={TutorialForm} />
-          <Route path='/tutorialcontent' component={TutorialContent} />
+
+          <Route exact path='/tutorials' ><TutorialsPage tutorials={tutorials}/></Route>
+          <Route exact path='/tutorials-form' component={TutorialForm} />
+          <Route path='/tutorials/add-topic' component={TopicForm} />
+          {
+            tutorials.map(tutorial =>{
+              return <Route path={`/tutorials/${tutorial._id}`} ><TutorialContent tutorial={tutorial}/></Route>
+            })
+          }
         </Switch>
         <Footer />
       </userContext.Provider>
