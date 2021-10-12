@@ -2,19 +2,30 @@ const express = require('express')
 const router = express.Router();
 const Tutorial = require('../models/tutorial')
 
+
+router.get('/tutorials/alltutorials',async(req,res)=>{
+ 
+    const response = await Tutorial.find({});
+    if(!response){
+        return res.status(422).json({error:'Something went wrong'})
+    }
+    res.json({tutorials:response})
+})
 router.post('/tutorials/postTutorial',async (req,res)=>{
 
-    const {name,author,category} = req.body;
-
-    if(!name || !category){
+    const {title,author,category,thumbnail,topics} = req.body;
+    console.log('topics',topics)
+    if(!title || !category){
         return res.status(422).json({error:'Please fill all fields'})
     }
 
     try{
         let newTutorial = new Tutorial({
-            name,
+            title,
             author,
-            category
+            category,
+            thumbnail,
+            topics
         })
 
         const savedTutorial = await newTutorial.save()

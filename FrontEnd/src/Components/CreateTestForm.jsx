@@ -2,6 +2,7 @@ import React from 'react'
 import "../CSS/CreateTest.css"
 
 function CreateTestForm() {
+    const qestions = [];
 
     return (
         <div className='createtest-form-container'>
@@ -11,6 +12,7 @@ function CreateTestForm() {
                 <input type="text" name="question-option" id="2" className='test-option input-field' placeholder='Option' />
                 <input type="text" name="question-option" id="3" className='test-option input-field' placeholder='Option' />
                 <input type="text" name="question-option" id="4" className='test-option input-field' placeholder='Option' />
+                
             </form>
         </div>
     )

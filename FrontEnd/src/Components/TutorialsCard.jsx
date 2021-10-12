@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 
 function TutorialsCard(props) {
     return (
-        <Link to={props.url}>
+        <Link to={`/tutorials/${props.id}`}>
             <div className="tutorial-card-container">
-                <p className="tutorial-title" alt={props.alt} >{props.alt}</p>
+                
+                <img className="tutorial-title" src={props.img} alt={props.alt} ></img>
             </div>
         </Link>
     )

@@ -3,24 +3,9 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import '../CSS/BlogForm.css'
 import { userContext } from '../context/userContex';
+import {modules,formats} from './moduleFormat'
 
 
-const modules = {
-    toolbar: [
-        // [{header:'1'},{header:'2'},{header:'3'}],
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-        [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-        ['link', 'image'],
-        ['code-block']
-    ],
-}
-const formats = [
-    'header',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
-    'link', 'image', "code-block"
-]
 function BlogForm() {
 
     const {user,setUser} = useContext(userContext)
@@ -28,6 +13,7 @@ function BlogForm() {
     const [title, setTitle] = useState('');
     const [thumbnail, setThumbnail] = useState('')
     const [content, setContent] = useState('');
+    
     const handleChange = (html) => {
         setContent(html)
         console.log(content)
@@ -100,10 +86,6 @@ function BlogForm() {
                 />
                 <input type="submit" value='Post' />
             </form>
-
-            <img src={thumbnail} alt="" />
-            <p>{content}</p>
-            <div dangerouslySetInnerHTML={{ __html: content }}></div>
         </div>
     )
 }

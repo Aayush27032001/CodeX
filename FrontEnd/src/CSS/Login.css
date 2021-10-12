@@ -42,7 +42,7 @@
 .active-login{
     background-color: rgb(255 247 223);
     color: rgba(255, 136, 0, 0.897);
-    /* border-bottom: 2px solid rgba(255, 136, 0, 0.897); */
+    border-bottom: 2px solid rgba(255, 136, 0, 0.897);
 }
 .active-login:hover{
     border-bottom: 2px solid rgba(255, 136, 0, 0.897);
@@ -51,8 +51,6 @@
 .login-form{
     margin: 20vh auto;
     width: 60%;
-    /* margin-top: 23vh; */
-    /* border: 3px solid #73AD21; */
     display: flex;
     flex-direction: column;
 }
@@ -100,18 +98,6 @@
 
 
 /********************************CSS for Signup******************************************/
-
-
-/* .signup-container{
-
-    width: 600px;
-    box-shadow: rgba(60, 64, 67, 0.123) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    margin: 90px auto;
-    border-radius: 25px;
-    background-color: rgb(255, 247, 223);
-    overflow: hidden;
-    z-index: 0;
-} */
 
 .signin-wraper{
     justify-content: flex-end;
