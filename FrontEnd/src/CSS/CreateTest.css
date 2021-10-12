@@ -1,0 +1,38 @@
+.TestForm-conatiner{
+    margin-top: 70px;
+}
+
+.createtest-form-container{
+    width: 600px;
+    /* margin-top: -6px; */
+    
+    margin: 100px auto;
+    background-color: rgb(255, 247, 223);
+    overflow: hidden;
+    box-shadow: rgba(60, 64, 67, 0.123) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 25px;
+    z-index: 0;
+}
+
+.createtest-form{
+    margin: 30px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.test-option{
+    margin-top: 20px;
+}
+
+.test-question{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px 20px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+    border-bottom: solid orange;
+}
+
+
+/*================================Create Test Form CSS ========================================= */

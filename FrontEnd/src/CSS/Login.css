@@ -64,6 +64,7 @@
 .input-field{
     border: solid rgba(235, 235, 235, 0.767) 0.5px;
     padding: 15px;
+    color: rgb(85, 85, 85);
     border-radius: 30px;
     margin: 15px 0px;
     background-color: rgb(255, 255, 255);
