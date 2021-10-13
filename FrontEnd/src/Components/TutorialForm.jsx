@@ -1,42 +1,137 @@
-import {useState,useContext} from 'react'
+import { useState, useContext } from 'react'
 import Session from 'react-session-api'
 import '../CSS/TutorialForm.css'
 import { userContext } from '../context/userContex';
-import { useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import { storage } from '../firebase'
 function TutorialForm() {
 
     const [category, setCategory] = useState('')
     const [title, setTitle] = useState('')
     const [image, setImage] = useState('');
-    // const {user,setUser} = useContext(userContext)
+    const [progress, setProgress] = useState(0)
+    const [thumbnail, setThumbnail] = useState('')
+    const {user,setUser} = useContext(userContext)
+
     const history = useHistory()
 
-    const submit = async (e)=>{
-        e.preventDefault()
+    const handleImage = (file) => {
 
-        const data = new FormData()
-        data.append('file', image)
-        data.append('upload_preset', 'codex_blog_thumbnail')
+        console.log(typeof file.name)
 
-        const res = await fetch('https://api.cloudinary.com/v1_1/codex-cloud/image/upload', {
-            method: "post",
-            body: data
-        })
-
-        const img = await res.json()
-        // setThumbnail(img.secure_url)
-        console.log(img.secure_url)
-        Session.set('thumbnail',img.secure_url)
-        Session.set('category',category);
-        Session.set('tutorialTitle',title);
-        
-        console.log(Session.get('category'))
-        // window.location.href = '/tutorials/add-topic'
-        history.push('/tutorials/add-topic') 
+        const ext = file.name.split(".").pop().toLowerCase()
+        console.log(ext === 'png')
+        if (ext === 'png') {
+            setImage(file)
+        } else {
+            console.log('only png is allowed')
+            setImage('')
+        }
     }
+    // const submit = async (e) => {
+    //     e.preventDefault()
+
+    //     const data = new FormData()
+    //     data.append('file', image)
+    //     data.append('upload_preset', 'codex_blog_thumbnail')
+
+    //     const uploadTask = storage.ref(`codex-image/${image.name}`).put(image);
+    //     uploadTask.on(
+    //         "state_changed",snapshot => {
+    //             const progress = Math.round(
+    //                 (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    //             );
+    //             setProgress(progress);
+    //         },
+    //         error => {
+    //             console.log(error);
+    //         },
+    //         () => {
+    //             storage
+    //                 .ref("codex-image")
+    //                 .child(image.name)
+    //                 .getDownloadURL()
+    //                 .then(url => {
+    //                     console.log(url)
+
+    //                     Session.set('thumbnail', url)
+    //                     Session.set('category', category);
+    //                     Session.set('tutorialTitle', title);
+
+    //                     console.log(Session.get('category'))
+    //                     history.push('/tutorials/add-topic')
+    //                 });
+    //         }
+    //     );
+
+    // }
+
+
+    const postTutorial = async(e)=>{
+
+        e.preventDefault()
+        const newTutorial = JSON.stringify({
+            category,
+            title,
+            thumbnail,
+            author:user._id,
+        })
+        const response = await fetch('http://localhost:5000/tutorials/postTutorial',{
+
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: newTutorial
+        });
+
+        const data = await response.json();
+
+        if(data.error){
+            console.log(data.error);
+        }else{
+            console.log(data)
+            history.push({
+                pathname:'/tutorials/add-topic',
+                state:{
+                    tut_id:data.tutorial._id
+                }
+            })
+        }
+
+    }
+
+    const handleUpload = (e) => {
+        e.preventDefault()
+        console.log(image.name)
+        const uploadTask = storage.ref(`codex-image/${image.name}`).put(image);
+        uploadTask.on(
+            "state_changed",
+            snapshot => {
+                const progress = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+                setProgress(progress);
+            },
+            error => {
+                console.log(error);
+            },
+            () => {
+                storage
+                    .ref("codex-image")
+                    .child(image.name)
+                    .getDownloadURL()
+                    .then(url => {
+                        console.log(url)
+                        setThumbnail(url);
+                    });
+            }
+        );
+    };
     return (
         <div className="tutorial-form-conatiner">
-            <form className="tutorial-form" onSubmit={(e)=>submit(e)}>
+            {console.log('image', image)}
+            <form className="tutorial-form" onSubmit={(e) =>postTutorial(e)}>
 
                 <select className="input-field" onChange={e => setCategory(e.target.value)}>
                     <option value="Category" selected>Category </option>
@@ -50,12 +145,31 @@ function TutorialForm() {
                     className="input-field"
                     type="text"
                     placeholder="Title"
-                    onChange={(e)=>setTitle(e.target.value)}
+                    onChange={(e) => setTitle(e.target.value)}
                 />
-                <input type="file"
-                    accept="image/*"
-                    className="image-upload"
-                    onChange={(e) => setImage(e.target.files[0])} />
+
+                <div className='file-progress-container'>
+                    <div>
+                        <progress value={progress} max="100" />
+                        {image ? image.name : ''}
+                    </div>
+                    <div className='pick-upload-container'>
+                        <label htmlFor="file-upload" className='choose-image'>
+                            Choose Image
+                            <input type="file"
+                                accept=".png"
+                                className="image-upload"
+                                id='file-upload'
+                                onChange={(e) => handleImage(e.target.files[0])}
+                            />
+                        </label>
+                        <button className='upload-button' type='button' onClick={e => handleUpload(e)}>
+                            Upload
+                        </button>
+                    </div>
+
+                </div>
+
                 <input
                     className="form-btn"
                     type="submit"

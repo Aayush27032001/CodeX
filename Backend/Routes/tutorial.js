@@ -5,11 +5,16 @@ const Tutorial = require('../models/tutorial')
 
 router.get('/tutorials/alltutorials',async(req,res)=>{
  
-    const response = await Tutorial.find({});
-    if(!response){
-        return res.status(422).json({error:'Something went wrong'})
+    try{
+        const response = await Tutorial.find({}).populate('topics').exec();
+        if(!response){
+            return res.status(422).json({error:'Something went wrong'})
+        }
+        res.json({tutorials:response})
+    }catch(err){
+        console.log(err)
     }
-    res.json({tutorials:response})
+    
 })
 router.post('/tutorials/postTutorial',async (req,res)=>{
 

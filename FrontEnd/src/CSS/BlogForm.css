@@ -7,6 +7,35 @@
     margin: 150px auto;
 }
 
+input[type='file']{
+    display: none;
+}
+.pick-upload-container{
+    display: flex;
+    flex-direction: row;
+}
+.choose-image,.upload-button{
+    padding:10px 25px;
+    font-weight: bold;
+    text-decoration:none;
+    color: white;
+    width: 170px;
+    border-radius: 30px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: rgba(255, 136, 0, 0.897);
+}
+.upload-button{
+    outline: none;
+    border: none;
+    margin-left: 15px;
+}
+.file-progress-container{
+    margin: 10px 0;
+}
+
+progress{
+    margin-left: 5px;
+}
 input[type='submit']{
     border: none;
     outline: none;

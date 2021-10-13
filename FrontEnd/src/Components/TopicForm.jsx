@@ -5,7 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import '../CSS/BlogForm.css'
 import { userContext } from '../context/userContex';
 import {modules,formats} from './moduleFormat'
-import { useHistory} from 'react-router-dom'
+import { useHistory,useLocation} from 'react-router-dom'
 
 export default function TopicForm() {
 
@@ -14,6 +14,7 @@ export default function TopicForm() {
     const [topics,setTopics] = useState([])
     const {user,setUser} = useContext(userContext)
     const history = useHistory()
+    const location = useLocation()
     const handleChange = (html) => {
         setContent(html)
         console.log(content)
@@ -39,39 +40,41 @@ export default function TopicForm() {
     useEffect(()=>{
         console.log(topics)
     },[topics])
-    const postTutorial = async(e)=>{
+    const postTopic = async(e,addMoreTopic)=>{
 
         e.preventDefault()
-        console.log(e.submitter)
-        const newTutorial = JSON.stringify({
-            category:Session.get('category'),
-            title:Session.get('tutorialTitle'),
-            thumbnail:Session.get('thumbnail'),
-            author:user._id,
-            topics:[...topics]
+        const newTopic = JSON.stringify({
+            title,
+            content
         })
-        const response = await fetch('http://localhost:5000/tutorials/postTutorial',{
+        console.log('tut_id',location.state.tut_id)
+        const response = await fetch(`http://localhost:5000/tutorials/${location.state.tut_id}/topics/postTopic`,{
 
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: newTutorial
+            body: newTopic
         });
 
         const data = await response.json();
-
+        console.log('posted topic')
         if(data.error){
             console.log(data.error);
         }else{
             console.log(data)
-            history.push('/tutorials')
+            if(!addMoreTopic)history.push(`/tutorials/${location.state.tut_id}`)
+            else{
+                setTitle('')
+                setContent('')
+            }
         }
 
     }
     return (
         <div>
-            <form className='blog-form' onSubmit={(e)=>postTutorial(e)}>
+            <form className='blog-form' onSubmit={(e)=>postTopic(e,false)}>
+                { location.state ? console.log('loc',location.state) : null}
                 <input type="text"
                     placeholder='Title'
                     onChange={(e) => setTitle(e.target.value)} 
@@ -85,9 +88,9 @@ export default function TopicForm() {
                     value={content}
                     onChange={(e) => handleChange(e)}
                 />
-                <button type='button' onClick={()=>saveTopic(true)}>Save and Add Topic</button>
-                <button type='button' onClick={()=>saveTopic(false)}>Save</button>
-                <input type="submit" value='Publish' />
+                <button type='button' onClick={(e)=>postTopic(e,true)}>Save and Add Topic</button>
+                {/* <button type='button' onClick={()=>saveTopic(false)}>Save</button> */}
+                <input type="submit" value='Save' />
             </form>
         </div>
     )
