@@ -6,7 +6,7 @@ const blog = require("../models/blog")
 
 router.post('/blogs/createBlogs', async (req, res) => {
 
-    const { title, author, thumbnail, content } = req.body;
+    const { title, author, thumbnail, description, content } = req.body;
 
     if (!title || !thumbnail || !content) {
         console.log('fill all fields')
@@ -14,6 +14,7 @@ router.post('/blogs/createBlogs', async (req, res) => {
     }
     const newBlog = new blog({
         title,
+        description,
         author,
         thumbnail,
         content
@@ -35,11 +36,53 @@ router.get('/blogs/allblogs', async (req, res) => {
 
     try {
         const blogs = await blog.find({})
-        .populate('author')
-        .populate('comments')
-        .exec()
+            .populate('author')
+            .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
+            .sort({ createdAt: -1 })
+            .exec()
 
         if (blogs) {
+            // console.log(blogs)
+            return res.json({ blogs })
+        }
+        res.json({ error: "Something went wrong!" })
+    } catch (e) {
+        console.log(e, 'this is error')
+    }
+
+})
+
+router.get('/blogs/:id', async (req, res) => {
+
+    try {
+        const blogs = await blog.findById(req.params.id)
+            .populate('author')
+            .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
+            .sort({ createdAt: -1 })
+            .exec()
+
+        if (blog) {
+            // console.log(blogs)
+            return res.json({ blogs })
+        }
+        res.json({ error: "Something went wrong!" })
+    } catch (e) {
+        console.log(e)
+    }
+
+})
+
+
+router.get('/blogs/find-user-blog/:user_id', async (req, res) => {
+
+    try {
+        const blogs = await blog.find({ author: req.params.user_id })
+            .populate('author')
+            .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
+            .sort({ createdAt: -1 })
+            .exec()
+
+        if (blog) {
             // console.log(blogs)
             return res.json({ blogs })
         }

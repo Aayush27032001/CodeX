@@ -17,7 +17,12 @@ const tutorialSchema = new Schema({
         required:true
     },
     thumbnail:String,
-    topics:Array
+    topics:[
+        {
+            type:Schema.Types.ObjectId,
+            ref:'topic'
+        }
+    ]
 })
 
 module.exports = mongoose.model('tutorial',tutorialSchema)

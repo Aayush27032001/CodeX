@@ -8,6 +8,7 @@ export default function InfoBlog({ blog }) {
 
     const [comment, setComment] = useState('')
     const { user, setUser } = useContext(userContext)
+    const [currentBlog,setCurrentBlog] = useState(blog)
     const postComment = async (e) => {
 
         e.preventDefault()
@@ -28,6 +29,10 @@ export default function InfoBlog({ blog }) {
                 console.log(data.error)
             } else {
                 console.log(data.message)
+                const response = await fetch(`http://localhost:5000/blogs/${blog._id}`);
+                const foundBlog = await response.json()
+                setCurrentBlog(foundBlog.blogs)
+                console.log(foundBlog.blogs)
             }
             // console.log(data)
         } catch (err) {
@@ -42,13 +47,13 @@ export default function InfoBlog({ blog }) {
     return (
 
         <div className='blog-info-container'>
-            {console.log("Date format", format(new Date(blog.createdAt), 'MMM'))}
-            <h1 className="blog-title">{blog.title}</h1>
-            <p>Posted on <b>{format(new Date(blog.createdAt), 'MMM dd, yyyy')}</b>, By <b>{blog.author.username}</b></p>
+            {console.log(currentBlog)}
+            <h1 className="blog-title">{currentBlog.title}</h1>
+            <p>Posted on <b>{format(new Date(currentBlog.createdAt), 'MMM dd, yyyy')}</b>, By <b>{currentBlog.author.username}</b></p>
 
             <div className='info-blog-body'>
 
-                <div dangerouslySetInnerHTML={{ __html: blog.content }}></div>
+                <div dangerouslySetInnerHTML={{ __html: currentBlog.content }}></div>
 
                 <div className="blog-slider">
                     <button className='blog-slider slider-prev'>
@@ -79,9 +84,10 @@ export default function InfoBlog({ blog }) {
             <h2>Comments:</h2>
             <div className="comment-area">
 
-                {console.log(blog.comments)}
+                {console.log(currentBlog.comments)}
                 {
-                    blog.comments.map(comment => {
+                    currentBlog.comments.lenght > 0 ?
+                    currentBlog.comments.map(comment => {
                         console.log('author',comment.author)
                         return (
                             <div key={comment._id}>
@@ -89,7 +95,7 @@ export default function InfoBlog({ blog }) {
                                 <p>{comment.content}</p>
                             </div>
                         )
-                    })
+                    }):null
                 }
             </div>
 

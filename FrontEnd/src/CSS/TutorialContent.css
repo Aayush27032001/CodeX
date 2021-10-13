@@ -33,6 +33,16 @@
     color: rgba(255, 136, 0, 0.897);
 }
 
+.create-topic{
+    padding:10px 15px;
+    font-weight: bold;
+    text-decoration:none;
+    color: white;
+    border-radius: 30px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: rgba(255, 136, 0, 0.897);
+}
+
 .tutorial-main{
     display: flex;
     flex-direction: column;
