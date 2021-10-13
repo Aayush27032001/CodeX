@@ -9,11 +9,6 @@ const isLoggedIn = require('../middleware/requireLogin')
 
 dotenv.config()
 
-router.get("/", (req, res) => {
-
-    res.send("Hello World!");
-})
-
 router.post('/signup', async (req, res) => {
 
     const { username, email, role, password } = req.body;
