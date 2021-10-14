@@ -1,11 +1,14 @@
 .blog-form{
-
-    margin-top: 100px;
-    width: 700px;
+    margin: 100px 5%;
     display: flex;
+    justify-self: center;
     flex-direction: column;
-    margin: 150px auto;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: rgba(60, 64, 67, 0.123) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
+
+
 
 input[type='file']{
     display: none;
@@ -34,14 +37,23 @@ input[type='file']{
 }
 
 progress{
-    margin-left: 5px;
+    
+    height: 25px;
+    width: 25px;
+    border-radius: 50px;
+    border:none;
 }
-input[type='submit']{
-    border: none;
-    outline: none;
-    color: #fff;
-    font-weight: 600;
-    background-image:linear-gradient(-90deg, rgba(255, 192.01810598373413, 0, 1) 0%,rgb(246, 109, 17) 100%) ;
+.progress-div{
+    display: flex;
+    margin-left: 20px;
+    border: 0px;
+    align-items: center;
+    border-radius:50px ;
+    overflow: hidden;
+}
+.progress-container{
+    display: flex;
+    align-items: center;
 }
 
 ::-webkit-file-upload-button{
@@ -51,7 +63,55 @@ input[type='submit']{
     border: none;
 }
 
+.blog-title-input , .blog-description-input{
+    margin-top: 15px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+    border-bottom: solid rgba(216, 216, 216, 0.692) 2px;
+    transition: border 100ms;
+}
+.blog-title-input:focus, .blog-description-input:focus{
+    outline: none;
+    font-weight: 600;
+    border-bottom: solid orange 3px;
+}
+
+.btn-blog-post{
+    margin: 10px 0px;
+    width:min-content;
+    padding: 10px 25px;
+    font-family: Roboto;
+    border-radius: 35px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: rgb(255, 136, 0);
+}
+
+.ql-toolbar.ql-snow{
+    padding: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin:0px;
+    border: none;
+}
+.ql-formats{
+    font-size: 18px;
+    font-family: Roboto;
+}
+
+.ql-picker-item{
+    color: rgb(56, 55, 54);
+}
+
 .ql-toolbar{
+    margin: 0px;
     background-image:linear-gradient(-90deg, rgba(255, 192.01810598373413, 0, 1) 0%,rgb(246, 109, 17) 100%) ;
 }
 .ql-toolbar .ql-stroke{
@@ -71,6 +131,9 @@ input[type='submit']{
     color: #fff;
 }
 .ql-editor{
-
-    min-height: 200px
+    min-height: 300px
+}
+div.ql-container.ql-snow{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }

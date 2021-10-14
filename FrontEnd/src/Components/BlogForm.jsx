@@ -19,7 +19,7 @@ function BlogForm() {
     const [thumbnail, setThumbnail] = useState('')
     const [content, setContent] = useState('');
     const history = useHistory()
-    
+
     const handleChange = (html) => {
         setContent(html)
         console.log(content)
@@ -127,21 +127,19 @@ function BlogForm() {
         <div>
             <form className='blog-form' onSubmit={e => postBlog(e)}>
                 {console.log('thumbnail', thumbnail)}
-                <input type="text"
+                <input className='blog-title-input' type="text"
                     placeholder='Title'
                     onChange={(e) => setTitle(e.target.value)}
                 />
 
-                <input type="text"
+                <input className='blog-description-input' type="text"
                     placeholder='Description'
                     onChange={(e) => setDescription(e.target.value)}
                 />
 
+
                 <div className='file-progress-container'>
-                    <div>
-                        <progress value={progress} max="100" />
-                        {image ? image.name : ''}
-                    </div>
+
                     <div className='pick-upload-container'>
                         <label htmlFor="file-upload" className='choose-image'>
                             Choose Image
@@ -154,6 +152,10 @@ function BlogForm() {
                         <button className='upload-button' type='button' onClick={e => handleUpload(e)}>
                             Upload
                         </button>
+                        <div className='progress-container'>
+                            <div className='progress-div'><progress value={progress} max="100" /></div>
+                            {image ? image.name : ''}
+                        </div>
                     </div>
 
                 </div>
@@ -164,7 +166,7 @@ function BlogForm() {
                     modules={modules}
                     onChange={(e) => handleChange(e)}
                 />
-                <input type="submit" value='Post' />
+                <input className='btn-blog-post' type="submit" value='Post' />
             </form>
         </div>
     )

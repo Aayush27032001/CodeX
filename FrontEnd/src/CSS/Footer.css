@@ -3,7 +3,7 @@
 
 .footer-container{
     display: flex;
-    
+    bottom: 0px;
     margin:0%;
     height: 220px;
     background-color: rgb(58, 58, 58);

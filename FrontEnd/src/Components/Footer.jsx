@@ -4,7 +4,6 @@ import '../CSS/Footer.css'
 export default function Footer() {
     return (
         <div className='footer-container'>
-
             <div className="left">
                 <h6 className='footer-text'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, quibusdam.

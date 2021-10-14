@@ -1,18 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 .tutorials-container{
     margin-top: 70px;
     background-color: rgba(255, 255, 255, 0.37);
 }
 
-.create-tutorial{
+.tutorial-flex{
+    margin-bottom: 70px;
     display: flex;
-    justify-content: flex-end;
-    right: 0%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 500px;
+    background-image:linear-gradient(0deg, rgba(255, 191, 0, 0) 0%,rgb(255, 136, 0) 100%) ;
 }
+
+.tutorial-flex-image{
+    margin-right: 90px;
+    width:40%;
+    display: flex;
+    justify-content: center;
+}
+
+.tutorial-flex-text{
+    font-size: 35px;
+    padding-bottom:20px ;
+    color: rgb(80, 80, 80);
+    font-family: 'Oswald', sans-serif;
+    font-style: italic;
+    font-weight:600;
+}
+.create-tutorial{
+    margin-left: 110px;
+}
+
 .create-tutorial-link{
-    margin-right: 50px;
-    margin-top: 30px;
     padding:10px 15px;
     font-weight: bold;
     text-decoration:none;
