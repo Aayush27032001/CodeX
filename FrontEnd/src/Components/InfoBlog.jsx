@@ -86,7 +86,7 @@ export default function InfoBlog({ blog }) {
 
                 {console.log(currentBlog.comments)}
                 {
-                    currentBlog.comments.lenght > 0 ?
+                    currentBlog.comments.length > 0 ?
                     currentBlog.comments.map(comment => {
                         console.log('author',comment.author)
                         return (
