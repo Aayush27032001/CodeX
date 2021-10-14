@@ -44,6 +44,10 @@ input[type='submit']{
     background-image:linear-gradient(-90deg, rgba(255, 192.01810598373413, 0, 1) 0%,rgb(246, 109, 17) 100%) ;
 }
 
+.uploaded-image{
+    width: 150px;
+    height: 100px;
+}
 ::-webkit-file-upload-button{
     color: #fff;
     background-image:linear-gradient(-90deg, rgba(255, 192.01810598373413, 0, 1) 0%,rgb(246, 109, 17) 100%) ;

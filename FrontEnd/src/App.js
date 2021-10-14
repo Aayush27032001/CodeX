@@ -7,9 +7,9 @@ import Login from './Components/Login';
 import Signup from './Components/Signup';
 import Home from './Components/Home';
 import Footer from './Components/Footer';
-import BlogPage from './Components/BlogPage'
-import InfoBlog from './Components/InfoBlog';
-import BlogForm from './Components/BlogForm'
+import BlogPage from './Components/Blogs/BlogPage/BlogPage'
+import InfoBlog from './Components/Blogs/BlogContent/BlogContent';
+import BlogForm from './Components/Blogs/BlogForm/BlogForm'
 import InterviewPage from './Components/InterviewPage';
 import TestPage from './Components/TestPage';
 import Dashboard from './Components/Dashboard';
@@ -18,6 +18,7 @@ import TutorialForm from './Components/TutorialForm';
 import TopicForm from './Components/TopicForm';
 import TutorialContent from './Components/TutorialContent';
 import CreateTest from './Components/CreateTest';
+import EditBlog from './Components/Blogs/EditBlog/EditBlog';
 
 function App() {
 
@@ -81,6 +82,7 @@ function App() {
                     <Route path='/student/signup' ><Signup role='Student' /></Route>
                     <Route path='/teacher/signup' ><Signup role='Teacher' /></Route>
                     <Route path='/blog'><BlogPage blogs={blogs} /></Route>
+                    <Route path='/blogs/edit'><EditBlog/></Route>
                     <Route path='/createBlog' component={BlogForm} />
                     {
                         blogs.map((blog) => {
