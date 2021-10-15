@@ -2,7 +2,7 @@ import { useState,useContext,useEffect } from 'react'
 import ReactQuill from 'react-quill'
 import Session from 'react-session-api'
 import 'react-quill/dist/quill.snow.css';
-import '../CSS/BlogForm.css'
+// import '../CSS/BlogForm.css'
 import { userContext } from '../context/userContex';
 import {modules,formats} from './moduleFormat'
 import { useHistory,useLocation} from 'react-router-dom'

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import '../CSS/TutorialsPage.css'
-import TutorialsCard from './TutorialsCard'
-import tutorialimg from "../assets/1\ \(2\).png"
+import './TutorialsPage.css'
+import TutorialsCard from '../TutorialCard/TutorialsCard'
+import tutorialimg from "../../../assets/1\ \(2\).png"
 
 
 function TutorialsPage({ tutorials }) {
