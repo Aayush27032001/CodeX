@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import "../CSS/TutorialContent.css"
+import "./TutorialContent.css"
 import { useHistory } from 'react-router-dom'
 function TutorialContent({ tutorial }) {
-
     const { topics } = tutorial;
     const [activeTopic, setActiveTopic] = useState(topics[0]);
     const history = useHistory()

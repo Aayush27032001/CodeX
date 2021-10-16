@@ -31,7 +31,6 @@
 }
 .create-blog-link{
     /* margin-right: 50px; */
-    margin-left: 10px;
     margin-top: 30px;
     padding:10px 15px;
     font-weight: bold;
@@ -47,7 +46,8 @@
 
 .blog-container{
     display: grid;
-    margin: 50px auto;
+    padding: 50px 0px;
+    margin: 0px auto;
     grid-template-columns: repeat(3,1fr);
     width: 95%;
 }

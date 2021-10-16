@@ -1,77 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
-
 
 .footer-container{
-    display: flex;
-    
-    margin:0%;
-    height: 220px;
-    background-color: rgb(58, 58, 58);
-}
-
-.left{
-    display: flex;
-    flex-direction: column;
-    color: rgb(195, 195, 195);
-    padding-right: 20px;
-}
-.left p{
-    display: flex;
-    padding-left: 37em;
-    font-family: Abel;
-    font-size: 14px;
-    margin:-1px;
-}
-.quicklinks{
-    margin-top: -7.5em;
-}
-
-.right{
-    display: flex;
-    flex-direction: column;
-    color: rgb(195, 195, 195);
-    padding-left: 20px;
-    margin-top: 8em;
-}
-.right p{
-    justify-content: flex-start;
-    font-family: Abel;
-    font-size: 14px;
-    margin:-1px;
-    display: flex;
-}
-
-.fab{
-    margin: 10px 10px;
-}
-
-.social-links{
-    margin-top: -3em;
-    margin-left: 15px;
-}
-
-.footer-text{
-    margin: 4em 2em ;
-    width: 350px;
-    font-size: 14px;
-}
-
-.fa-facebook{
-    background-color: white;
-    border-radius: 100%;
-    font-size: 25px;
-    color: rgba(39, 46, 174, 1);
-}
-
-.fa-twitter{
-    font-size: 25px;
-    color: rgba(21, 144, 216, 1);
-}
-
-.fa-youtube{
-    padding: 3px;
-    background-color: white;
-    border-radius: 100%;
-    font-size: 22px;
-    color: rgba(208, 2, 27, 1);
+    position: absolute;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background-color: rgb(97, 97, 97);
 }

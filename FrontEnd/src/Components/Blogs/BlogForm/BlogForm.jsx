@@ -42,7 +42,7 @@ function BlogForm() {
             thumbnail,
             content
         }
-        postBlog(e, 'http://localhost:5000/blogs/createBlogs', newBlog,'post');
+        postBlog(e, 'http://localhost:5000/blogs/createBlogs', newBlog, 'post');
         setTitle('')
         setDescription('')
         setThumbnail('')
@@ -53,22 +53,18 @@ function BlogForm() {
     return (
         <div>
             <form className='blog-form' onSubmit={e => postBlogData(e)}>
-                {console.log('thumbnail in blogform', thumbnail)}
-                <input type="text"
+                {console.log('thumbnail', thumbnail)}
+                <input className='blog-title-input' type="text"
                     placeholder='Title'
                     onChange={(e) => setTitle(e.target.value)}
                 />
 
-                <input type="text"
+                <input className='blog-description-input' type="text"
                     placeholder='Description'
                     onChange={(e) => setDescription(e.target.value)}
                 />
 
                 <div className='file-progress-container'>
-                    <div>
-                        <progress value={progress} max="100" />
-                        {image ? image.name : ''}
-                    </div>
                     <div className='pick-upload-container'>
                         <label htmlFor="file-upload" className='choose-image'>
                             Choose Image
@@ -78,28 +74,45 @@ function BlogForm() {
                                 id='file-upload'
                                 onChange={(e) => setImage(handleImage(e.target.files[0]))} />
                         </label>
-                        <button
-                            className='upload-button'
-                            type='button'
-                            onClick={e => {
-                                handleImageUpload(e, image, setProgressValue, setThumbnailValue)
-                            }}>
+                        <button className='upload-button' type='button' onClick={e => {
+                            handleImageUpload(e, image, setProgressValue, setThumbnailValue)
+                        }}>
                             Upload
                         </button>
+                        <div className='progress-container'>
+                            <div className='progress-div'><progress value={progress} max="100" /></div>
+                            <div className="uploaded-blog-image">
+                                {thumbnail ?
+                                    < img className='uploaded-image' width="100%" src={thumbnail} alt="" />
+                                    : <img className="uploaded-image" src="https://via.placeholder.com/400x300" alt="" />
+                                }
+                            </div>
+                            <div style={{ marginLeft: 10 }}>
+                                {image ?
+                                    image.name
+                                    : ''
+                                }
+                            </div>
+                        </div>
                     </div>
 
+                    <ReactQuill
+                        value={content}
+                        formats={formats}
+                        modules={modules}
+                        onChange={(html) => setContent(html)}
+                    />
+                    <input className='btn-blog-post' type="submit" value='Post' />
                 </div>
-
-                <ReactQuill
-                    value={content}
-                    formats={formats}
-                    modules={modules}
-                    onChange={(html) => setContent(html)}
-                />
-                <input type="submit" value='Post' />
             </form>
         </div>
     )
 }
 
 export default BlogForm;
+
+{/* onClick = { e => {
+    handleImageUpload(e, image, setProgressValue, setThumbnailValue)
+}}
+
+//image */}

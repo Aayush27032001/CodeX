@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import '../CSS/CoursesCard.css'
+import './CoursesCard.css'
 
-import img2 from "../assets/course-image.jpg"
+import img2 from "../../../assets/course-image.jpg"
 
 class CoursesCard extends Component {
     render() {

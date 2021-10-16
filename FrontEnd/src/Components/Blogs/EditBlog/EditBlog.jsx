@@ -45,7 +45,7 @@ export default function EditBlog() {
             content
         }
         console.log(blog._id)
-        await postBlog(e, `http://localhost:5000/blogs/${blog._id}/edit`, newBlog,'put');
+        await postBlog(e, `http://localhost:5000/blogs/${blog._id}/edit`, newBlog, 'put');
         // console.log(saved successf)
         // setTitle('')
         // setDescription('')
@@ -60,25 +60,19 @@ export default function EditBlog() {
                 {console.log('thumbnail in blogform', thumbnail)}
                 <input type="text"
                     placeholder='Title'
+                    className='blog-title-input'
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
 
                 <input type="text"
                     placeholder='Description'
+                    className='blog-description-input'
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
 
                 <div className='file-progress-container'>
-                    <div>
-                        <progress value={progress} max="100" />
-                        {console.log('image name', image)}
-                        {image ? 
-                            < img className='uploaded-image' src={image} alt="" />
-                            :''
-                        }
-                    </div>
                     <div className='pick-upload-container'>
                         <label htmlFor="file-upload" className='choose-image'>
                             Choose Image
@@ -96,6 +90,17 @@ export default function EditBlog() {
                             }}>
                             Upload
                         </button>
+
+                        <div className='progress-container'>
+                            <progress className='progress-div' value={progress} max="100" />
+                            {console.log('image name', thumbnail)}
+                            <div className="uploaded-blog-image">
+                            {thumbnail ?
+                                < img className='uploaded-image' width="100%" src={thumbnail} alt="" />
+                                : ''
+                            }
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -106,7 +111,7 @@ export default function EditBlog() {
                     modules={modules}
                     onChange={(html) => setContent(html)}
                 />
-                <input type="submit" value='Update' />
+                <input className='btn-blog-post' type="submit" value='Update' />
             </form>
         </div>
     )

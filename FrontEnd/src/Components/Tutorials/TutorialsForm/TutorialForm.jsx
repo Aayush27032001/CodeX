@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react'
 import Session from 'react-session-api'
-import '../CSS/TutorialForm.css'
-import { userContext } from '../context/userContex';
+import './TutorialForm.css'
+import { userContext } from '../../../context/userContex';
 import { useHistory } from 'react-router-dom'
-import { storage } from '../firebase'
+import { storage } from '../../../firebase'
 function TutorialForm() {
 
     const [category, setCategory] = useState('')
