@@ -24,7 +24,7 @@ function BlogPage({ blogs }) {
                 {
                     blogs.map((blog) => {
 
-                        console.log(blog)
+                        // console.log(blog)
                         return <Cards key={blog._id} blog={blog} />
                     })
                 }

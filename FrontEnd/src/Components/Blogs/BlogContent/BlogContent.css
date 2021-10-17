@@ -27,6 +27,11 @@ p img{
     color: rgba(255, 136, 0, 0.897);
     font-size: 50px;
 }
+.blog-title-edit-container{
+
+    display: flex;
+    justify-content: space-between;
+}
 .blog-edit{
     cursor: pointer;
     padding:10px 15px;

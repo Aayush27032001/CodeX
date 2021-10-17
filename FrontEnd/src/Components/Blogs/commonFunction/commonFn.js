@@ -57,7 +57,8 @@ export const postBlog = async (e, url,blog,method) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: newBlog
+            body: newBlog,
+            credentials: 'include'
         })
         const res_data = await resp.json()
         if (res_data.error) {

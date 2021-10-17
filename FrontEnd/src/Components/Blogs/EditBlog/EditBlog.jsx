@@ -40,7 +40,7 @@ export default function EditBlog() {
 
             title,
             description,
-            author: user._id,
+            author: blog.author._id,
             thumbnail,
             content
         }

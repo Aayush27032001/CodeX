@@ -51,21 +51,28 @@ export default function InfoBlog({ blog }) {
 
         <div className='blog-info-container'>
             {console.log(currentBlog)}
-            <div>
+            <div className='blog-title-edit-container'>
                 <h1 className="blog-title">{currentBlog.title}</h1>
-                <span
-                    className='blog-edit'
-                    onClick={() => {
-                        history.push({
-                            pathname: `/blogs/edit`,
-                            state: {
-                                blog
-                            }
-                        })
-                    }}
-                >
-                    Edit
-                </span>
+                {
+                    user ?
+                        user._id === currentBlog.author._id ?
+                            <span
+                                className='blog-edit'
+                                onClick={() => {
+                                    history.push({
+                                        pathname: `/blogs/edit`,
+                                        state: {
+                                            blog
+                                        }
+                                    })
+                                }}
+                            >
+                                Edit
+                            </span>
+                            : null
+                        : null
+                }
+
             </div>
             <p>Posted on <b>{format(new Date(currentBlog.createdAt), 'MMM dd, yyyy')}</b>, By <b>{currentBlog.author.username}</b></p>
 
@@ -102,9 +109,9 @@ export default function InfoBlog({ blog }) {
             <h2>Comments:</h2>
             <div className="comment-area">
 
-                {console.log('curent comm',currentBlog.comments.length)}
+                {console.log('curent comm', currentBlog.comments.length)}
                 {
-                   
+
                     currentBlog.comments.length > 0 ?
                         currentBlog.comments.map(comment => {
                             console.log('author', comment.author)

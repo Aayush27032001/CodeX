@@ -4,7 +4,7 @@ const isAuthorized = require('../middleware/requireLogin')
 
 const blog = require("../models/blog")
 
-router.post('/blogs/createBlogs', async (req, res) => {
+router.post('/blogs/createBlogs', isAuthorized ,async (req, res) => {
 
     const { title, author, thumbnail, description, content } = req.body;
 
@@ -72,10 +72,17 @@ router.get('/blogs/:id', async (req, res) => {
 
 })
 
-router.put('/blogs/:id/edit', async (req, res) => {
+router.put('/blogs/:id/edit', isAuthorized,async (req, res) => {
 
     try {
+        
         const { title, author, thumbnail, description, content } = req.body;
+        
+        console.log(req.user._id == author)
+        console.log(author)
+        if(req.user._id != author){
+            return res.json({ error: "You are not authorized to edit this blog!!" })
+        }
         console.log(title)
         if (!title || !thumbnail || !content) {
             console.log('fill all fields')
