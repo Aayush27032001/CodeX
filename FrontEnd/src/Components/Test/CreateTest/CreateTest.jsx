@@ -1,6 +1,6 @@
 import React from 'react'
-import "../CSS/CreateTest.css"
-import CreateTestForm from './CreateTestForm'
+import "./CreateTest.css"
+import CreateTestForm from '../CreateTestForm/CreateTestForm'
 
 function CreateTest() {
     const questions = [

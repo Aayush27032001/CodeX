@@ -1,14 +1,17 @@
 import { useState, useContext, useEffect } from 'react'
-import { userContext } from '../context/userContex'
+import { userContext } from '../../../context/userContex'
 // import { FaUserCircle } from "react-icons/fa";
-import '../CSS/InfoBlog.css'
+import './BlogContent.css'
 import { format } from 'date-fns'
+import { useHistory } from 'react-router-dom'
+
 
 export default function InfoBlog({ blog }) {
 
     const [comment, setComment] = useState('')
     const { user, setUser } = useContext(userContext)
-    const [currentBlog,setCurrentBlog] = useState(blog)
+    const [currentBlog, setCurrentBlog] = useState(blog)
+    const history = useHistory()
     const postComment = async (e) => {
 
         e.preventDefault()
@@ -48,7 +51,29 @@ export default function InfoBlog({ blog }) {
 
         <div className='blog-info-container'>
             {console.log(currentBlog)}
-            <h1 className="blog-title">{currentBlog.title}</h1>
+            <div className='blog-title-edit-container'>
+                <h1 className="blog-title">{currentBlog.title}</h1>
+                {
+                    user ?
+                        user._id === currentBlog.author._id ?
+                            <span
+                                className='blog-edit'
+                                onClick={() => {
+                                    history.push({
+                                        pathname: `/blogs/edit`,
+                                        state: {
+                                            blog
+                                        }
+                                    })
+                                }}
+                            >
+                                Edit
+                            </span>
+                            : null
+                        : null
+                }
+
+            </div>
             <p>Posted on <b>{format(new Date(currentBlog.createdAt), 'MMM dd, yyyy')}</b>, By <b>{currentBlog.author.username}</b></p>
 
             <div className='info-blog-body'>
@@ -84,18 +109,19 @@ export default function InfoBlog({ blog }) {
             <h2>Comments:</h2>
             <div className="comment-area">
 
-                {console.log(currentBlog.comments)}
+                {console.log('curent comm', currentBlog.comments.length)}
                 {
+
                     currentBlog.comments.length > 0 ?
-                    currentBlog.comments.map(comment => {
-                        console.log('author',comment.author)
-                        return (
-                            <div key={comment._id}>
-                                <p className='comment-author'> {comment.author.username}</p>
-                                <p>{comment.content}</p>
-                            </div>
-                        )
-                    }):null
+                        currentBlog.comments.map(comment => {
+                            console.log('author', comment.author)
+                            return (
+                                <div key={comment._id}>
+                                    <p className='comment-author'> {comment.author.username}</p>
+                                    <p>{comment.content}</p>
+                                </div>
+                            )
+                        }) : null
                 }
             </div>
 

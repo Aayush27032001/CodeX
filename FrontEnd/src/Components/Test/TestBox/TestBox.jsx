@@ -1,5 +1,5 @@
 import React from 'react'
-import '../CSS/TestBox.css'
+import './TestBox.css'
 import { Link } from 'react-router-dom'
 
 export default function TestBox() {

@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react'
 import Session from 'react-session-api'
-import '../CSS/TutorialForm.css'
-import { userContext } from '../context/userContex';
-import { useHistory } from 'react-router-dom'
-import { storage } from '../firebase'
+import './TutorialForm.css'
+import { userContext } from '../../../context/userContex';
+import { useHistory,Link,Redirect } from 'react-router-dom'
+import { storage } from '../../../firebase'
 function TutorialForm() {
 
     const [category, setCategory] = useState('')
@@ -11,7 +11,7 @@ function TutorialForm() {
     const [image, setImage] = useState('');
     const [progress, setProgress] = useState(0)
     const [thumbnail, setThumbnail] = useState('')
-    const {user,setUser} = useContext(userContext)
+    const { user, setUser } = useContext(userContext)
 
     const history = useHistory()
 
@@ -28,73 +28,37 @@ function TutorialForm() {
             setImage('')
         }
     }
-    // const submit = async (e) => {
-    //     e.preventDefault()
-
-    //     const data = new FormData()
-    //     data.append('file', image)
-    //     data.append('upload_preset', 'codex_blog_thumbnail')
-
-    //     const uploadTask = storage.ref(`codex-image/${image.name}`).put(image);
-    //     uploadTask.on(
-    //         "state_changed",snapshot => {
-    //             const progress = Math.round(
-    //                 (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-    //             );
-    //             setProgress(progress);
-    //         },
-    //         error => {
-    //             console.log(error);
-    //         },
-    //         () => {
-    //             storage
-    //                 .ref("codex-image")
-    //                 .child(image.name)
-    //                 .getDownloadURL()
-    //                 .then(url => {
-    //                     console.log(url)
-
-    //                     Session.set('thumbnail', url)
-    //                     Session.set('category', category);
-    //                     Session.set('tutorialTitle', title);
-
-    //                     console.log(Session.get('category'))
-    //                     history.push('/tutorials/add-topic')
-    //                 });
-    //         }
-    //     );
-
-    // }
 
 
-    const postTutorial = async(e)=>{
+    const postTutorial = async (e) => {
 
         e.preventDefault()
         const newTutorial = JSON.stringify({
             category,
             title,
             thumbnail,
-            author:user._id,
+            author: user._id,
         })
-        const response = await fetch('http://localhost:5000/tutorials/postTutorial',{
+        const response = await fetch('http://localhost:5000/tutorials/postTutorial', {
 
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: newTutorial
+            body: newTutorial,
+            credentials: 'include'
         });
 
         const data = await response.json();
 
-        if(data.error){
+        if (data.error) {
             console.log(data.error);
-        }else{
+        } else {
             console.log(data)
             history.push({
-                pathname:'/tutorials/add-topic',
-                state:{
-                    tut_id:data.tutorial._id
+                pathname: '/tutorials/add-topic',
+                state: {
+                    tut_id: data.tutorial._id
                 }
             })
         }
@@ -131,7 +95,14 @@ function TutorialForm() {
     return (
         <div className="tutorial-form-conatiner">
             {console.log('image', image)}
-            <form className="tutorial-form" onSubmit={(e) =>postTutorial(e)}>
+            {
+                user ?
+                    user.role == 'Teacher' ?
+                        <Link className="create-tutorial-link" to="/tutorials-form">Add Tutorials</Link>
+                        : <Redirect to='/teacher/login' />
+                    : <Redirect to='/teacher/login' />
+            }
+            <form className="tutorial-form" onSubmit={(e) => postTutorial(e)}>
 
                 <select className="input-field" onChange={e => setCategory(e.target.value)}>
                     <option value="Category" selected>Category </option>

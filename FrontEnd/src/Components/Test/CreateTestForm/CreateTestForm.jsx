@@ -1,5 +1,4 @@
 import React from 'react'
-import "../CSS/CreateTest.css"
 
 function CreateTestForm() {
 

@@ -16,13 +16,15 @@ input[type='file']{
 .pick-upload-container{
     display: flex;
     flex-direction: row;
+    padding-bottom: 10px ;
 }
 .choose-image,.upload-button{
     padding:10px 25px;
     font-weight: bold;
     text-decoration:none;
     color: white;
-    width: 170px;
+    /* min-width: 160px; */
+    white-space: nowrap;
     border-radius: 30px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     background-color: rgba(255, 136, 0, 0.897);
@@ -37,7 +39,6 @@ input[type='file']{
 }
 
 progress{
-    
     height: 25px;
     width: 25px;
     border-radius: 50px;
@@ -136,4 +137,14 @@ progress{
 div.ql-container.ql-snow{
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+
+.uploaded-blog-image{
+    width: 80px;
+    height: 40px;
+    margin-left: 20px;
+    white-space: nowrap;
+    border: none;
+    border-radius:5px ;
+    overflow: hidden;
 }

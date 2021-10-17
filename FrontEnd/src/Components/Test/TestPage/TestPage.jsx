@@ -1,7 +1,7 @@
 import React from 'react'
-import TestBox from './TestBox'
+import TestBox from '../TestBox/TestBox'
 import { Link } from 'react-router-dom'
-import img3 from "../assets/test-image.jpg"
+import img3 from "../../../assets/test-image.jpg"
 
 export default function TestPage() {
     return (
@@ -9,9 +9,9 @@ export default function TestPage() {
             <div className="test-first-slide">
                 <h1 className="test-text-1">Prepare for <br />Interview/Exams</h1>
                 <p className="test-text-2">Hand-curated Tests/Quizes to help<br />you polish your skills.</p>
-		<img src={img3} align="center" class="test-image" alt="testpage"></img>
-                <div className="test-buttons">
-                    
+                <img src={img3} align="center" class="test-image" alt="testpage"></img>
+                {/* <div className="test-buttons">
+
                     <Link className='test-subject-link'>Java</Link>
                     <Link className='test-subject-link'>Python</Link>
                     <Link className='test-subject-link'>C++</Link>
@@ -25,7 +25,7 @@ export default function TestPage() {
                     <Link className='test-subject-link'>Linux</Link>
                     <Link className='test-subject-link'>JSP</Link>
 
-                </div>
+                </div> */}
 
             </div>
 

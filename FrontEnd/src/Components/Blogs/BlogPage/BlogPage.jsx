@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Cards from './BlogCard'
-import '../CSS/BlogPage.css'
-import blogimg from "../assets/1\ \(1\).png"
+import Cards from '../BlogCard/BlogCard'
+import './BlogPage.css'
+// import blogimg from "../assets/1\ \(1\).png"
+import blogimg from '../../../assets/1\ \(1\).png'
 function BlogPage({ blogs }) {
 
     return (
@@ -23,7 +24,7 @@ function BlogPage({ blogs }) {
                 {
                     blogs.map((blog) => {
 
-                        console.log(blog)
+                        // console.log(blog)
                         return <Cards key={blog._id} blog={blog} />
                     })
                 }

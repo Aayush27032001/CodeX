@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react'
 import '../CSS/Dashboard.css'
-import BlogPage from './BlogPage'
+import BlogPage from './Blogs/BlogPage/BlogPage'
 import { userContext } from '../context/userContex'
-import Cards from './BlogCard'
+import Cards from './Blogs/BlogCard/BlogCard'
 // written BlogPage
 // Saved for later
 // Edit profile

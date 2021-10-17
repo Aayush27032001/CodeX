@@ -7,8 +7,9 @@ const isLoggedIn = (req, res, next) => {
 
     try {
 
-        // console.log('cooookieee', req.cookies.token)
+        console.log('cooookieee', req.cookies)
         // console.log('headers', req.headers)
+        // console.log(req.headers)
         let token = req.headers.cookie;
         if (token) token = token.split('=')[1];
         console.log('TOKEN', token);

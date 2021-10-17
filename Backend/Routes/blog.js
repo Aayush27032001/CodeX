@@ -4,7 +4,7 @@ const isAuthorized = require('../middleware/requireLogin')
 
 const blog = require("../models/blog")
 
-router.post('/blogs/createBlogs', async (req, res) => {
+router.post('/blogs/createBlogs', isAuthorized ,async (req, res) => {
 
     const { title, author, thumbnail, description, content } = req.body;
 
@@ -61,7 +61,7 @@ router.get('/blogs/:id', async (req, res) => {
             .sort({ createdAt: -1 })
             .exec()
 
-        if (blog) {
+        if (blogs) {
             // console.log(blogs)
             return res.json({ blogs })
         }
@@ -72,6 +72,55 @@ router.get('/blogs/:id', async (req, res) => {
 
 })
 
+router.put('/blogs/:id/edit', isAuthorized,async (req, res) => {
+
+    try {
+        
+        const { title, author, thumbnail, description, content } = req.body;
+        
+        console.log(req.user._id == author)
+        console.log(author)
+        if(req.user._id != author){
+            return res.json({ error: "You are not authorized to edit this blog!!" })
+        }
+        console.log(title)
+        if (!title || !thumbnail || !content) {
+            console.log('fill all fields')
+            return
+        }
+        const newBlog = {
+            title,
+            description,
+            author,
+            thumbnail,
+            content
+        }
+        const updatedBlog = await blog.findByIdAndUpdate(req.params.id, { $set: newBlog })
+            .populate('author')
+            .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
+            .sort({ createdAt: -1 })
+            .exec()
+        // console.log(updatedBlog)
+        // const updatedBlog = await blog.updateOne({_id: req.params.id }, newBlog)
+        // .populate('author')
+        // .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
+        // .sort({ createdAt: -1 })
+        // .exec()
+
+
+        if (updatedBlog) {
+            // updatedBlog = await updatedBlog.populate('author')
+            //     .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
+            //     .sort({ createdAt: -1 })
+            //     .exec()
+            return res.json({ mesaage: 'updated successfully', updatedBlog })
+        }
+        res.json({ error: "Something went wrong!" })
+    } catch (e) {
+        console.log(e)
+    }
+
+})
 
 router.get('/blogs/find-user-blog/:user_id', async (req, res) => {
 
