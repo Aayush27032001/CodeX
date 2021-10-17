@@ -4,7 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import './BlogForm.css'
 import { userContext } from '../../../context/userContex';
 import { modules, formats } from '../../moduleFormat'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link, Redirect } from 'react-router-dom'
 import { handleImage, handleImageUpload, postBlog } from '../commonFunction/commonFn'
 
 
@@ -33,25 +33,33 @@ function BlogForm() {
     }
 
 
-    const postBlogData = (e) => {
+    const postBlogData = async (e) => {
+
+        e.preventDefault()
         const newBlog = {
 
             title,
             description,
-            author: user._id,
+            // author: user._id,
             thumbnail,
             content
         }
-        postBlog(e, 'http://localhost:5000/blogs/createBlogs', newBlog, 'post');
-        setTitle('')
-        setDescription('')
-        setThumbnail('')
-        setContent('')
-        history.push('/blog')
+        await postBlog(e, 'http://localhost:5000/blogs/createBlogs', newBlog, 'post');
+        // setTitle('')
+        // setDescription('')
+        // setThumbnail('')
+        // setContent('')
+        // history.push('/blog')
     }
 
     return (
         <div>
+            {
+                user ?
+
+                    <Link className="create-tutorial-link" to="/tutorials-form">Add Tutorials</Link>
+                    : <Redirect to='/student/login' />
+            }
             <form className='blog-form' onSubmit={e => postBlogData(e)}>
                 {console.log('thumbnail', thumbnail)}
                 <input className='blog-title-input' type="text"
@@ -65,7 +73,6 @@ function BlogForm() {
                 />
 
                 <div className='file-progress-container'>
-
                     <div className='pick-upload-container'>
                         <label htmlFor="file-upload" className='choose-image'>
                             Choose Image

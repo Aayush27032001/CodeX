@@ -128,3 +128,20 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+// const [blogs, setBlogs] = useState([])
+//     const findBlogs = async () => {
+
+//         if (blogs.length === 0) {
+//             const response = await fetch(`http://localhost:5000/blogs/find-user-blog/${user._id}`)
+//             const data = await response.json()
+//             setBlogs(data.blogs)
+//         }
+
+//     }

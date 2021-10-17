@@ -40,7 +40,7 @@ export default function EditBlog() {
 
             title,
             description,
-            author: user._id,
+            author: blog.author._id,
             thumbnail,
             content
         }
@@ -73,7 +73,6 @@ export default function EditBlog() {
                 />
 
                 <div className='file-progress-container'>
-
                     <div className='pick-upload-container'>
                         <label htmlFor="file-upload" className='choose-image'>
                             Choose Image
