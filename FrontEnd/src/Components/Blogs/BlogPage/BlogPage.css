@@ -68,7 +68,7 @@
 .loading-img{
     color: rgb(80, 80, 80);
     animation-name: example;
-    animation-duration: 0.5s;
+    animation-duration: 0.4s;
     animation-iteration-count: infinite;
 }
 @keyframes example {
