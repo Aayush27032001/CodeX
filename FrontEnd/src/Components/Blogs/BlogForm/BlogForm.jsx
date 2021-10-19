@@ -40,7 +40,7 @@ function BlogForm() {
 
             title,
             description,
-            // author: user._id,
+            author: user._id,
             thumbnail,
             content
         }

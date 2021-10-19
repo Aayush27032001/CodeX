@@ -18,7 +18,7 @@ import TopicForm from './Components/TopicForm';
 import TutorialContent from './Components/Tutorials/TutorialsContent/TutorialContent';
 import CreateTest from './Components/Test/CreateTest/CreateTest';
 import EditBlog from './Components/Blogs/EditBlog/EditBlog';
-import UserBlogPage from './Components/UserBlogPage';
+import UserBlogPage from './Components/Blogs/UserBlogPage/UserBlogPage';
 import UserSavedBlogs from './Components/UserSavedBlogs';
 
 function App() {
@@ -128,20 +128,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-// const [blogs, setBlogs] = useState([])
-//     const findBlogs = async () => {
-
-//         if (blogs.length === 0) {
-//             const response = await fetch(`http://localhost:5000/blogs/find-user-blog/${user._id}`)
-//             const data = await response.json()
-//             setBlogs(data.blogs)
-//         }
-
-//     }
