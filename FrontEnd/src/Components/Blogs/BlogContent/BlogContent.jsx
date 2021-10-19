@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import { userContext } from '../../../context/userContex'
-// import { FaUserCircle } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
 import './BlogContent.css'
 import { format } from 'date-fns'
 import { useHistory } from 'react-router-dom'
@@ -67,7 +67,7 @@ export default function InfoBlog({ blog }) {
                                     })
                                 }}
                             >
-                                Edit
+                                <FiEdit/>
                             </span>
                             : null
                         : null
