@@ -113,7 +113,7 @@ router.put('/blogs/:id/edit', isAuthorized,async (req, res) => {
             //     .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
             //     .sort({ createdAt: -1 })
             //     .exec()
-            return res.json({ mesaage: 'updated successfully', updatedBlog })
+            return res.json({ message: 'updated successfully', updatedBlog })
         }
         res.json({ error: "Something went wrong!" })
     } catch (e) {
@@ -140,6 +140,22 @@ router.get('/blogs/find-user-blog/:user_id', async (req, res) => {
         console.log(e)
     }
 
+})
+
+router.delete('/blogs/:id/delete',isAuthorized,async (req,res)=>{
+
+
+    const { author} = req.body;
+    console.log('author :',author,req.user)
+    if(req.user._id != author._id){
+        return res.json({ error: "You are not authorized to delete this blog!!" })
+    }
+    const deletedBlog = await blog.findByIdAndDelete(req.params.id)
+    if(!deletedBlog){
+        return res.status(422).json({error:'Something went wrong!'});
+    }
+
+    res.json({message:'deleted Successfully!',deletedBlog})
 })
 
 module.exports = router
