@@ -26,6 +26,7 @@ function App() {
 
     const [user, setUser] = useState(null)
     const [blogs, setBlogs] = useState([])
+    const [Loading, setLoading] = useState(true)
     const [tutorials, setTutorials] = useState([])
 
     useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
         const response = await fetch('http://localhost:5000/blogs/allblogs')
         const data = await response.json()
         setBlogs(data.blogs)
+        setLoading(false)
     }
 
     useEffect(async () => {
@@ -83,7 +85,7 @@ function App() {
                         <Route path='/teacher/login' ><Login role='Teacher' /></Route>
                         <Route path='/student/signup' ><Signup role='Student' /></Route>
                         <Route path='/teacher/signup' ><Signup role='Teacher' /></Route>
-                        <Route path='/blog'><BlogPage blogs={blogs} /></Route>
+                        <Route path='/blog'><BlogPage blogs={blogs} loading={Loading} /></Route>
                         <Route path='/blogs/edit'><EditBlog /></Route>
                         <Route path='/createBlog' component={BlogForm} />
                         {
@@ -92,6 +94,7 @@ function App() {
                                     <Route path={`/blogs/${blog._id}`}>
                                         <InfoBlog
                                             blog={blog}
+                                            
                                         // getBlogs={getBlogs}
                                         />
                                     </Route>
