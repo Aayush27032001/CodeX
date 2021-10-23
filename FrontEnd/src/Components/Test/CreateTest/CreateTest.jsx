@@ -3,14 +3,11 @@ import "./CreateTest.css"
 import CreateTestForm from '../CreateTestForm/CreateTestForm'
 
 function CreateTest() {
-    const questions = [
-        {
+    var questions = []
 
-        }
-    ]
-
-    function addQuestions({question}){
-        question.push({question});
+    function addQuestions(question){
+        questions.push(question);
+        console.log(questions);
     }
 
     console.log(questions);
