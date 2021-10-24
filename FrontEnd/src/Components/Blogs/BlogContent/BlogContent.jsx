@@ -57,7 +57,7 @@ export default function InfoBlog({ blog }) {
                     user ?
                         user._id === currentBlog.author._id ?
                             <span
-                                className='blog-edit'
+                                className='edit-icon'
                                 onClick={() => {
                                     history.push({
                                         pathname: `/blogs/edit`,
@@ -79,15 +79,6 @@ export default function InfoBlog({ blog }) {
             <div className='info-blog-body'>
 
                 <div dangerouslySetInnerHTML={{ __html: currentBlog.content }}></div>
-
-                <div className="blog-slider">
-                    <button className='blog-slider slider-prev'>
-                        <i class="fas fa-arrow-circle-left fa-2x"></i>
-                    </button>
-                    <button className='blog-slider slider-next'>
-                        <i class="fas fa-arrow-circle-right fa-2x"></i>
-                    </button>
-                </div>
 
             </div>
 

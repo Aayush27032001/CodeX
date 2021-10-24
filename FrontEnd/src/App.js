@@ -14,7 +14,8 @@ import InterviewPage from './Components/InterviewPage';
 import TestPage from './Components/Test/TestPage/TestPage';
 import TutorialsPage from './Components/Tutorials/TutorialPages/TutorialsPage';
 import TutorialForm from './Components/Tutorials/TutorialsForm/TutorialForm';
-import TopicForm from './Components/TopicForm';
+import TopicEdit from './Components/Tutorials/TopicEdit/TopicEdit';
+import TopicForm from './Components/Tutorials/TopicForm';
 import TutorialContent from './Components/Tutorials/TutorialsContent/TutorialContent';
 import CreateTest from './Components/Test/CreateTest/CreateTest';
 import EditBlog from './Components/Blogs/EditBlog/EditBlog';
@@ -108,6 +109,7 @@ function App() {
                         <Route exact path='/tutorials' ><TutorialsPage tutorials={tutorials} /></Route>
                         <Route exact path='/tutorials-form' component={TutorialForm} />
                         <Route path='/tutorials/add-topic' component={TopicForm} />
+                        <Route path='/tutorials/edit-topic' component={TopicEdit} />
                         <Route path='/createTest' component={CreateTest} />
                         <Route path='/user/myblogs' component={UserBlogPage} />
                         <Route path='/user/savedblogs' component={UserSavedBlogs} />

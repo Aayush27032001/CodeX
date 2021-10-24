@@ -83,10 +83,9 @@ progress{
 
 .btn-blog-post{
     margin: 10px 0px;
-    width:min-content;
     padding: 10px 25px;
     font-family: Roboto;
-    border-radius: 35px;
+    border-radius: 10px;
     border: none;
     outline: none;
     color: #fff;
@@ -100,6 +99,7 @@ progress{
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     margin:0px;
+    margin-top: 15px;
     border: none;
 }
 .ql-formats{

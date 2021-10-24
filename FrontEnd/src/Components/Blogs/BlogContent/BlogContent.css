@@ -32,16 +32,12 @@ p img{
     display: flex;
     justify-content: space-between;
 }
-.blog-edit{
+.edit-icon{
     cursor: pointer;
-    /* padding:10px 15px; */
     font-weight: bold;
     text-decoration:none;
-    color: rgb(116, 116, 116);
-    font-size: 30px;
-    /* border-radius: 30px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    background-color: rgba(255, 136, 0, 0.897); */
+    color: rgba(255, 136, 0, 0.897);
+    font-size: 25px;
 }
 .comment-author{
 
