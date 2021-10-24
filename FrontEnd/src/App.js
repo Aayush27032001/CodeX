@@ -28,6 +28,7 @@ function App() {
     const [user, setUser] = useState(null)
     const [blogs, setBlogs] = useState([])
     const [Loading, setLoading] = useState(true)
+    const [tutLoading, setTutLoading] = useState(true)
     const [tutorials, setTutorials] = useState([])
 
     useEffect(() => {
@@ -52,6 +53,8 @@ function App() {
             console.log('tut', data.tutorials)
             setTutorials(data.tutorials)
         }
+        setTutLoading(false)
+
     }, [])
 
     useEffect(() => {
@@ -80,7 +83,7 @@ function App() {
                 <userContext.Provider value={{ user, setUser }}>
                     <Navbar />
                     <Switch>
-                        <Route path='/' exact component={Home} />
+                        <Route path='/' exact ><Home blogs={blogs} loading={tutLoading}/></Route>
                         <Route path='/courses' component={Course} />
                         <Route path='/student/login' ><Login role='Student' /></Route>
                         <Route path='/teacher/login' ><Login role='Teacher' /></Route>
@@ -95,8 +98,6 @@ function App() {
                                     <Route path={`/blogs/${blog._id}`}>
                                         <InfoBlog
                                             blog={blog}
-                                            
-                                        // getBlogs={getBlogs}
                                         />
                                     </Route>
                                 )
@@ -106,7 +107,7 @@ function App() {
                         <Route path='/interview-experiences' component={InterviewPage} />
                         <Route path='/Test' component={TestPage} />
 
-                        <Route exact path='/tutorials' ><TutorialsPage tutorials={tutorials} /></Route>
+                        <Route exact path='/tutorials' ><TutorialsPage tutorials={tutorials} loading={tutLoading} /></Route>
                         <Route exact path='/tutorials-form' component={TutorialForm} />
                         <Route path='/tutorials/add-topic' component={TopicForm} />
                         <Route path='/tutorials/edit-topic' component={TopicEdit} />
@@ -122,7 +123,7 @@ function App() {
                         }
                     </Switch>
                 </userContext.Provider>
-                
+
             </Router>
             {/* <Footer/> */}
         </div>

@@ -22,7 +22,7 @@ function BlogPage({ blogs, loading }) {
                             <Link className="create-blog-link" to="/createBlog">Write your blog</Link>
                         </div>
                         <div className="blog-flex-image">
-                            <img src={blogimg} width="70%" alt="" />
+                            <img src={blogimg} width="70%" height="90%" alt="" />
                         </div>
                     </div>
 
