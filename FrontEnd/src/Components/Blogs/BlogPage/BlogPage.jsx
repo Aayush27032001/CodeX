@@ -29,7 +29,6 @@ function BlogPage({ blogs, loading }) {
                     <div className="blog-container">
                         {
                             blogs.map((blog) => {
-
                                 console.log(blog)
                                 return <Cards key={blog._id} blog={blog} />
                             })

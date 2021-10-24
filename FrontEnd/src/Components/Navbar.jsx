@@ -32,8 +32,8 @@ export default function Navbar() {
                 <li><NavLink activeClassName='active-page' className='nav-items' exact to='/'>Home</NavLink></li>
                 <li><NavLink activeClassName='active-page' className='nav-items' to='/blog'>Blog</NavLink></li>
                 <li><NavLink activeClassName='active-page' className='nav-items' to='/tutorials'>Tutorials</NavLink></li>
-                <li><NavLink activeClassName='active-page' className='nav-items' to='/Test'>Test</NavLink></li>
-                <li><NavLink activeClassName='active-page' className='nav-items' to='/interview-experiences'>Interview Experience</NavLink></li>
+                {/* <li><NavLink activeClassName='active-page' className='nav-items' to='/Test'>Test</NavLink></li>
+                <li><NavLink activeClassName='active-page' className='nav-items' to='/interview-experiences'>Interview Experience</NavLink></li> */}
 
                 {/* {console.log('idjoidasoi', user)} */}
                 {
@@ -53,7 +53,7 @@ export default function Navbar() {
                 user ?
                     <div onMouseLeave={() => setDropdown(true)} className="nav-dropdown" id={dropdown ? "dropdown" : ""}>
                         <Link className='Link dropdown-items' to='/user/myblogs'><span onClick={() => setDropdown(true)}>My Blogs</span></Link>
-                        <Link className='Link dropdown-items' to='/user/savedblogs'><span onClick={() => setDropdown(true)} >Saved Blogs</span></Link>
+                        {/* <Link className='Link dropdown-items' to='/user/savedblogs'><span onClick={() => setDropdown(true)} >Saved Blogs</span></Link> */}
                         <span className="dropdown-items" onClick={LogoutHandle}>Logout</span>
                         
                     </div>
