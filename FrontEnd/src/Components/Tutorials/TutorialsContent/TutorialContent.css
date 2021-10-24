@@ -1,7 +1,7 @@
 .tutorial-container{
     margin-top: 70px;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 0.8fr 3fr;
 }
 
 .tutorial-sidebar{
@@ -47,7 +47,9 @@
 .tutorial-main{
     display: flex;
     flex-direction: column;
-    padding: 20px 30px;
+    text-align: justify;
+    padding: 20px 80px 20px 30px;
+    color: rgb(91, 88, 88);
 }
 
 .tutorial-topic{
@@ -60,3 +62,8 @@
     background-color: rgba(255, 136, 0, 0.897);
 }
 
+.modify-tutorial{
+
+    display: flex;
+    justify-content: space-between;
+}

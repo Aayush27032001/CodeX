@@ -77,9 +77,9 @@ router.put('/blogs/:id/edit', isAuthorized,async (req, res) => {
     try {
         
         const { title, author, thumbnail, description, content } = req.body;
-        
+        console.log('typeof blog id',typeof req.params.id)
         console.log(req.user._id == author)
-        console.log(author)
+        console.log(req.user)
         if(req.user._id != author){
             return res.json({ error: "You are not authorized to edit this blog!!" })
         }
@@ -100,19 +100,9 @@ router.put('/blogs/:id/edit', isAuthorized,async (req, res) => {
             .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
             .sort({ createdAt: -1 })
             .exec()
-        // console.log(updatedBlog)
-        // const updatedBlog = await blog.updateOne({_id: req.params.id }, newBlog)
-        // .populate('author')
-        // .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
-        // .sort({ createdAt: -1 })
-        // .exec()
-
 
         if (updatedBlog) {
-            // updatedBlog = await updatedBlog.populate('author')
-            //     .populate({ path: 'comments', options: { sort: { 'createdAt': -1 } } })
-            //     .sort({ createdAt: -1 })
-            //     .exec()
+
             return res.json({ message: 'updated successfully', updatedBlog })
         }
         res.json({ error: "Something went wrong!" })
