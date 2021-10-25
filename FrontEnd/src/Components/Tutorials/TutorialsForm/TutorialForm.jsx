@@ -95,13 +95,6 @@ function TutorialForm() {
     return (
         <div className="tutorial-form-conatiner">
             {console.log('image', image)}
-            {
-                user ?
-                    user.role == 'Teacher' ?
-                        <Link className="create-tutorial-link" to="/tutorials-form">Add Tutorials</Link>
-                        : <Redirect to='/teacher/login' />
-                    : <Redirect to='/teacher/login' />
-            }
             <form className="tutorial-form" onSubmit={(e) => postTutorial(e)}>
 
                 <select className="input-field" onChange={e => setCategory(e.target.value)}>
@@ -110,6 +103,7 @@ function TutorialForm() {
                     <option value="DSA">DSA</option>
                     <option value="Computer Security">Computer Security</option>
                     <option value="Python">Python</option>
+                    <option value="Programming">Programming</option>
                 </select>
 
                 <input
