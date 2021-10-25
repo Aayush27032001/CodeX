@@ -49,7 +49,7 @@ function BlogForm() {
         // setDescription('')
         // setThumbnail('')
         // setContent('')
-        // history.push('/blog')
+        
     }
 
     return (
