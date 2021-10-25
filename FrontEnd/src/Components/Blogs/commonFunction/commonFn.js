@@ -1,6 +1,10 @@
 
 import { storage } from '../../../firebase'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { useHistory, Link, Redirect } from 'react-router-dom'
 
+toast.configure()
 
 export const handleImageUpload = (e,image,setProgressValue,setThumbnailValue) => {
     e.preventDefault()
@@ -63,8 +67,17 @@ export const postBlog = async (e, url,blog,method) => {
         const res_data = await resp.json()
         if (res_data.error) {
             console.log(res_data.error)
+            toast.error(res_data.errore,{
+                position:toast.POSITION.TOP_CENTER,
+                autoClose:2000
+            })
         } else {
             console.log(res_data.message,res_data)
+            toast.success(res_data.message,{
+                position:toast.POSITION.TOP_CENTER,
+                autoClose:2000
+            })
+            // useHistory().push('/blog')
             // setThumbnail('')
         }
     } else {
