@@ -4,7 +4,7 @@ import './BlogCard.css'
 import { format } from 'date-fns'
 const Cards = ({ blog }) => {
 
-
+    
     return (
         <div className="card-container">
             <div className='card2 text-center shadow'>

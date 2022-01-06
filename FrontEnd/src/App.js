@@ -6,7 +6,7 @@ import Course from './Components/Courses/Course/Course';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
 import Home from './Components/Home';
-import Footer from './Components/Footer';
+// import Footer from './Components/Footer';
 import BlogPage from './Components/Blogs/BlogPage/BlogPage'
 import InfoBlog from './Components/Blogs/BlogContent/BlogContent';
 import BlogForm from './Components/Blogs/BlogForm/BlogForm'
@@ -24,16 +24,12 @@ import UserSavedBlogs from './Components/UserSavedBlogs';
 
 function App() {
 
-
     const [user, setUser] = useState(null)
     const [blogs, setBlogs] = useState([])
     const [Loading, setLoading] = useState(true)
     const [tutLoading, setTutLoading] = useState(true)
     const [tutorials, setTutorials] = useState([])
 
-    useEffect(() => {
-        getBlogs();
-    }, [])
 
     const getBlogs = async () => {
 
@@ -42,6 +38,11 @@ function App() {
         setBlogs(data.blogs)
         setLoading(false)
     }
+
+    useEffect(() => {
+        getBlogs();
+    }, [])
+
 
     useEffect(async () => {
 
