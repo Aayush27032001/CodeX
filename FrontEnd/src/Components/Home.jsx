@@ -33,27 +33,7 @@ export default function Home({ blogs, loading }) {
 							</div>
 						</div>
 					</div>
-					<div className="home-blog-section">
-						<div className='home-blog-head'>
-							Blogs
-						</div>
-						<div className='home-blog-card'>
-							{
-								blogs.map((blog) => {
-									console.log(blog)
-									return <Cards key={blog._id} blog={blog} />
-								})
-							}
-						</div>
-
-						<div className='home-blog-discover'>
-							<Link className='Link' to="/blog">
-								<button className='home-blog-btn'>
-									Discover More
-								</button>
-							</Link>
-						</div>
-					</div>
+					
 				</>
 			}
 

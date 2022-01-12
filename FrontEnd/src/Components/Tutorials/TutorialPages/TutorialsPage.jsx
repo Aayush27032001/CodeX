@@ -20,7 +20,7 @@ function TutorialsPage({ tutorials, loading }) {
                 <div className="tutorials-container">
                     <div className="tutorial-flex">
                         <div className="create-tutorial">
-                            <p className='tutorial-flex-text'>When One teaches many other<br /> Learns</p>
+                            <h1 className='tutorial-flex-text'>When One teaches many other<br /> Learns</h1>
                             {
                                 user ?
                                     user.role == 'Teacher' ?

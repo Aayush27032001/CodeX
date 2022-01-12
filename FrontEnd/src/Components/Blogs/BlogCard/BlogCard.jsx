@@ -4,7 +4,7 @@ import './BlogCard.css'
 import { format } from 'date-fns'
 const Cards = ({ blog }) => {
 
-    
+
     return (
         <div className="card-container">
             <div className='card2 text-center shadow'>
@@ -20,7 +20,7 @@ const Cards = ({ blog }) => {
                         {
                             blog.description ?
                                 blog.description.substring(0, 160) + '....' :
-                                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, accusamus cumque adipisci molestiae distinctio repellendus sit expedita minus natus odit'
+                                ''
                         }
                     </p>
                     <Link className='read-more' to={`/blogs/${blog._id}`}>Read More</Link>
