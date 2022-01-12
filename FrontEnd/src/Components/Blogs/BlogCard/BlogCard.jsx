@@ -20,7 +20,7 @@ const Cards = ({ blog }) => {
                         {
                             blog.description ?
                                 blog.description.substring(0, 160) + '....' :
-                                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, accusamus cumque adipisci molestiae distinctio repellendus sit expedita minus natus odit'
+                                ''
                         }
                     </p>
                     <Link className='read-more' to={`/blogs/${blog._id}`}>Read More</Link>

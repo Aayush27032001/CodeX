@@ -32,8 +32,6 @@ export default function Navbar() {
                 <li><NavLink activeClassName='active-page' className='nav-items' exact to='/'>Home</NavLink></li>
                 <li><NavLink activeClassName='active-page' className='nav-items' to='/blog'>Blog</NavLink></li>
                 <li><NavLink activeClassName='active-page' className='nav-items' to='/tutorials'>Tutorials</NavLink></li>
-                {/* <li><NavLink activeClassName='active-page' className='nav-items' to='/Test'>Test</NavLink></li>
-                <li><NavLink activeClassName='active-page' className='nav-items' to='/interview-experiences'>Interview Experience</NavLink></li> */}
 
                 {/* {console.log('idjoidasoi', user)} */}
                 {

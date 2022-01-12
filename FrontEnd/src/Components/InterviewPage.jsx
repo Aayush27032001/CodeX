@@ -2,7 +2,7 @@ import React from 'react'
 import InterviewExp from './InterviewExp'
 import { Link } from 'react-router-dom'
 
-export default function InterviewPage() {
+function InterviewPage( {blogs, loading} ) {
     return (
         <>
         <div style={{ height: '300px' }} className="home-container">
@@ -15,10 +15,15 @@ export default function InterviewPage() {
             <h3>Interview Experiences</h3>
             <Link className='share-interview-link'>Add My Experience</Link>
         </div>
-        <InterviewExp/>
-        <InterviewExp/>
-        <InterviewExp/>
+        {
+            blogs.map((blog)=>{
+                console.log(blog);
+                return <InterviewExp key={blog._id} blog={blog}/>
+            })
+        }
 
         </>
     )
 }
+
+export default InterviewPage

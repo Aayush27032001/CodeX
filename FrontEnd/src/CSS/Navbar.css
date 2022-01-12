@@ -105,18 +105,17 @@
   
 }
 
-
 #dropdown{
   display: none;
 }
 
-@media screen and (max-width:1040px) {
+@media screen and (max-width:768px) {
   .nav-items-1{
     display:none;
   }
 }
 
-@media screen and (max-width:1040px) {
+@media screen and (max-width:768px) {
   .nav-items-1{
     overflow-y: scroll;
   }
