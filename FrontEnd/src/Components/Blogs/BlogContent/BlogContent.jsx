@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react'
 import { userContext } from '../../../context/userContex'
 import { FiEdit } from "react-icons/fi";
+import { IoSendSharp } from "react-icons/io5"
 import './BlogContent.css'
 import { format } from 'date-fns'
 import { useHistory } from 'react-router-dom'
@@ -15,6 +16,14 @@ export default function InfoBlog({ blog }) {
     const postComment = async (e) => {
 
         e.preventDefault()
+        if (user !== undefined || comment !== '') {
+            // const tempArr = [...currentBlog.comments]
+            // tempArr.unshift({author:user,comment})
+            // setCurrentBlog(tempArr)
+            // setComment('')
+            currentBlog.comments.unshift({ author: user, comment })
+            // setComment('')
+        }
         try {
             console.log(blog._id)
             const res = await fetch(`http://localhost:5000/blogs/${blog._id}/comments/createComment`, {
@@ -36,6 +45,7 @@ export default function InfoBlog({ blog }) {
                 const foundBlog = await response.json()
                 setCurrentBlog(foundBlog.blogs)
                 console.log(foundBlog.blogs)
+                setComment('')
             }
             // console.log(data)
         } catch (err) {
@@ -44,9 +54,9 @@ export default function InfoBlog({ blog }) {
 
     }
 
-    useEffect(async () => {
+    // useEffect(() => {
 
-    })
+    // },[currentBlog])
     return (
 
         <div className='blog-info-container'>
@@ -86,15 +96,19 @@ export default function InfoBlog({ blog }) {
             <h2>Leave a Comment</h2>
 
             <form className="comment-form" onSubmit={(e) => postComment(e)}>
-                <input
-                    className="comment-input"
-                    type="text"
-                    placeholder="Add Public Comment"
-                    onChange={(e) => setComment(e.target.value)}
-                />
-                <button
-                    className="comment-submit" type="submit"><svg viewBox="0 0 24 24" width="24" height="24" class=""><path fill="currentColor" d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>
-                </button>
+                <div className='input-container'>
+                    <input
+                        className="comment-input"
+                        type="text"
+                        placeholder="Add Public Comment"
+                        onChange={(e) => setComment(e.target.value)}
+                        value={comment}
+                    />
+                    <button
+                        className="comment-submit" type="submit">
+                        <IoSendSharp />
+                    </button>
+                </div>
             </form>
 
             <h2>Comments:</h2>
