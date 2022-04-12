@@ -52,48 +52,55 @@ function TutorialContent({ tutorial }) {
             </div>
             <div className="tutorial-main">
                 {
-                    user._id === tutorial.author ?
-                        <div className='modify-tutorial'>
-                            <span className="create-topic"
-                                onClick={() => {
-                                    history.push({
-                                        pathname: '/tutorials/add-topic',
-                                        state: {
-                                            tut_id: tutorial._id
-                                        }
-                                    })
-                                }}>
-                                Add Topic
-                            </span>
-                            <div>
-                                <span
-                                    className='edit-icon'
+                    user ?
+                        user._id === tutorial.author ?
+                            <div className='modify-tutorial'>
+                                <span className="create-topic"
                                     onClick={() => {
                                         history.push({
-                                            pathname: `/tutorials/edit-topic`,
+                                            pathname: '/tutorials/add-topic',
                                             state: {
-                                                activeTopic,
                                                 tut_id: tutorial._id
                                             }
                                         })
-                                    }}
-                                >
-                                    <FiEdit />
+                                    }}>
+                                    Add Topic
                                 </span>
+                                <div>
+                                    <span
+                                        className='edit-icon'
+                                        onClick={() => {
+                                            history.push({
+                                                pathname: `/tutorials/edit-topic`,
+                                                state: {
+                                                    activeTopic,
+                                                    tut_id: tutorial._id
+                                                }
+                                            })
+                                        }}
+                                    >
+                                        <FiEdit />
+                                    </span>
 
-                                <span
-                                    className='blog-delete-icon'
-                                    onClick={() => handleDelete()}
-                                >
-                                    <IoTrashOutline />
-                                </span>
-                            </div>
-                        </div> : null
+                                    <span
+                                        className='blog-delete-icon'
+                                        onClick={() => handleDelete()}
+                                    >
+                                        <IoTrashOutline />
+                                    </span>
+                                </div>
+                            </div> : null
+                        : null
                 }
-                <h1 className='tutorial-topic'>{activeTopic.title}</h1>
-                <div>
-                    <div dangerouslySetInnerHTML={{ __html: activeTopic.content }}></div>
-                </div>
+                {activeTopic ?
+                    <div>
+                        <h1 className='tutorial-topic'>{activeTopic.title}</h1>
+                        <div>
+                            <div dangerouslySetInnerHTML={{ __html: activeTopic.content }}></div>
+                        </div>
+                    </div>
+                    : null
+                }
             </div>
         </div>
     )
