@@ -36,7 +36,7 @@ export default function Navbar() {
                 {/* {console.log('idjoidasoi', user)} */}
                 {
                     user != null ?
-                        <span className="nav-items" onClick={() => setDropdown(!dropdown)} >{user.name}</span>
+                        <span className="nav-items" onClick={() => setDropdown(!dropdown)} >{(user.name).charAt(0).toUpperCase()+(user.name).substring(1)}</span>
                         : <li><Link to='/student/login'><span className="nav-box-item">Login</span></Link></li>
 
                 }
