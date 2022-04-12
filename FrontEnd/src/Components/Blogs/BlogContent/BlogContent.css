@@ -112,3 +112,7 @@ p img{
     margin-bottom: 20px;
 }
 
+.comment-area div:last-child{
+    border-bottom: none;
+}
+
