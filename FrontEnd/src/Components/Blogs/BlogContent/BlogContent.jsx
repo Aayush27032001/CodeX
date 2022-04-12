@@ -67,7 +67,7 @@ export default function InfoBlog({ blog }) {
                                     })
                                 }}
                             >
-                                <FiEdit/>
+                                <FiEdit />
                             </span>
                             : null
                         : null

@@ -11,6 +11,7 @@ const Signup = ({role}) => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [typeOfRole,setTypeOfRole] = useState("Student's");
     const history = useHistory()
     const postData = async (e) => {
 
@@ -51,7 +52,7 @@ const Signup = ({role}) => {
 
     return (
         <div className="signup-container">
-            <RedirectorButtons mode='signup'/>
+            <RedirectorButtons mode='signup' setTypeOfRole={setTypeOfRole}/>
             <form className="signup-form" onSubmit={(e) => postData(e)}>
                 <input
                     className="input-field"
@@ -74,7 +75,7 @@ const Signup = ({role}) => {
                 <input
                     className="form-btn"
                     type="submit"
-                    value="Sign Up" />
+                    value={typeOfRole+' Sign Up'} />
 
                 <div className="signin-wraper">
                     <p className="signin-text">Already have an account? </p>

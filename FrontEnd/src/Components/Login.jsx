@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { userContext } from '../context/userContex'
 import '../CSS/Login.css'
 import RedirectorButtons from './RedirectorButtons'
@@ -13,6 +13,7 @@ const Login = ({ role }) => {
     const [password, setPassword] = useState('')
     const { user, setUser } = useContext(userContext)
     const history = useHistory()
+    const [typeOfRole,setTypeOfRole] = useState("Student's");
 
     const postData = async (e) => {
         e.preventDefault();
@@ -50,11 +51,12 @@ const Login = ({ role }) => {
             history.push('/')
         }
     }
+
     return (
         <div className="login-container">
-           <RedirectorButtons mode='login'/>
+           <RedirectorButtons mode='login' setTypeOfRole={setTypeOfRole}/>
+           
             <form className="login-form" onSubmit={e => postData(e)}>
-
                 <input
                     className="input-field"
                     type="email"
@@ -70,7 +72,7 @@ const Login = ({ role }) => {
                 <input
                     className="form-btn"
                     type="submit"
-                    value="Sign In" />
+                    value={typeOfRole+' Sign In'} />
 
                 <div className="signup-wraper">
                     <p className="signup-text">Don't have an account? </p>
