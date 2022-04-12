@@ -21,11 +21,11 @@
     display: flex;
     justify-content: space-between;
 }
-.redirector-buttons{
+.redirector-buttons-teacher, .redirector-buttons-student{
 
-    background-color: rgba(255, 136, 0, 0.897);
+    background-color: rgb(255 247 223);
     display: block;
-    color: white;
+    color: rgb(43, 43, 43);
     font-size: 18px;
     font-weight: 600;
     width: 50%;
@@ -33,19 +33,19 @@
     text-align: center;
     padding: 1rem 0;
     /* box-shadow: 0 2px 5px 2px rgb(206, 202, 202); */
+    border-bottom: solid #ff9317 2px ;
 }
 
-.redirector-buttons:hover{
-    background-color: rgb(221, 215, 215);
-    color: white;
+.redirector-buttons-teacher:hover, .redirector-buttons-student:hover{
+    background-color: rgb(239, 238, 238);
+    color: rgb(80, 80, 80);
 }
-.active-login{
-    background-color: rgb(255 247 223);
-    color: rgba(255, 136, 0, 0.897);
-    border-bottom: 2px solid rgba(255, 136, 0, 0.897);
+.active-login-s, .active-login-t{
+    background-color:rgba(255, 136, 0, 0.897);
+    color: rgb(255 247 223);
 }
 .active-login:hover{
-    border-bottom: 2px solid rgba(255, 136, 0, 0.897);
+    
 }
 
 .login-form{

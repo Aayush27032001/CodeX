@@ -5,15 +5,15 @@ export default function RedirectorButtons({mode, setTypeOfRole}) {
 
         <div className='redirector-buttons-container'>
             <NavLink
-                activeClassName='active-login'
-                className='redirector-buttons' to={`/student/${mode}`}
+                activeClassName='active-login-s'
+                className='redirector-buttons-student' to={`/student/${mode}`}
                 onClick={()=>{setTypeOfRole("Student's")}}
             >
                 Student
             </NavLink >
             <NavLink
-                activeClassName='active-login'
-                className='redirector-buttons'
+                activeClassName='active-login-t'
+                className='redirector-buttons-teacher'
                 to={`/teacher/${mode}`}
                 onClick={()=>{setTypeOfRole("Teacher's")}}
             >

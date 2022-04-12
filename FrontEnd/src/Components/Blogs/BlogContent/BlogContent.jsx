@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect, useRef } from 'react'
 import { userContext } from '../../../context/userContex'
 import { FiEdit } from "react-icons/fi";
 import { IoSendSharp } from "react-icons/io5"
@@ -12,10 +12,21 @@ export default function InfoBlog({ blog }) {
     const [comment, setComment] = useState('')
     const { user, setUser } = useContext(userContext)
     const [currentBlog, setCurrentBlog] = useState(blog)
+    const commentInputRef = useRef(null);
     const history = useHistory()
     const postComment = async (e) => {
-
         e.preventDefault()
+        
+        if(user===null){
+            history.push("/student/login");
+            return;
+        }
+
+        if(commentInputRef.current.value===""){
+            commentInputRef.current.focus();
+            return;
+        }
+
         if (user !== undefined || comment !== '') {
             // const tempArr = [...currentBlog.comments]
             // tempArr.unshift({author:user,comment})
@@ -53,6 +64,8 @@ export default function InfoBlog({ blog }) {
         }
 
     }
+
+
 
     // useEffect(() => {
 
@@ -103,6 +116,7 @@ export default function InfoBlog({ blog }) {
                         placeholder="Add Public Comment"
                         onChange={(e) => setComment(e.target.value)}
                         value={comment}
+                        ref={commentInputRef}
                     />
                     <button
                         className="comment-submit" type="submit">
