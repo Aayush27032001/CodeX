@@ -91,3 +91,24 @@ body {
     max-width: 100%;
  }
 }
+
+.mobileView{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .App{
+    display: none;
+  }
+  .mobileView{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobileView h1{
+    text-align: center;
+    padding: 0px 1rem;
+  }
+}

@@ -85,6 +85,9 @@ function App() {
     return (
         <Router>
             <ScrollToTop>
+            <div className='mobileView'>
+                <h1>Not Available For mobile Devices</h1>
+            </div>
             <div className="App">
                 <userContext.Provider value={{ user, setUser }}>
                     <Navbar />
