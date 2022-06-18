@@ -45,9 +45,9 @@
 }
 
 .tutorial-main{
-    margin-left: 290px;
+    margin-left: 270px;
     width: calc(100vw-270px);
-    padding: 20px 80px 20px 30px;
+    padding: 20px 80px 20px 80px;
     color: rgb(91, 88, 88);
 }
 
