@@ -14,7 +14,7 @@ export default function Navbar() {
 
     const LogoutHandle = async () => {
 
-        const res = await fetch("http://localhost:5000/logout", { method: "GET", credentials: "include" });
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}logout`, { method: "GET", credentials: "include" });
         const data = await res.json()
         console.log('logout', data)
         setUser(null)

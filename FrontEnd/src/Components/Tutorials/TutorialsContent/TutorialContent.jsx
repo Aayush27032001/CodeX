@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import "./TutorialContent.css"
 import { useHistory } from 'react-router-dom'
 import { userContext } from '../../../context/userContex'
@@ -17,10 +17,13 @@ function TutorialContent({ tutorial }) {
             return "";
         }
     }
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    })
 
     const handleDelete = async () => {
 
-        const response = await fetch(`http://localhost:5000/tutorials/${tutorial._id}/topics/deleteTopic/${activeTopic._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}tutorials/${tutorial._id}/topics/deleteTopic/${activeTopic._id}`, {
 
             method: 'delete',
             headers: {

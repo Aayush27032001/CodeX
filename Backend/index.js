@@ -23,6 +23,9 @@ try{
 
 
 const app = express();
+app.get("/",(req,res)=>{
+    res.send("Server is Up");
+})
 app.use(cookie());
 app.use(cors({credentials:true,origin:['http://localhost:3000']}));
 app.use(express.json())

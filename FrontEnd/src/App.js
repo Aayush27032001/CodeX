@@ -21,6 +21,7 @@ import CreateTest from './Components/Test/CreateTest/CreateTest';
 import EditBlog from './Components/Blogs/EditBlog/EditBlog';
 import UserBlogPage from './Components/Blogs/UserBlogPage/UserBlogPage';
 import UserSavedBlogs from './Components/UserSavedBlogs';
+import ScrollToTop from './Components/UtilComponents/ScrollToTop';
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
 
     const getBlogs = async () => {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/blogs/allblogs')
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}blogs/allblogs`)
         const data = await response.json()
         setBlogs(data.blogs)
         setLoading(false)
@@ -46,7 +47,7 @@ function App() {
 
     useEffect(async () => {
         setTutLoading(true)
-        const response = await fetch('http://localhost:5000/tutorials/alltutorials')
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}tutorials/alltutorials`)
         const data = await response.json()
         if (data.error) {
             console.log(data.error)
@@ -60,7 +61,7 @@ function App() {
 
     const verifyUser = async () => {
         try {
-            const res = await fetch('http://localhost:5000/verifyuser', {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}verifyuser`, {
                 method: "POST",
                 credentials: 'include',
                 headers: { 'Content-Type': 'application/json' },
@@ -83,6 +84,7 @@ function App() {
 
     return (
         <Router>
+            <ScrollToTop>
             <div className="App">
                 <userContext.Provider value={{ user, setUser }}>
                     <Navbar />
@@ -128,6 +130,7 @@ function App() {
                     </Switch>
                 </userContext.Provider>
             </div>
+            </ScrollToTop>
         </Router>
     );
 }

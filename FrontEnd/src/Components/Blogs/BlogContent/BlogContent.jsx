@@ -37,7 +37,7 @@ export default function InfoBlog({ blog }) {
         }
         try {
             console.log(blog._id)
-            const res = await fetch(`http://localhost:5000/blogs/${blog._id}/comments/createComment`, {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}blogs/${blog._id}/comments/createComment`, {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ export default function InfoBlog({ blog }) {
                 console.log(data.error)
             } else {
                 console.log(data.message)
-                const response = await fetch(`http://localhost:5000/blogs/${blog._id}`);
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}blogs/${blog._id}`);
                 const foundBlog = await response.json()
                 setCurrentBlog(foundBlog.blogs)
                 console.log(foundBlog.blogs)

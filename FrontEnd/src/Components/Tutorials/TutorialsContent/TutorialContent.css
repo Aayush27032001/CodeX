@@ -1,13 +1,13 @@
 .tutorial-container{
     margin-top: 70px;
-    display: grid;
-    grid-template-columns: 0.8fr 3fr;
+    max-width: 100vw;
 }
 
 .tutorial-sidebar{
     overflow:scroll;
+    position: fixed;
     min-width:270px;
-    min-height: 650px;
+    height: 100vh;
     background-image:linear-gradient(135deg, rgba(255, 192.01810598373413, 0, 1) 0%,rgba(255, 137.7000054717064, 0, 1) 100%) ;
 }
 .tutorial-sidebar::-webkit-scrollbar {
@@ -45,9 +45,8 @@
 }
 
 .tutorial-main{
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
+    margin-left: 290px;
+    width: calc(100vw-270px);
     padding: 20px 80px 20px 30px;
     color: rgb(91, 88, 88);
 }

@@ -21,7 +21,7 @@ function UserBlogPage() {
 
         try {
             if (blogs.length === 0) {
-                const response = await fetch(`http://localhost:5000/blogs/find-user-blog/${user._id}`)
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}blogs/find-user-blog/${user._id}`)
                 const data = await response.json()
                 setBlogs(data.blogs)
             }
@@ -33,7 +33,7 @@ function UserBlogPage() {
 
     const handleDelete = async (blog,ind) => {
 
-        const response = await fetch(`http://localhost:5000/blogs/${blog._id}/delete`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}blogs/${blog._id}/delete`, {
 
             method:'DELETE',
             headers:{

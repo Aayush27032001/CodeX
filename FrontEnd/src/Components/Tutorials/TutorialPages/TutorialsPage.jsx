@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import './TutorialsPage.css'
 import TutorialsCard from '../TutorialCard/TutorialsCard'
@@ -8,7 +8,7 @@ import loadingPNG from '../../../assets/loading.png'
 
 function TutorialsPage({ tutorials, loading }) {
 
-    const { user, setUser } = useContext(userContext)
+    const { user, setUser } = useContext(userContext);
     return (
         <>
 

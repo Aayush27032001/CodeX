@@ -48,7 +48,7 @@ export default function TopicForm() {
             content
         })
         console.log('tut_id', location.state.tut_id)
-        const response = await fetch(`http://localhost:5000/tutorials/${location.state.tut_id}/topics/postTopic`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}tutorials/${location.state.tut_id}/topics/postTopic`, {
 
             method: 'post',
             headers: {
@@ -86,7 +86,6 @@ export default function TopicForm() {
                     value={content}
                     formats={formats}
                     modules={modules}
-                    value={content}
                     onChange={(e) => handleChange(e)}
                 />
                 <button type='button' className='btn-blog-post' onClick={(e) => postTopic(e, true)}>Save and Add Topic</button>

@@ -44,7 +44,7 @@ function BlogForm() {
             thumbnail,
             content
         }
-        await postBlog(e, 'http://localhost:5000/blogs/createBlogs', newBlog, 'post');
+        await postBlog(e, `${process.env.REACT_APP_BACKEND_URL}blogs/createBlogs`, newBlog, 'post');
         // setTitle('')
         // setDescription('')
         // setThumbnail('')

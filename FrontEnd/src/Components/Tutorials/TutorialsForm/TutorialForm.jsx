@@ -39,7 +39,7 @@ function TutorialForm() {
             thumbnail,
             author: user._id,
         })
-        const response = await fetch('http://localhost:5000/tutorials/postTutorial', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}tutorials/postTutorial`, {
 
             method: 'post',
             headers: {

@@ -45,7 +45,7 @@ export default function EditBlog() {
             content
         }
         console.log(blog._id)
-        await postBlog(e, `http://localhost:5000/blogs/${blog._id}/edit`, newBlog, 'put');
+        await postBlog(e, `${process.env.REACT_APP_BACKEND_URL}blogs/${blog._id}/edit`, newBlog, 'put');
         // console.log(saved successf)
         // setTitle('')
         // setDescription('')
