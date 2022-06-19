@@ -41,7 +41,7 @@ const Signup = ({role}) => {
             })
             console.log(data.error)
         }else{
-            console.log(data.message)
+            localStorage.setItem("token",data.token);
             toast.success(data.message,{
                 position:toast.POSITION.TOP_CENTER,
                 autoClose:2000

@@ -64,7 +64,9 @@ function App() {
             const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}verifyuser`, {
                 method: "POST",
                 credentials: 'include',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json',
+                            Authorization: `Bearer ${localStorage.getItem("token")}`            
+                        },
             });
             const data = await res.json();
             if (!data.error) {

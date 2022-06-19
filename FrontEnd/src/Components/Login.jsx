@@ -44,6 +44,7 @@ const Login = ({ role }) => {
         } else {
             console.log(data.message, data.user, data.token)
             setUser(data.user)
+            localStorage.setItem("token",data.token);
             toast.success(data.message, {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose: 2000
