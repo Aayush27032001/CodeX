@@ -17,6 +17,11 @@ function TutorialContent({ tutorial }) {
             return "";
         }
     }
+    
+    useEffect(()=>{
+        setActiveTopic(topics[0]);
+    },[tutorial])
+    
     useEffect(()=>{
         window.scrollTo(0,0);
     })
