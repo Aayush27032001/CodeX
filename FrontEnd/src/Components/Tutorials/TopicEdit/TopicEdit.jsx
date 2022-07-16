@@ -6,6 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 import { userContext } from '../../../context/userContex';
 import { modules, formats } from '../../moduleFormat'
 import { useHistory, useLocation } from 'react-router-dom'
+import { useQueryClient } from 'react-query';
 
 export default function TopicForm() {
 
@@ -16,7 +17,7 @@ export default function TopicForm() {
     const [topics, setTopics] = useState([])
     const { user, setUser } = useContext(userContext)
     const history = useHistory()
-
+    const queryClient = useQueryClient();
     const handleChange = (html) => {
         setContent(html)
         // console.log(content)
@@ -48,6 +49,8 @@ export default function TopicForm() {
         if (data.error) {
             console.log(data.error);
         } else {
+            queryClient.invalidateQueries("tutorials");
+            history.goBack();
             // console.log(data)
             // if(!addMoreTopic)history.push(`/tutorials/${location.state.tut_id}`)
             // else{
