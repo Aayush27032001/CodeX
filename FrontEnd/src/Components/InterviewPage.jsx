@@ -17,7 +17,6 @@ function InterviewPage( {blogs, loading} ) {
         </div>
         {
             blogs.map((blog)=>{
-                console.log(blog);
                 return <InterviewExp key={blog._id} blog={blog}/>
             })
         }

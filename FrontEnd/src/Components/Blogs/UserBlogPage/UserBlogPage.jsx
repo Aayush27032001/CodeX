@@ -47,12 +47,12 @@ function UserBlogPage() {
         if(res.error){
             console.log(res.error)
         }else{
-            console.log(res)
+            // console.log(res)
             // blogs.splice(ind,1)
             const filteredBlog = blogs.filter((blog,i)=>{
                 return i !== ind
             })
-            console.log(filteredBlog)
+            // console.log(filteredBlog)
             setBlogs(filteredBlog)
         }
     }
@@ -66,7 +66,7 @@ function UserBlogPage() {
                 {
                     blogs.map((blog,ind) => {
                         return (
-                            <div className="card-container">
+                            <div className="card-container" key={ind}>
 
                                 <div className='card2 text-center shadow'>
                                     <div className='overflow'>

@@ -8,7 +8,7 @@ import loadingPNG from '../../../assets/loading.png'
 
 function TutorialsPage({ tutorials, loading }) {
 
-    const { user, setUser } = useContext(userContext);
+    const { user } = useContext(userContext);
     return (
         <>
 
@@ -38,8 +38,8 @@ function TutorialsPage({ tutorials, loading }) {
                     <div className="tutorials-section">
                         {
                             tutorials.map((tutorial) => {
-                                console.log(tutorial.thumbnail)
-                                return <TutorialsCard
+                                console.log(tutorial._id)
+                                return <TutorialsCard key={tutorial._id}
                                     img={tutorial.thumbnail}
                                     id={tutorial._id}
                                     alt={tutorial.title}

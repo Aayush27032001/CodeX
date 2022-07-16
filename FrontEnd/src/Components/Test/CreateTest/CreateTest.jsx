@@ -7,10 +7,10 @@ function CreateTest() {
 
     function addQuestions(question){
         questions.push(question);
-        console.log(questions);
+        // console.log(questions);
     }
 
-    console.log(questions);
+    // console.log(questions);
 
     return (
         <div className='TestForm-conatiner'>

@@ -17,10 +17,10 @@ function TutorialForm() {
 
     const handleImage = (file) => {
 
-        console.log(typeof file.name)
+        // console.log(typeof file.name)
 
         const ext = file.name.split(".").pop().toLowerCase()
-        console.log(ext === 'png')
+        // console.log(ext === 'png')
         if (ext === 'png') {
             setImage(file)
         } else {
@@ -54,7 +54,7 @@ function TutorialForm() {
         if (data.error) {
             console.log(data.error);
         } else {
-            console.log(data)
+            // console.log(data)
             history.push({
                 pathname: '/tutorials/add-topic',
                 state: {
@@ -67,7 +67,7 @@ function TutorialForm() {
 
     const handleUpload = (e) => {
         e.preventDefault()
-        console.log(image.name)
+        // console.log(image.name)
         const uploadTask = storage.ref(`codex-image/${image.name}`).put(image);
         uploadTask.on(
             "state_changed",
@@ -86,7 +86,7 @@ function TutorialForm() {
                     .child(image.name)
                     .getDownloadURL()
                     .then(url => {
-                        console.log(url)
+                        // console.log(url)
                         setThumbnail(url);
                     });
             }
@@ -94,7 +94,7 @@ function TutorialForm() {
     };
     return (
         <div className="tutorial-form-conatiner">
-            {console.log('image', image)}
+            {/* {console.log('image', image)} */}
             <form className="tutorial-form" onSubmit={(e) => postTutorial(e)}>
 
                 <select className="input-field" onChange={e => setCategory(e.target.value)}>

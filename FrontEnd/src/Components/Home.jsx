@@ -9,7 +9,7 @@ import homeimg from '../assets/home-banner-img.svg'
 export default function Home({ blogs, loading }) {
 	return (
 		<>
-			{loading ? <div class="loader">
+			{loading ? <div className="loader">
 				<img className='loading-img' src={loadingPNG} width="4%" alt="Loading" />
 				<h3>Loading...</h3>
 			</div>

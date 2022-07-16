@@ -34,7 +34,7 @@ function TutorialContent({ tutorial }) {
 
         const res = await response.json()
 
-        console.log(res)
+        // console.log(res)
     }
     return (
         <div className='tutorial-container'>

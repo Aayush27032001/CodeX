@@ -22,7 +22,6 @@ function Dashboard() {
     }
     return (
         <div className='dashboard-conatiner'>
-            {console.log(blogs)}
             <div className="side-bar-container">
                 <div className="sidebar-item">
                     Edit Profile
@@ -35,8 +34,8 @@ function Dashboard() {
 
             <div className='user-dashboard-blog-container'>
                 {
-                    blogs.map((blog)=>{
-                        return <Cards  blog={blog}/>
+                    blogs.map((blog,i)=>{
+                        return <Cards key={i} blog={blog}/>
                     })
                 }
             </div>

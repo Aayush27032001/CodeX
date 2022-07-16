@@ -6,6 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 import { userContext } from '../../context/userContex';
 import { modules, formats } from '../moduleFormat'
 import { useHistory, useLocation } from 'react-router-dom'
+import { useQueryClient } from 'react-query';
 
 export default function TopicForm() {
 
@@ -17,10 +18,10 @@ export default function TopicForm() {
     const location = useLocation()
     const handleChange = (html) => {
         setContent(html)
-        console.log(content)
+        // console.log(content)
     }
 
-
+    const queryClient = useQueryClient();
     const saveTopic = (empty) => {
 
         const newTopic = {
@@ -38,7 +39,7 @@ export default function TopicForm() {
     }
 
     useEffect(() => {
-        console.log(topics)
+        // console.log(topics)
     }, [topics])
     const postTopic = async (e, addMoreTopic) => {
 
@@ -47,7 +48,7 @@ export default function TopicForm() {
             title,
             content
         })
-        console.log('tut_id', location.state.tut_id)
+        // console.log('tut_id', location.state.tut_id)
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}tutorials/${location.state.tut_id}/topics/postTopic`, {
 
             method: 'post',
@@ -58,12 +59,15 @@ export default function TopicForm() {
         });
 
         const data = await response.json();
-        console.log('posted topic')
+        // console.log('posted topic')
         if (data.error) {
             console.log(data.error);
         } else {
-            console.log(data)
-            if (!addMoreTopic) history.push(`/tutorials/${location.state.tut_id}`)
+            // console.log(data)
+            if (!addMoreTopic) {
+                queryClient.invalidateQueries("tutorials")
+                history.push(`/tutorials/${location.state.tut_id}`)
+            }
             else {
                 setTitle('')
                 setContent('')
@@ -74,7 +78,7 @@ export default function TopicForm() {
     return (
         <div>
             <form className='blog-form' onSubmit={(e) => postTopic(e, false)}>
-                {location.state ? console.log('loc', location.state) : null}
+                {/* {location.state ? console.log('loc', location.state) : null} */}
                 <input type="text"
                     className='blog-title-input'
                     placeholder='Title'
