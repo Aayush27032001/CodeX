@@ -30,8 +30,8 @@ const Login = ({ role }) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: userData,
-            credentials: 'include'
+            credentials: 'include',
+            body: userData
         })
         const data = await response.json();
 
