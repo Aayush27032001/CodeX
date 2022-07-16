@@ -50,7 +50,7 @@ export default function TopicForm() {
             console.log(data.error);
         } else {
             queryClient.invalidateQueries("tutorials");
-            history.goBack();
+            history.push(`/tutorials/${tut_id}`);
             // console.log(data)
             // if(!addMoreTopic)history.push(`/tutorials/${location.state.tut_id}`)
             // else{
