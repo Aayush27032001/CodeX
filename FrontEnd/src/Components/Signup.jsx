@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import {useHistory} from 'react-router-dom'
+import RedirectorButtons from './RedirectorButtons'
 
 toast.configure()
-const Signup = () => {
+const Signup = ({role}) => {
 
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [typeOfRole,setTypeOfRole] = useState("Student's");
     const history = useHistory()
     const postData = async (e) => {
 
@@ -17,6 +19,7 @@ const Signup = () => {
         const userData = JSON.stringify({
             username,
             email,
+            role,
             password
         })
 
@@ -38,17 +41,18 @@ const Signup = () => {
             })
             console.log(data.error)
         }else{
-            console.log(data.message)
+            localStorage.setItem("token",data.token);
             toast.success(data.message,{
                 position:toast.POSITION.TOP_CENTER,
                 autoClose:2000
             })
-            history.push("/login")
+            history.push(`/${role}/login`)
         }
     }
 
     return (
         <div className="signup-container">
+            <RedirectorButtons mode='signup' setTypeOfRole={setTypeOfRole}/>
             <form className="signup-form" onSubmit={(e) => postData(e)}>
                 <input
                     className="input-field"
@@ -71,11 +75,11 @@ const Signup = () => {
                 <input
                     className="form-btn"
                     type="submit"
-                    value="Sign Up" />
+                    value={typeOfRole+' Sign Up'} />
 
                 <div className="signin-wraper">
                     <p className="signin-text">Already have an account? </p>
-                    <Link to='/login' className="signin-link">Signin</Link>
+                    <Link to='/student/login' className="signin-link">Signin</Link>
                 </div>
             </form>
         </div>
