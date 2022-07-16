@@ -22,7 +22,6 @@ function BlogForm() {
 
     const handleChange = (html) => {
         setContent(html)
-        console.log(content)
     }
 
     const setProgressValue = (prog) => {

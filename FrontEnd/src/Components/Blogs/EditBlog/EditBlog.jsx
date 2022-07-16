@@ -9,9 +9,7 @@ import { handleImage, handleImageUpload, postBlog } from '../commonFunction/comm
 export default function EditBlog() {
 
     const location = useLocation()
-    console.log(location)
     const { blog } = location.state
-    console.log('xyzthum', blog.thumbnail)
     const { user, setUser } = useContext(userContext)
     const [image, setImage] = useState(blog.thumbnail);
     const [progress, setProgress] = useState(0)
@@ -23,7 +21,6 @@ export default function EditBlog() {
 
     const handleChange = (html) => {
         setContent(html)
-        console.log(content)
     }
 
     const setProgressValue = (prog) => {
@@ -44,7 +41,6 @@ export default function EditBlog() {
             thumbnail,
             content
         }
-        console.log(blog._id)
         await postBlog(e, `${process.env.REACT_APP_BACKEND_URL}blogs/${blog._id}/edit`, newBlog, 'put');
         // console.log(saved successf)
         // setTitle('')
@@ -57,7 +53,7 @@ export default function EditBlog() {
     return (
         <div>
             <form className='blog-form' onSubmit={e => postBlogData(e)}>
-                {console.log('thumbnail in blogform', thumbnail)}
+                {/* {console.log('thumbnail in blogform', thumbnail)} */}
                 <input type="text"
                     placeholder='Title'
                     className='blog-title-input'
@@ -93,7 +89,7 @@ export default function EditBlog() {
 
                         <div className='progress-container'>
                             <progress className='progress-div' value={progress} max="100" />
-                            {console.log('image name', thumbnail)}
+                            {/* {console.log('image name', thumbnail)} */}
                             <div className="uploaded-blog-image">
                             {thumbnail ?
                                 < img className='uploaded-image' width="100%" src={thumbnail} alt="" />

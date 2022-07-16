@@ -42,7 +42,6 @@ const Login = ({ role }) => {
                 autoClose: 2000
             })
         } else {
-            console.log(data.message, data.user, data.token)
             setUser(data.user)
             localStorage.setItem("token",data.token);
             toast.success(data.message, {

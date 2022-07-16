@@ -76,9 +76,9 @@ router.post('/login', async (req, res) => {
             { _id: foundUser._id },
             process.env.JWT_SECRET
         );
-        res.cookie("token", token, {
-            httpOnly: true
-        })
+        console.log(token);
+        
+        res.cookie("token", token)
         res.json({
             message: "successfully logged in!",
             user: {

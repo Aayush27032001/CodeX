@@ -22,6 +22,7 @@ import EditBlog from './Components/Blogs/EditBlog/EditBlog';
 import UserBlogPage from './Components/Blogs/UserBlogPage/UserBlogPage';
 import UserSavedBlogs from './Components/UserSavedBlogs';
 import ScrollToTop from './Components/UtilComponents/ScrollToTop';
+import { useQuery } from 'react-query'
 
 function App() {
 
@@ -44,29 +45,15 @@ function App() {
         getBlogs();
     }, [])
 
-
-    useEffect(async () => {
-        setTutLoading(true)
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}tutorials/alltutorials`)
-        const data = await response.json()
-        if (data.error) {
-            console.log(data.error)
-        } else {
-            console.log('tut', data.tutorials)
-            setTutorials(data.tutorials)
-        }
-        setTutLoading(false)
-
-    }, [])
+    const { data:tutData, isLoading } = useQuery("tutorials",()=>{
+        return fetch(`${process.env.REACT_APP_BACKEND_URL}tutorials/alltutorials`).then(res=>res.json())
+    })
 
     const verifyUser = async () => {
         try {
             const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}verifyuser`, {
                 method: "POST",
                 credentials: 'include',
-                headers: { 'Content-Type': 'application/json',
-                            Authorization: `Bearer ${localStorage.getItem("token")}`            
-                        },
             });
             const data = await res.json();
             if (!data.error) {
@@ -81,8 +68,6 @@ function App() {
     useEffect(() => {
         verifyUser()
     }, [])
-
-    const rootElement = document.getElementById("root");
 
     return (
         <Router>
@@ -104,9 +89,9 @@ function App() {
                         <Route exact path='/blogs/edit'><EditBlog /></Route>
                         <Route exact path='/createBlog' component={BlogForm} />
                         {
-                            blogs.map((blog) => {
+                            blogs.map((blog,i) => {
                                 return (
-                                    <Route exact path={`/blogs/${blog._id}`}>
+                                    <Route key={i} exact path={`/blogs/${blog._id}`}>
                                         <InfoBlog
                                             blog={blog}
                                         />
@@ -118,7 +103,7 @@ function App() {
                         <Route exact path='/interview-experiences'><InterviewPage blogs={blogs} loading={Loading} /></Route>
                         <Route exact path='/Test' component={TestPage} />
 
-                        <Route exact path='/tutorials' ><TutorialsPage tutorials={tutorials} loading={tutLoading} /></Route>
+                        <Route exact path='/tutorials' ><TutorialsPage tutorials={tutData?.tutorials} loading={isLoading} /></Route>
                         <Route exact path='/tutorials-form' component={TutorialForm} />
                         <Route exact path='/tutorials/add-topic' component={TopicForm} />
                         <Route exact path='/tutorials/edit-topic' component={TopicEdit} />
@@ -126,9 +111,9 @@ function App() {
                         <Route exact path='/user/myblogs' component={UserBlogPage} />
                         <Route exact path='/user/savedblogs' component={UserSavedBlogs} />
                         {
-                            tutorials.map(tutorial => {
+                            tutData?.tutorials.map((tutorial,i) => {
                                 return (
-                                    <Route exact path={`/tutorials/${tutorial._id}`} ><TutorialContent tutorial={tutorial} /></Route>
+                                    <Route key={i} exact path={`/tutorials/${tutorial._id}`} ><TutorialContent tutorial={tutorial} /></Route>
                                 )
                             })
                         }

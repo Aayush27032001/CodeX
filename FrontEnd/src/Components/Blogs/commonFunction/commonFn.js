@@ -27,7 +27,6 @@ export const handleImageUpload = (e,image,setProgressValue,setThumbnailValue) =>
                 .child(image.name)
                 .getDownloadURL()
                 .then(url => {
-                    console.log('url in commonFn',url)
                     setThumbnailValue(url);
                 });
         }
@@ -37,9 +36,9 @@ export const handleImageUpload = (e,image,setProgressValue,setThumbnailValue) =>
 
 export const handleImage = (file) => {
 
-    console.log(typeof file.name)
+    // console.log(typeof file.name)
     const ext = file.name.split(".").pop().toLowerCase()
-    console.log(ext === 'png' || ext === 'jpg' || ext === 'jpeg')
+    // console.log(ext === 'png' || ext === 'jpg' || ext === 'jpeg')
     if (ext === 'png' || ext === 'jpg' || ext === 'jpeg') {
         return (file)
     } else {
@@ -52,7 +51,7 @@ export const handleImage = (file) => {
 export const postBlog = async (e, url,blog,method) => {
 
     e.preventDefault()
-    console.log(typeof method)
+    // console.log(typeof method)
     if (blog.thumbnail != '') {
         const newBlog = JSON.stringify(blog)
         const resp = await fetch(url, {
@@ -72,7 +71,6 @@ export const postBlog = async (e, url,blog,method) => {
                 autoClose:2000
             })
         } else {
-            console.log(res_data.message,res_data)
             toast.success(res_data.message,{
                 position:toast.POSITION.TOP_CENTER,
                 autoClose:2000

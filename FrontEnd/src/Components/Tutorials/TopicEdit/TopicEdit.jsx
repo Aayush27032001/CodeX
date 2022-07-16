@@ -19,12 +19,12 @@ export default function TopicForm() {
 
     const handleChange = (html) => {
         setContent(html)
-        console.log(content)
+        // console.log(content)
     }
 
-    useEffect(() => {
-        console.log(topics)
-    }, [topics])
+    // useEffect(() => {
+    //     // console.log(topics)
+    // }, [topics])
     const postTopic = async (e) => {
 
         e.preventDefault()
@@ -44,11 +44,11 @@ export default function TopicForm() {
         });
 
         const data = await response.json();
-        console.log('posted topic')
+        // console.log('posted topic')
         if (data.error) {
             console.log(data.error);
         } else {
-            console.log(data)
+            // console.log(data)
             // if(!addMoreTopic)history.push(`/tutorials/${location.state.tut_id}`)
             // else{
             //     setTitle('')
@@ -60,7 +60,7 @@ export default function TopicForm() {
     return (
         <div>
             <form className='blog-form' onSubmit={(e) => postTopic(e)}>
-                {location.state ? console.log('loc', location.state) : null}
+                {/* {location.state ? console.log('loc', location.state) : null} */}
                 <input type="text"
                     className='blog-title-input'
                     placeholder='Title'

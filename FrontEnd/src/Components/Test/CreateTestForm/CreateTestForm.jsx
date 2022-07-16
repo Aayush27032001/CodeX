@@ -9,12 +9,12 @@ function CreateTestForm({add}) {
         var option2 = document.getElementById("2").value;
         var option3 = document.getElementById("3").value;
         var option4 = document.getElementById("4").value;
-        console.log(title);
+        // console.log(title);
         question.push(
             question = {title,option1,option2,option3,option4}
 
         )
-        console.log(question);
+        // console.log(question);
         add(question);
     }
 

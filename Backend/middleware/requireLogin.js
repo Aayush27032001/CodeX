@@ -8,11 +8,13 @@ const isLoggedIn = (req, res, next) => {
     try {
 
         console.log('cooookieee', req.cookies)
+        console.log(req.cookies);
         // console.log('headers', req.headers)
         // console.log(req.headers)
         // let token = req.headers.cookie;
         // if (token) token = token.split('=')[1];
         const token = req.cookies.token
+        
         console.log('TOKEN', token);
         if (!token) {
             return res.status(401).json({ error: "Access denied!...No token" });

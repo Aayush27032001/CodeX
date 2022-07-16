@@ -36,7 +36,7 @@ export default function InfoBlog({ blog }) {
             // setComment('')
         }
         try {
-            console.log(blog._id)
+          
             const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}blogs/${blog._id}/comments/createComment`, {
                 method: 'post',
                 headers: {
@@ -51,11 +51,11 @@ export default function InfoBlog({ blog }) {
             if (data.error) {
                 console.log(data.error)
             } else {
-                console.log(data.message)
+               
                 const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}blogs/${blog._id}`);
                 const foundBlog = await response.json()
                 setCurrentBlog(foundBlog.blogs)
-                console.log(foundBlog.blogs)
+             
                 setComment('')
             }
             // console.log(data)
@@ -73,7 +73,6 @@ export default function InfoBlog({ blog }) {
     return (
 
         <div className='blog-info-container'>
-            {console.log(currentBlog)}
             <div className='blog-title-edit-container'>
                 <h1 className="blog-title">{currentBlog.title}</h1>
                 {
@@ -133,7 +132,6 @@ export default function InfoBlog({ blog }) {
 
                     currentBlog.comments.length > 0 ?
                         currentBlog.comments.map(comment => {
-                            console.log('author', comment.author)
                             return (
                                 <div key={comment._id}>
                                     <p className='comment-author'> {comment.author.username}</p>
