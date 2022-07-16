@@ -1,22 +1,26 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { userContext } from '../context/userContex'
 import '../CSS/Login.css'
-import { Link, useHistory } from 'react-router-dom'
+import RedirectorButtons from './RedirectorButtons'
+import { Link, useHistory, NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 toast.configure()
-const Login = () => {
+const Login = ({ role }) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const [user, setUser] = useState('')
+    const { user, setUser } = useContext(userContext)
     const history = useHistory()
+    const [typeOfRole,setTypeOfRole] = useState("Student's");
 
     const postData = async (e) => {
         e.preventDefault();
 
         const userData = JSON.stringify({
             email,
+            role,
             password
         })
 
@@ -27,30 +31,33 @@ const Login = () => {
                 "Content-Type": "application/json"
             },
             body: userData,
-            credentials:'include'
+            credentials: 'include'
         })
         const data = await response.json();
 
-        if(data.error){
+        if (data.error) {
             console.log(data.error)
-            toast.error(data.error,{
-                position:toast.POSITION.TOP_CENTER,
-                autoClose:2000
+            toast.error(data.error, {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 2000
             })
-        }else{
-            console.log(data.message,data.user,data.token)
-            toast.success(data.message,{
-                position:toast.POSITION.TOP_CENTER,
-                autoClose:2000
+        } else {
+            console.log(data.message, data.user, data.token)
+            setUser(data.user)
+            localStorage.setItem("token",data.token);
+            toast.success(data.message, {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 2000
             })
-            // localStorage.setItem('user',data.user.name)
             history.push('/')
         }
     }
+
     return (
         <div className="login-container">
-            <form className="login-form" onSubmit={e=>postData(e)}>
-
+           <RedirectorButtons mode='login' setTypeOfRole={setTypeOfRole}/>
+           
+            <form className="login-form" onSubmit={e => postData(e)}>
                 <input
                     className="input-field"
                     type="email"
@@ -66,11 +73,11 @@ const Login = () => {
                 <input
                     className="form-btn"
                     type="submit"
-                    value="Sign In" />
+                    value={typeOfRole+' Sign In'} />
 
                 <div className="signup-wraper">
                     <p className="signup-text">Don't have an account? </p>
-                    <Link to='/signup' className="signup-link">Signup</Link>
+                    <Link to='/student/signup' className="signup-link">Signup</Link>
                 </div>
             </form>
         </div>
