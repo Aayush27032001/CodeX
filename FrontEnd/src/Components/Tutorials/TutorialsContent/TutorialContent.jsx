@@ -42,6 +42,9 @@ function TutorialContent({ tutorial }) {
 
         const res = await response.json()
         queryClient.invalidateQueries("tutorials");
+        if(topics.length===0){
+            history.push("/tutorials");
+        }
         // console.log(res)
     }
     return (
