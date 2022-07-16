@@ -4,12 +4,15 @@ import { useHistory } from 'react-router-dom'
 import { userContext } from '../../../context/userContex'
 import { FiEdit } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
+import { useQueryClient } from 'react-query';
+
 function TutorialContent({ tutorial }) {
     const { topics } = tutorial;
     const [activeTopic, setActiveTopic] = useState(topics[0]);
     const { user, setUser } = useContext(userContext)
     const history = useHistory()
-
+    const queryClient = useQueryClient();
+    
     function toggleActiveStyles(index) {
         if (topics[index] === activeTopic) {
             return "active";
@@ -38,7 +41,7 @@ function TutorialContent({ tutorial }) {
         });
 
         const res = await response.json()
-
+        queryClient.invalidateQueries("tutorials");
         // console.log(res)
     }
     return (
