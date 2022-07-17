@@ -9,10 +9,8 @@ import './UserBlogPage.css'
 function UserBlogPage() {
 
     const [blogs, setBlogs] = useState([])
-    const { user, setUser } = useContext(userContext)
     const history = useHistory()
     useEffect(() => {
-
         findBlogs();
     }, [])
 
@@ -21,7 +19,7 @@ function UserBlogPage() {
 
         try {
             if (blogs.length === 0) {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}blogs/find-user-blog/${user._id}`)
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}blogs/find-user-blog/${JSON.parse(localStorage.getItem("user"))._id}`)
                 const data = await response.json()
                 setBlogs(data.blogs)
             }
@@ -56,13 +54,12 @@ function UserBlogPage() {
             setBlogs(filteredBlog)
         }
     }
-
+    console.log(blogs);
     return (
         <div>
-
+            {blogs.length===0&&<h3 style={{textAlign:"center",marginTop:"50vh"}}>No Blogs Found</h3>}
             <div className="blog-container" style={{ marginTop: 100 }}>
                 
-
                 {
                     blogs.map((blog,ind) => {
                         return (
@@ -121,7 +118,7 @@ function UserBlogPage() {
                                                     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, accusamus cumque adipisci molestiae distinctio repellendus sit expedita minus natus odit'
                                             }
                                         </p>
-                                        <Link className='read-more' to={`/blogs/${blog}`}>Read More</Link>
+                                        <Link className='read-more' to={`/blogs/${blog?._id}`}>Read More</Link>
                                     </div>
                                 </div>
                             </div>

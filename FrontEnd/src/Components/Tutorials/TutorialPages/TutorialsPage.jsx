@@ -7,7 +7,7 @@ import { userContext } from '../../../context/userContex'
 import loadingPNG from '../../../assets/loading.png'
 
 function TutorialsPage({ tutorials, loading }) {
-
+    // console.log(tutorials);
     const { user } = useContext(userContext);
     return (
         <>
@@ -38,12 +38,14 @@ function TutorialsPage({ tutorials, loading }) {
                     <div className="tutorials-section">
                         {
                             tutorials.map((tutorial) => {
-                                console.log(tutorial._id)
-                                return <TutorialsCard key={tutorial._id}
-                                    img={tutorial.thumbnail}
-                                    id={tutorial._id}
-                                    alt={tutorial.title}
-                                />
+                                // console.log(tutorial._id)
+                                if(tutorial.topics!=0){
+                                    return <TutorialsCard key={tutorial._id}
+                                        img={tutorial.thumbnail}
+                                        id={tutorial._id}
+                                        alt={tutorial.title}
+                                    />
+                                }
                             })
                         }
                     </div>

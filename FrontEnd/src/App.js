@@ -58,6 +58,7 @@ function App() {
             const data = await res.json();
             if (!data.error) {
                 setUser(data.user);
+                localStorage.setItem("user",JSON.stringify(data.user))
             }
 
         } catch (error) {
