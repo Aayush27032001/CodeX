@@ -4,6 +4,8 @@ import { useHistory, useLocation } from 'react-router-dom'
 import { userContext } from '../../../context/userContex'
 import { FiEdit } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
+import { useQueryClient } from 'react-query';
+
 function TutorialContent({ tutorial }) {
     const location = useLocation();
     console.log(location);
@@ -11,7 +13,8 @@ function TutorialContent({ tutorial }) {
     const [activeTopic, setActiveTopic] = useState(topics[0]);
     const { user, setUser } = useContext(userContext)
     const history = useHistory()
-
+    const queryClient = useQueryClient();
+    
     function toggleActiveStyles(index) {
         if (topics[index] === activeTopic) {
             return "active";
@@ -19,11 +22,14 @@ function TutorialContent({ tutorial }) {
             return "";
         }
     }
-
+    
     useEffect(()=>{
         setActiveTopic(topics[0]);
+        if(topics.length===0){
+            history.push("/tutorials");
+        }
     },[tutorial])
-
+    
     useEffect(()=>{
         window.scrollTo(0,0);
     })
@@ -40,7 +46,8 @@ function TutorialContent({ tutorial }) {
         });
 
         const res = await response.json()
-
+        queryClient.invalidateQueries("tutorials");
+        
         // console.log(res)
     }
     return (
