@@ -7,7 +7,7 @@ import { userContext } from '../../../context/userContex'
 import loadingPNG from '../../../assets/loading.png'
 
 function TutorialsPage({ tutorials, loading }) {
-
+    // console.log(tutorials);
     const { user } = useContext(userContext);
     return (
         <>

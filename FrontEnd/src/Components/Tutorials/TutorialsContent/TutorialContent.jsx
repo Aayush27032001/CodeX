@@ -1,12 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react'
 import "./TutorialContent.css"
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { userContext } from '../../../context/userContex'
 import { FiEdit } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 import { useQueryClient } from 'react-query';
 
 function TutorialContent({ tutorial }) {
+    const location = useLocation();
+    console.log(location);
     const { topics } = tutorial;
     const [activeTopic, setActiveTopic] = useState(topics[0]);
     const { user, setUser } = useContext(userContext)
